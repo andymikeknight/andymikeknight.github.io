@@ -1,0 +1,195 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Other Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link"  href="./spim.html">1-&Phi; IM</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./spim_cct.html">1-&Phi; IM Circuit</a></li>  
+					<li class="nav-item"><a class="nav-link" href="./stepper.html">Steppers</a></li>
+					<li class="nav-item"><a class="nav-link" href="./sr.html">Switched Reluctance</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white">
+			<h2>Stepper Motors</h2>	
+			<p>Stepper motors are part of a class of motor called variable reluctance motors. Operation
+			of this type of motor does not necessarily require two excitation sources. Movement occurs due to 
+			magnetic attraction between field sources and magnetic materials. (e.g. the force that occurs when
+			a magnet is placed close to a piece of steel)</p>
+
+			<p>This effect is illustrated in the simple diagram below. A simple piece of steel is free to rotate
+			between two poles, which are driving flux through the stator.</p>
+			<figure>
+				<img src="../images/oth/reluctance.jpg" alt="Illustration of Reluctance Effect"/>
+				<figcaption>Fig. 1 Illustration of Reluctance Effect</figcaption>
+			</figure>
+			<p>In the diagram on the left, the rotor and stationary poles are aligned. In this case there is no torque applied to the
+			rotor as the rotor may move small displacements without affecting the energy stored in the magnetic field. In the diagram on the right,
+			the rotor is completely misaligned, but again, a small displacement will not affect the energy stored in the magnetic field and the
+			net torque is zero. In the centre diagram, the rotor is displaced by 45&deg;. In this case, the maximum torque is applied to the
+			rotor as there is large rate of change of energy with position. Mathematically, torque is related to energy stored using</p>
+			<div class="equation">
+				\[
+				\tau= \frac{dW}{d\theta_m} \Biggm|_{flux=constant}
+				\]
+			</div>
+
+
+			<h2>Reluctance Stepper</h2>
+			<p>A reluctance stepper motor has only stator excitation, there is no rotor field. A simplified layout of
+			a stepper motor with 6 phases and a two pole rotor is shown below.</p>
+			<figure>
+				<img src="../images/oth/stepper_rel.jpg" alt="simplified stepper" />
+				<figcaption>Fig. 2 Simple reluctance stepper cross-section</figcaption>
+			</figure>
+			<p>Operation of this type of stepper motor is relatively simple:</p>
+			<ol>
+				<li>Excite winding A, the rotor moves to align with A-A'</li>
+				<li>Excite winding B, the rotor moves to align with B-B'</li>
+				<li>Continue stepping through phases at desired rate for desired speed, or until desired position is reached</li>
+			</ol>
+			<p>Stepper motors are excellent for low torque operation where precise precision control is needed, together
+			with the ability to rotate forwards and backwards as needed. Typical uses include robotics and other servo-motor applications. </p>
+			<p>One advantage of reluctance stepper motors is that they only require very simple power supplies. In the case
+			of a 6 phase motor shown above, only 6 switches (probably MOSFETS) are needed, as shown below.</p>
+			<figure>
+				<img src="../images/oth/stepper_rel_cct.gif" alt="simplified stepper circuit "/>
+				<figcaption>Fig.  3 Simple circuit for a 6-phase large angle reluctance stepper motor</figcaption>
+			</figure>
+
+
+			<h2>Permanent Magnet Stepper</h2>
+			<p>The torque density (torque per unit volume) of a stepper motor can be increased by adding
+			a permanent magnet to the rotor. The permanent magnet increases the flux density in the air gap (thereby increasing the
+			stored energy and rate of change of stored energy with position). An example diagram for a permanent magnet stepper
+			is shown below.</p>
+			<figure>
+				<img src="../images/oth/stepper_pm.jpg" alt="simplified PM stepper"/>
+				<figcaption>Fig. 4 Simple PM large angle stepper cross-section</figcaption>
+			</figure>
+			<p>As a permanent magnet stepper motor rotates, each pole of the stator must be capable of producing either
+			a north or south magnetic pole, depending on the position of the rotor. This is different from the case of the reluctance stepper,
+			where the direction of the flux is not important. As a result, the coils in the stator winding must be able to take bi-directional 
+			currents, increasing the supply complexity. An example of a possible supply that only requires twice as many power electronic
+			switches (but needs a split DC supply) is shown below. (It is also possible to supply each phase with a H-bridge converter, requiring
+			significantly more switches)</p>
+			<figure>
+				<img src="../images/oth/stepper_pm_cct.gif" alt="simplified pm stepper circuit" />
+				<figcaption>Fig. 5. Simplified circuit for a PM stepper </figcaption>
+			</figure>
+			<p>It should be clear that the primary disadvantage of a PM stepper compared to a reluctance stepper will be cost. 
+			The additional cost of magnet material plus drive complexity is relatively large. There are two advantages of using permanent magnets:</p>
+			<ol>
+				<li>increased torque capability</li>
+				<li>holding torque</li>
+			</ol>
+			<p>Holding torque occurs when the supply is switched off. In a PM machine, the magnets will provide enough torque to prevent the
+			rotor from rotating.</p>
+
+		</div>
+	</article>
+</main>
+
+		
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

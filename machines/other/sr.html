@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Other Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link"  href="./spim.html">1-&Phi; IM</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./spim_cct.html">1-&Phi; IM Circuit</a></li>  
+					<li class="nav-item"><a class="nav-link" href="./stepper.html">Steppers</a></li>
+					<li class="nav-item"><a class="nav-link" href="./sr.html">Switched Reluctance</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white">
+			<h2>Switched Reluctance (SR) Motors</h2>
+			<p>SR motors are special type of variable reluctance motor designed for continuous operation. 
+			  Properly designed SR motors are capable of high torques with low weight, making them attractive for vehicle 
+			  and aerospace applications. The machines are structurally simple but can need relatively advanced control
+			  for optimum performance.</p>
+			<p>A diagram of a switched reluctance motor is shown in Fig.1. An important point can be seen in the motor diagram.</p>
+			<ul>
+			  <li>The number of rotor poles, \(p_r\) (4 in this case) is different from the total number of stator poles \((p_s\) (6) and
+				the number of poles for a phase</li>
+			</ul>
+			<p>This design is known as a 6-4 SR motor, and operates with 3 phases.</p>
+			<figure>
+				<img src="../images/oth/sr.jpg" alt="Illustration of a Switched Reluctance Motor layout"/>
+				<figcaption>Fig. 1. Illustration of a Switched Reluctance Motor layout</figcaption>
+			</figure>
+
+			<h2>Operation</h2>
+			<p>Consider the motor design above. In the position shown, phase B will be excited. The magnetic field
+			created by coil B will cause the rotor to rotate clockwise until two of the rotor poles align with the phase B poles.
+			At this time, phase B can be de-energized and phase C turned on. The rotor will continue to rotate until it aligns with
+			coil C. It should be noted that the magnetic field created by the stator is travelling counter-clockwise, but the rotor 
+			moves in a clockwise direction. An animation of the field increasing and collapsing is shown in Fig. 2. </p>
+			<p>Calculation of power and torque can be carried out by considering the energy stored in the magnetic field, and the approach differs, depending on wether the operation can be considered as using linear magnetic system or a saturating nonlinear magnetic material.</p>
+			<figure>
+				<img src="../images/oth/sr_flux_lines.gif" alt="Animation of flux variation"/>
+				<figcaption>Fig. 2. Animation of flux variation in an SR motor</figcaption>
+			</figure>				
+
+			<h3>Linear Analysis</h3>
+			<p>Assuming that the motor doesn't saturate, linear analysis using inductance to find the stored energy is possible.
+  			Considering one coil, the inductance will vary approximately sinusoidally with position, as shown in Fig. 3. The inductance variation is periodic, depening on the number of rotor poles \(p_r\).</p>
+			<figure>
+				<img src="../images/oth/sr_inductance.png" alt="Variation of coil inductance as a function position with linear materials"/>
+				<figcaption>Fig. 3. Variation of coil inductance as a function position with linear materials</figcaption>
+			</figure>
+			<p>The inductance can be written as:</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				L &amp; =\bar{L}+\hat{L}\cos\left(p_r \theta_m \right) \\
+				\bar{L} &amp; = \frac{L_{max}+L_{min}}{2} \quad \hat{L}= \frac{L_{max}-L_{min}}{2}
+				\end{aligned}
+				\]
+			</div>
+			<p>If the coil is conducting current \(i\) then the energy stored in the magnetic field is given by</p>
+			<div class="equation">
+				\[
+				W =\frac{1}{2} L i_2
+				\]
+			</div>
+			<p>Using the definition of torque as</p>
+			<div class="equation">
+				\[
+				\tau=\frac{dW}{d\theta_m}
+				\]
+			</div>
+			<p>gives</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\tau &amp; = -\hat{\tau} \sin{p_r \theta_m} \\
+				\hat{\tau} &amp; = \frac{1}{2}p_r \hat{L} i^2
+				\end{aligned}
+				\]
+			</div>
+			<p> Torque can be plotted as shown in Fig. 4. Note that the torque waveform repeats \(p_r\) times every rotation, due to the symmetry of the rotor. </p>
+			<figure>
+				<img src="../images/oth/sr_trq.png" alt="Variation of torque as a function position with linear materials"/>
+				<figcaption>Fig. 3. Variation of torque as a function position with linear materials</figcaption>
+			</figure>	
+			<p>If the machine has \(N_p\) phases, then each phase will conduct for \(1/N_p\) of the periodic rotation angle of \(2\pi/p_r\). Each stator coil conducts for a period of</p>
+			<div class="equation">
+			\[
+				\theta_{conduction}=\frac{2\pi}{p_r N_p}
+			\]
+			</div>
+			<p>The peak torque occurs when the rotor pole is \(\pi/2p_r\) away from the rotor pole. For the torque when one phase is turned on to equal the torque when the previous phase is turned off, the turn-on and turn-off torques should be equal. Therefore each coil should conduct for an angle that is symmetric about the peak torque position. The current though a coil should be turned on when the rotor is at a position </p>
+			<div class="equation">
+			\[
+				\theta_{on} = -\frac{\pi}{2p_r}-\frac{\theta_{conduction}}{2}
+			\]
+			</div>
+			<p>and stop conducting at angle</p>
+			<div class="equation">
+			\[
+				\theta_{off} = -\frac{\pi}{2p_r}+\frac{\theta_{conduction}}{2}
+			\]
+			</div>
+			<p>relative to each pole.</p>
+			<p>\(\theta_{conduction}\), \(\theta_{on}\), \(\theta_{off}\) are angles in mechanical radians and can also be quoted in mechanical degrees. </p>
+			<p>For the case of a 3-phase 6-4 SR motor, \(\theta_{conduction}=30^\circ\), \(\theta_{on}=-37.5^\circ\) and \(\theta_{off}=-7.5^\circ\). </p>
+			
+			<p>The average torque can be found by integrating the torque over the conduction period</p>
+			<div class="equation">
+			\[
+				\tau_{ave}= \frac{1}{\theta_{conduction}}\int_{theta_{on}}^{theta_{on}}{-\hat{\tau} \sin{p_r \theta_m} d\theta}
+			\]
+			</div>					
+
+	
+			
+			<h3>Nonlinear Analysis</h3>
+			<p>Unfortunately, many real machines operate in saturation and analysis of energy stored using inductance is
+			  invalid. In this case, it is important to consider energy as the integral of current with respect to flux:</p>
+			<div class="equation">
+			\[
+				W=\int{i d\lambda}
+			\]
+			</div>
+
+			<p>In SR motor operation there are three distinct steps during a current cycle:</p>
+			<ol>
+			  <li>Current is turned on instantaneously (with no movement)</li>
+			  <li>Current is held constant while the rotor moves</li>
+			  <li>Current is switched off instantaneously (no movement)</li>
+			</ol>
+			<p>These three stages are represent on the flux-current plot in Fig. 4.</p>
+			<figure>
+				<img src="../images/oth/sr_nonlin_flux_current.jpg" alt="SR nonlinear flux-current plot" />
+				<figcaption>Fig. 4 SR nonlinear flux-current plot</figcaption>
+			</figure>
+			<p>In a plot of flux vs current, the integral for energy is given by the area to the
+			  left of the flux-current plot. The integrals for the three distinct steps are shaded on the diagram.</p>
+			<ol>
+				<li>Current increases from 0 to \(i_1\), unsaturated, and flux increases to \(\lambda_1\)</li>
+				<li>Current is constant at  \(i_1\). As the rotor moves into alignment, the flux linkage increases
+					to \(\lambda_2\), and the iron in the machine becomes saturated.</li>
+				<li>Current is switched off. The stored energy from point \( \left(i_2, \lambda_2\right) \) is returned to
+				the supply.</li>
+			</ol>
+			<p>Net energy can be found from</p>
+			<div class="equation">
+			\[
+				W=W_1+W_3+W_3
+			\]
+			</div>
+			<p>Where the energy at each step is calculated using </p>
+			<div class="equation">
+			\[
+				W=\int{i d\lambda}
+			\]
+			</div>
+			<p>Note that in step 3, the integral will result in a negative value for \(W_3\) as energy is returned to the supply. The total energy is equal to the area enclosed by the flux-current loop; a machine with a
+			large enclosed area transfers more energy in a given switching cycle.</p>
+			<p>Averge torque over one conducting period is given by</p>
+			<div class="equation">
+				\[
+				\tau_{av} = \frac{W}{\theta_{conduction}}  \quad \tau_{av} = \frac{W_1+W_3+W_3}{\theta_{conduction}}
+				\]
+			</div>
+			<p>Power can be found from energy transfer over the time of the cycle.</p>
+			<div class="equation">
+				\[
+				P=\tau_{av}\omega_m = \frac{W}{t_{conduction}}  \quad \omega_m= \frac{\theta_{conduction}}{t_{conduction}} 
+				\]
+			</div>
+			<h4>Linearised approach</h4>
+			<p>The nonlinear flux-current plot is often approximated as being made up from 4 straight lines as
+			  shown below. This makes calculation of the stored energy much simpler.</p>
+			<figure>
+				<img src="../images/oth/sr_flux_current.jpg" alt="Simplified SR flux-current plot"/>
+				<figcaption>Fig. 5. Simplified SR flux-current plot</figcaption>
+			</figure>
+			<p>In Fig. 5,</p>
+			<div class="equation">
+			\[
+				\begin{aligned}
+				W_1 &amp; = \frac{1}{2} i_1 \lambda_1 \\
+				W_2 &amp; = i_1 \left(\lambda_2- \lambda_1\right) \\
+				W_3 &amp; = -\left(\frac{1}{2} i_3 \lambda_3 +\frac{1}{2} \left(i_1-i_3\right) \left(\lambda_2-\lambda_3\right) +  i_3 \left(\lambda_2-\lambda_3\right) \right)
+				\end{aligned}
+			\]
+			</div>	
+		</div>
+	</article>
+</main>
+
+		
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

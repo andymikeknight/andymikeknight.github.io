@@ -1,0 +1,345 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../images/synch/phasor_infbus.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Synchronous Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./s_main.html">Principles</a></li>
+			  				<li><a class="dropdown-item"  href="./s_field.html">Field Winding</a></li>
+			  				<li><a class="dropdown-item"  href="./s_armature.html">Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./s_tests.html">Open and Short Circuit Tests</a></li>
+			  				<li><a class="dropdown-item"  href="./s_power_torque.html">Power &amp; Torque</a></li>
+							<li><a class="dropdown-item"  href="./s_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./sg_standalone.html">Stand-Alone</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	Parallel
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="./sg_p_intro.html">Principles of Parallel Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_infinite_bus.html">Infinite Bus Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_paralleling.html">Paralleling Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_finite_bus.html">Similar Sized Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_examples.html">Examples</a></li>
+							
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link"  href="./sg_power_limits.html">Power Limits</a></li>
+					<li class="nav-item"><a class="nav-link"  href="s_motor.html">Synchronous Motors</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white p-3">
+			
+			<h2>Synchronous Motors</h2>
+			<h3>Introduction</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Synchronous motor construction, design and analysis is very similar to 
+					  that used for synchronous generators. Insight into principles of motor operation can be found
+					  by considering the qualitative equation for torque produced by two magnetic fields:</p>
+					<div class="equation">
+						\[
+						\tau=\vec{B}_R\times\vec{B}_{net}
+						\]
+					</div>
+
+					<p >In a generator torque opposes motion, so the rotor flux density must lead
+					  the stator flux density. In a motor, the torque is in the same direction as motion, therefore
+					  the rotor flux density must lag the stator flux density.</p>
+					<p >As in  a synchronous generator, induced voltage \(\vec{E}\)
+					  is in phase with rotor flux density and terminal voltage \(\vec{V}\) in phase 
+					  with net field.</p>
+					<div class="boxed">
+						<p>In a synchronous generator, \(\vec{E}\) leads \(\vec{V}\). </p>
+						<p>In a synchronous motor,  \(\vec{E}\) lags \(\vec{V}\).</p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/motor_space_time.gif" alt="Synchronous Motor space and time phasors"/>
+						<figcaption>Fig. 1. Synchronous Motor space and time phasors</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Circut</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Now, consider the armature circuit of a synchronous motor. By convention, current is
+ 					 shown flowing into a motor and out of a generator. Since the definition of positive current flow is different from that used for synchronous
+					  generators, the armature circuit equation is also different. Summing the voltages in the armature per phase 
+					  circuit diagram and phasor voltage equation.</p>
+					<div class="equation">
+						\[
+						\vec{V}=\vec{E}+ \vec{I}_A \left(R_A +jX_S\right)
+						\]
+					</div>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/motor_cct.gif" alt="Synchrnous Motor Armature Equivalent Circuit"/>
+						<figcaption>Fig. 2. Synchronous Motor Armature Equivalent Circuit Diagram</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Phasor Diagrams</h3>
+
+			<p >Using the above equation, the phasor diagrams for various power factors can be drawn as shown below.</p>
+			<figure>
+				<img src="../images/synch/motor_phasors.gif" alt="Synchronous Motor Phasor Diagrams"/>
+				<figcaption>Fig. 3. Synchronous Motor Phasor Diagrams</figcaption>
+			</figure>
+
+			<h3>Power and Torque</h3>
+			<p >If the armature resistance is significant, the output power and torque of a synchronous
+			  motor must be found by considering power flow in the machine:</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				P_{out}&amp; =P_{in}-3I_A^2 R_A- P_{rotational} \\
+				\tau &amp;=\frac{P_{out}}{\omega_s}
+				\end{aligned}
+				\]
+			</div>
+			<p >As with synchronous generators, armature resistance can often be neglected without 
+			  significant impact on analysis accuracy. In this case the simplified armature circuit equation and 
+			  phasor diagrams can be used.</p>
+			<div class="equation">
+				\[
+				\vec{V}=\vec{E}+ j\vec{I}_A jX_S
+				\]
+			</div>
+			<p >Using the above equation, the phasor diagrams for various power factors can be drawn as shown below.</p>
+			<figure>
+				<img src="../images/synch/motor_simple_phasors.gif" alt="Simplified Synchronous Motor Phasor Diagrams"/>
+				<figcaption>Fig. 3. Simplified Synchronous Motor Phasor Diagrams</figcaption>
+			</figure>
+			<p >With the simplified analysis</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				P_{out}&amp; \approx P_{in}\\
+				P_{out}&amp; \approx 3VI_A \cos\theta\\
+				P_{out}&amp; \approx \frac{3VE}{X_S} \sin\delta\\
+				\tau &amp; \approx \frac{3VE}{X_S \omega_s} \sin\delta \\
+				Q &amp;\approx \frac{3V^2}{X_S} - \frac{3VE}{X_S} \cos\delta
+				\end{aligned}
+				\]
+			</div>
+			<p >It is important to note that while the power and torque equations are the
+			  same as for synchronous generators, the reactive power equation is different. Again, a change in
+			  signs has occurred due to the definition of positive current flow in the armature circuit.</p>
+
+			<h3>Motor Operation</h3>
+			<div class="row"></div>
+				<div class="col-sm">
+					<p >Analysis of motor operation can be carried out assuming that the motor is connected
+					to an infinite bus: terminal voltage and frequency (hence speed) are unaffected by motor operation. 
+					It is clear from the above phasor diagrams that synchronous motors can operate with either
+					leading or lagging power factor. This is one of the main advantages of synchronous motors. One of the primary
+					differences between a synchronous generator and motor is that the motor operation is less affected by the 
+					mechanical system (e.g. prime mover governor, no-load, full-load frequency, prime mover limit are
+					not applicable). Another significant difference is that while generators are often wye connected
+					(to produce a higher line-line voltage) synchronous motors are often delta connected (reducing the
+					armature phase current for a given power).</p>
+					<p >Since they can be operated with leading power factor, one of the primary uses of
+					synchronous motors is in power factor correction. Power factor correction can be carried out both
+					when the motor is supplying mechanical power and when the mechanical output is zero.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/power_factor_correction.gif" alt="Circuit Connection with Power factor Correction"/>
+						<figcaption>Fig. 4. Circuit Connection with Power factor Correction</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm">
+				<p >Consider the case where a synchronous motor is operated in parallel with a lagging
+				  power factor load, as shown above. Conservation of energy states that</p>
+				<div class="equation">
+				\[
+					\begin{aligned}
+					P_{bus}&amp; =P_{load}+P_{motor} \\
+					Q_{bus}&amp; =Q_{load}+Q_{motor} 
+					\end{aligned}
+				\]
+				</div>
+				<p >Now, if the motor operates with leading power factor, then \(Q_{motor} \)
+				  will be negative, reducing the overall reactive power supplied from the bus. As a result, the total power factor
+				  on the bus will be greater than the power factor of the lagging load.</p>
+				<p >The special case where a synchronous motor is operated at zero power, but with 
+				  \(E\ gt V\) is known
+				  as a <span class="emph">synchronous condensor</span> or <span class="emph">synchronous capacitor</span>. 
+				  The phasor diagram for this case is shown in Fig. 5. It can be seen from the diagram that in this mode of operation, armature current
+  				   leads armature terminal voltage by 90&deg; ; the machine looks like a capacitor. Note that by reducing 
+  					\(E\) the machine can also be made to look like a large inductor. </p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/synch_cap.gif" alt="phasor diagram for synchronous condensor operation"/>
+						<figcaption>Fig. 5. phasor diagram for synchronous condensor operation</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Starting</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Finally, synchronous motors produce torque only at synchronous speed, which brings up
+					the question of how to start a synchronous motor. There are two options available:</p>
+					<ol>
+						<li>Use a variable frequency supply to start the machine at zero frequency and slowly increase the 
+						frequency until the system frequency (e.g. 60Hz) is reached. This option is not common in large wound
+						field machines, but is the normal mode of operation in smaller synchronous machines where the field
+						excitation is provided by permanent magnets.</li>
+						<li>Add an armortisseur winding.
+						Fig. 6. shows a 6-pole synchronous machine rotor. The field winding is the oval shape
+						around each pole. In addition to the field winding, a series of solid conductors passes through each
+						pole. These solid conductors are short circuited at each end of the machine. This winding is called 
+						an <span class="emph">armortisseur</span> or <span class="emph">damper</span> winding. If the
+						field winding is turned off, the armortisseur winding will act like an <a href="../induction/i_main.html">induction machine</a>
+						cage winding and provide enough torque to accelerate the motor. Once the motor reaches synchronous speed
+						the field winding is turned on and the motor synchronizes, providing synchronous torque. (The armortisseur
+						winding also acts to dampen speed variations due to sudden load changes. These windings are also
+						found on synchronous generators to aid stability under transient load conditions)
+						</li>
+					</ol>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/sm_rotor.jpg" alt="photograph of a synchronous machine rotor"/>
+						<figcaption>Fig. 6. photograph of a synchronous machine rotor</figcaption>
+					</figure>
+				</div>
+			</div>
+			
+		
+			<h3>Summary</h3>
+			<p >Synchronous machines can operate as motors or generators. In some cases, such as
+				pumped storage hydro schemes, they are operated as both motors and generators. </p>
+			<p>When motoring:</p>
+			<ul>
+				<li> \(\vec{E}\) lags \(\vec{V}\)</li>
+				<li> \(\vec{B}_R\) lags \(\vec{B}_S\)</li>
+				<li>Power flow is electrical to mechanical</li>
+			</ul> 
+			<p>When generating</p>
+			<ul>
+				<li>\(\vec{E}\) leads \(\vec{V}\)</li>
+				<li>\(\vec{B}_R\) leads \(\vec{B}_S\)</li>
+				<li>Power flow is mechanical to electrical.</li>
+			</ul>  
+
+		</div>
+
+	</article>
+</main>
+
+<footer></footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

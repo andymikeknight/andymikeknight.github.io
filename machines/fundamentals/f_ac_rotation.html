@@ -1,0 +1,459 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../js/respond.min.js"></script>
+	<script src="../images/fund/ac/ac_rotation.js"></script>
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_emreview.html">EM Fields review</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_basic.html">Basic Machines</a></li>
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			DC Machines
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./f_dc_simple.html">Simple DC Machine </a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_armature.html">DC Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_field.html">Field Connections</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_power.html">Power</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	AC Machines
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item"  href="./f_ac.html">AC Circuits Review</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_gen.html">Generating AC</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_rotation.html">Rotating Fields</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_torque.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_losses.html">Machine Losses</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_examples.html">Examples</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+
+<article>
+	<div class="container-lg bg-white">
+		<h2>Producing Rotating Fields from Statonary Coils and AC Currents</h2>
+		<div class="row">
+			<div class="col-sm">
+
+				<h3>Principles</h3>
+				<p>The animation shows the basic strucure of an ac machine with three phases, as described in the page 
+					on <a href="./f_ac_gen.html">ac generation</a>. In this case, the animation is used to illustrate the 
+					mmf that results when three phase currents are applied to the coils. The animation gives the options of 
+					illustrating the mmf that results when each phase is supplied individally (red, black and blue), and 
+					when all three phases are are excited with a set of balanced three phase currents at the same time 
+					(green). The direction of positive current is shown as out of the page by the dots on the coil sides,
+					and into the the page for the coil sides marked with an X. </p>
+					<p>When one of Phase A, B or C is connected, the moving bar on the time plot shows the magnitude of the 
+						AC currents as time progreses. The mmf produced by the coil is shown in the bottom right plot as
+						the mmf magnitude in the air cap plotted against angular position around the air gap between the
+						stator and rotor. The plot on the left shows both of these things, the physical position and the magnitude
+						of the mmf as a phasor arrow.</p>
+					<p>When all the phases are operating togeher the total mmf is plotted on the bottom right and total phasors
+						are plotted on the left.</p>
+			</div>
+			<div class="col-sm">
+				<figure id="canvasholder_ac_rot">
+					<canvas id="canvas_ac_rot"></canvas>
+					<p>Click one of the buttons below to see the animation with different numbers of coils.</p>
+					<div class="button_group">
+						<button class="start" id="aAnim">Phase A</button>
+						<button class="start" id="bAnim">Phase B</button>
+						<button class="start" id="cAnim">Phase C</button>
+						<button class="start" id="abcAnim">A, B &amp; C </button>
+					    <button class="stop" id="stopAnim">Stop</button>
+					    <button class="step" id="stepAnim">Step Forward</button>
+					</div>
+				</figure>
+			</div>
+		</div>
+		
+		<h3>Mathematical Description</h3>
+		<p>In the diagram above there are three coils, arranged around the stator of a machine such that
+		the angle betweem each of the phases is 120&deg;. Assuming that the steel in the rotor and stator is infintely
+		permeable, the mmf produced in the airgap between the two sides of a coil will be constant. Each coil
+		will produce a square wave mmf function, phase shifted by 120&deg;. The mmf functions for
+		each phase are:</p>
+		<div class="equation" >\[
+		\begin{aligned}
+		\mathcal{F_A}&amp;=Ni_A\frac{2}{\pi} \left[ \cos\left(\theta\right) -\frac{1}{3} \cos3\left(\theta\right) + \frac{1}{5} \cos5\left(\theta\right)- \frac{1}{7} \cos7\left(\theta\right) \ldots \right] \\
+		\mathcal{F_B}&amp;=Ni_B\frac{2}{\pi} \left[ \cos\left(\theta -\frac{2\pi}{3}\right) - \frac{1}{3} \cos3\left(\theta -\frac{2\pi}{3}\right) + \frac{1}{5} \cos5\left(\theta -\frac{2\pi}{3}\right)- \frac{1}{7} \cos7\left(\theta -\frac{2\pi}{3}\right) \ldots \right] \\
+		\mathcal{F_C}&amp;=Ni_C\frac{2}{\pi} \left[ \cos\left(\theta -\frac{4\pi}{3}\right) - \frac{1}{3} \cos3\left(\theta -\frac{4\pi}{3}\right) + \frac{1}{5} \cos5\left(\theta -\frac{4\pi}{3}\right)- \frac{1}{7} \cos7\left(\theta -\frac{4\pi}{3}\right) \ldots \right]
+		\end{aligned}
+		\]</div>
+
+		<p>Now, if the currents the phases are a sinusoidal balanced three-phase
+		set</p>
+		<div class="equation">\[
+		\begin{aligned}
+		i_A &amp; = \hat{I}\cos\left(\omega_e t\right) \\
+		i_B &amp; = \hat{I} \cos\left(\omega_e t -\frac{2\pi}{3} \right) \\
+		i_C &amp; = \hat{I} \cos\left(\omega_e t -\frac{4\pi}{3} \right) 
+		\end{aligned}
+		\]</div>
+		<p>then the mmf functions will vary with both time and space. </p>
+		<p>The total air gap mmf, varying with time and space, can be obtained by subsituting the currents into the mmf functions, applying the trigonometric identity \( \cos A\cos B = \frac{1}{2} \left[\cos(A-B)+\cos(A+B)\right]\) then simplify by gathering terms. This takes a few lines but gives</p>
+		<div class="equation">\[
+		\begin{aligned}
+		\mathcal{F}_{tot} &amp; = \mathcal{F}_{A} + \mathcal{F}_{B} + \mathcal{F}_{C} \\
+		\mathcal{F}_{tot} &amp; = \frac{3\hat{I}N}{\pi} \left[\cos\left(\omega_e t -\theta \right) + \frac{1}{5}\cos\left(\omega_e t + 5 \theta \right) - \frac{1}{7}\cos\left(\omega_e t -7 \theta \right) + \frac{1}{11}\cos\left(\omega_e t +11 \theta \right)  \ldots \right]
+		\end{aligned}
+		\]</div>
+		
+		<div class="row">
+			<div class=" col-sm">
+				<p>It can be seen from the above equation that:</p>
+				<ol>
+				<li>the three pulsating mmf functions combine to create a rotating mmf
+				function, with constant magnitude fundamental frequency component</li>
+				<li>the magnitude of the rotating mmf is 1.5 times the magnitude of the
+				pulsating mmf components</li>
+				<li>all mulitples of the third harmonics (called <span class="emph">triplen harmonics</span>) are eliminated</li>
+				<li>the magnitude of a higher space harmonic is inversely proportional to the
+				harmonic number</li>
+				<li>harmonic numbers \(n=6k+1\quad k=0,1,2,3 \dots\) rotate in the positive direction</li>
+				<li>harmonic numbers \(n=6k-1\) rotate in the negative direction</li></ol>
+			</div>
+			<div class="col-sm">
+				<figure id="canvasholder_mmf">
+					<canvas id="canvas_mmf"></canvas>
+					<p>Click one of the buttons below to see the animation with different numbers of harmonics.</p>
+					<div class="button_group">
+						<button class="start" id="mmf1">nh = 1</button>
+						<button class="start" id="mmf5">nh = 1,5 </button>
+						<button class="start" id="mmf7">nh = 1,5,7</button>
+						<button class="start" id="mmf11">nh = 1,5,7,11</button>
+					    <button class="start" id="mmf13">nh = 1,5,7,11,13</button>
+						<button class="stop" id="stopmmf">Stop</button>
+					    <button class="step" id="stepmmf">Step Forward</button>
+					</div>
+				</figure>
+			</div>
+		</div>
+		
+		<h3>Simplifications</h3>
+		<p>The remainder of these notes  will neglect higher space harmonics and assume that a simple three coil system is capable of producing a sinusoidal
+		air gap mmf. This assumption is aided by the fact that most real machines are constructed with distributed windings which have been designed to  futher minimse space harmonic components. The fundamental harmonic of mmf produced by a three phase winding, that is  sinsusoidally varying in both space and time is given by
+		</p>
+		<div class="equation">
+		\[
+		\begin{aligned}
+		\mathcal{F}_{tot} &amp;= \frac{3\hat{I}N}{\pi} \cos \left( \omega_e t -\theta \right) 
+		\end{aligned}
+		\]
+		</div>
+ 
+		<h2>Rotation Speed and Pole Number</h2>
+		<div class="row">	
+			<div class="col-sm">
+				<p>The rotating magnetic field in the earlier example can be 
+				thought of as two rotating magnetic poles, a north pole and a south pole. As the
+				supply current waveform moves through 180 degrees, the 2-pole field moves through 180 degrees,
+				and the locations of the north and south poles is reversed. When the current waveform has moved 
+				through 360 degrees, the 2-pole field has moved through 360 degrees.</p>
+				<p>There is no reason to limit the number of poles in a machine to two. If the number of
+				coils is increased, the coils can be arranged so that the winding pattern occurs more than once
+				around the circumference of the air gap. This is illustrated with the image below, which shows the mmf pattern for one phase. Reducing the angle between the postive and negative coil sides, and repeating the coil arrangement, there are 4 magnetic poles, rather than 2.</p>
+			</div>
+			<div class="col-sm">
+				<figure><img src="../images/fund/ac/mmf_patterns.png" alt="2pole and 4pole mmf patterns">
+					<figcaption>Fig.1 2-pole and 4-pole mmf patterns
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+
+
+		<p>Mathematically, <span class="highlight bold">defining \(p\) as the number of poles</span>, the fundamental mmf for each phase is given by</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\mathcal{F_A} &amp; =Ni_A\frac{2}{\pi} \cos\left[\frac{p}{2}\left(\theta_m\right)  \right]\\
+			\mathcal{F_B} &amp; =Ni_B\frac{2}{\pi} \cos\left[\frac{p}{2}\left( \theta_m - \frac{2\pi}{3} \right) \right] \\
+			\mathcal{F_C} &amp; =Ni_C\frac{2}{\pi} \cos\left[\frac{p}{2}\left( \theta_m + \frac{2\pi}{3} \right) \right]  
+			\end{aligned}
+			\]
+		</div>
+		<p>It is important to note that in the above equation, <span class="maths">N</span> is the number of turns in a single coil.
+		The \(p / 2\) term indicates that the fundamental mmf repeats \(p / 2\)
+		times around the circumference of the machine, \(p\) must be an even number as we physically cannot have an odd number of poles. Assuming cosine supply current with a balanced three-phase set, the analysis
+		for the two pole field can be repeated to find a new functions describing mmf in termsof space \(\theta_m\) and time (t)</p>
+
+		<div class="equation">
+			\[
+			\mathcal{F}_{tot}  = \frac{3\hat{I}N}{\pi} \cos\left[ \omega_e t - \frac{p}{2} \theta_m \right]
+			\]
+		</div>
+		<p>Considering this formulation, it is important to recognize that \(\omega_e\) is the electical frequency and \(\theta_m\) is the mechanical anglular position in the machine. In elecrrical machines we use electrical frequencies and phase angles \(\omega_e,\,\theta_e\) and mechanical speed and angular position \(\omega_m, \, \theta_m\). </p>
+		<p> Considering the diagram above, it is possible to see that the electomagnetic period of the 4-pole pattern is \(\pi\) mechanical radians. The relationships between electrical and mechanical angles and speeds/frequency is given an important one, and is given by:</p>
+		<div class="equation highlight">
+			\[
+			\begin{aligned}
+			\theta_e &amp; = \frac{p}{2} \theta_m \\
+			\omega_e &amp; = \frac{p}{2} \omega_m 
+			\end{aligned}
+			\]
+		</div>
+		<p> Using this notation, we can describe the mmf using either elecrical or mechanical quantities, or even a combination of the two.</p>
+		<div class="equation">
+			\[
+			\begin{align}
+			\mathcal{F}_{tot} &amp; = \frac{3\hat{I}N}{\pi} \cos\left[ \omega_e t - \frac{p}{2} \theta_m \right] \\
+			\mathcal{F}_{tot} &amp; = \frac{3\hat{I}N}{\pi} \cos\left[ \omega_e t - \theta_e \right] \\
+			\mathcal{F}_{tot} &amp; = \frac{3\hat{I}N}{\pi} \cos\left[ \frac{p}{2} \left(\omega_m t - \theta_m \right) \right] 
+			\end{align}
+			\]
+		</div>
+
+
+		<p>Finally, there can be a number of different mechanical speeds under consideration in an electrical machine.
+		The mechanical speed of rotation of a magnetic field due to the fundamental electrical current, \(f_e\) is very important and is given a distinct name, <span class="emph">synchronous speed</span>, \(\omega_s\).
+		Synchronous speed in radians per second is defined as:</p>
+		<div class="equation highlight">
+			\[
+			\omega_s=\frac{4 \pi f_e}{p}
+			\]
+		</div>
+		<p>It is common to use units of revolutions per minute, (rpm) to describe rotational speed. Speed in rpm is described
+		using the symbol \(n\) and is related to radians per second using</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			n &amp; =\frac{60}{2\pi}\omega_m \\
+			n &amp; =\frac{30}{\pi}\omega_m 
+			\end{aligned}
+			\]
+		</div>
+		<p>therefore</p>
+		<div class="equation highlight">
+			\[
+			n_s=\frac{120 f_e}{p}
+			\]
+		</div>
+
+		
+
+		<h3>Voltage induced in a winding with one slot per pole per phase</h3>
+		<p>In the general case with a rotating magnetic field with more than two poles, the flux deneity referenced to the rotor is given by for a \(p-\)pole rotor</p>
+		<div class="equation">
+			\[
+			B=\hat{B} \cos\frac{p}{2}\alpha
+			\]
+		</div>
+		<p>where \(\alpha\) is the angle around the rotor surface. If the rotor of the machine rotates at constant speed \(\omega_m t\)then the flux density seen at a position 
+		\(\theta_m\) on the stator will be given by</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			B &amp; =\hat{B} \cos\left(\frac{p}{2}\omega_m t - \frac{p}{2}\theta_m\right) \\
+			B &amp; =\hat{B} \cos\left(\omega_e t - \frac{p}{2}\theta_m\right)
+			\end{aligned}
+			\]
+		</div>
+		<p>Now, to find the voltage, we assume that the p/2 coils in each phase are series connected, and that the two sides of any coil are 180&deg; apart electrically. Using the transfomer approach voltage, it is first necessary to calculate the total flux passing through the coil by integrating the flux density over the surface of the air gap between the two coil sides (e.g. from \(\theta_m=0\) to \(\theta_m=\frac{2}{p}\pi \) ) </p>
+		<p>Integrating the flux density around the circumference of the rotor, the total flux linking one coil is given by</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\lambda_{coil} &amp; = N_t r l \int_0^{\frac{2}{p}\pi}\hat{B} \cos\left(\omega_e t - \frac{p}{2}\theta_m\right) d\theta_m \\
+			\lambda_{coil} &amp; = 2 N_t r l \frac{2}{p} \hat{B} \sin\left(\omega_e t \right) 
+			\end{aligned}
+			\]
+		</div>
+		<p>If there are \(p/2\) coils connected in series to form a winding for the phase, then becase each coil is elecrically phase shifted by \(2\pi\) from the other coils, the total flux linking the winding \(\lambda_{ph}\) is given by</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\lambda_{ph} &amp; =\frac{p}{2}\lambda_{coil} \\
+			\lambda_{ph} &amp; = \frac{p}{2} \frac{2}{p} 2 N_t r l \hat{B}  \sin\left(\omega_m t \right) \\
+			\lambda_{ph} &amp; =\hat{\lambda}_{ph} \sin\left(\omega_m t \right) \\
+			\hat{\lambda}_{ph}&amp; = 2 N_t r l \hat{B} 
+			\end{aligned}
+			\]
+		</div>
+		<p>It is common to also use \(N_{ph}\) to define the total number of turns in a winding. In this case</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			N_{ph} &amp; =\frac{p}{2}N_t \\
+			\hat{\lambda}_{ph} &amp; = \frac{2}{p} 2 N_{ph} r l \hat{B} 
+			\end{aligned}
+			\]
+		</div>
+		
+		<p>The rms voltage induced in a phase is therefore</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			E &amp; = \frac{1}{\surd 2} \omega_e \hat{\lambda}_{ph} \\
+			E &amp; =  2 \surd{2} \pi f r l N_t  \hat{B} \\
+			E &amp; =  \frac{4\surd 2 \pi f r l}{p}   N_{ph} \hat{B} \\
+			\end{aligned}
+			\]
+		</div>
+		
+
+	<h3>Summary</h3>
+	<p> The page presents the theory that describes how rotating mmf waves can be produced from coils excited with ac windings. It shows that the mmf from a single phase is pulsating, not rotating. However, arranging coils for mulitple phases such that the physical space angle between the coils equals the time phase angle between currents does produce a constant magnitude rotating field.</p>
+	<p>This page also introduces the idea of quantities that vary sinusoidally in time and space around the air gap of a machine. At a given position, \(\theta=\)constant, then a sinusoidal time variation is seen. At a given instant in time, a sinusoidal space variation around the air gap is seen. </p>
+	<div class="equation">
+		\[
+		\begin{aligned}
+		\mathcal{F}_{tot} &amp;= \frac{3\hat{I}N}{\pi} \cos \left( \omega_e t -\theta \right) 
+		\end{aligned}
+		\]
+	</div>
+	<p>The sign of the angle in the cosine function indicates the direction of rotation. \(\cos \left( \omega_e t -\theta \right) \) rotates counter clockwise (positive direction). \(\cos \left( \omega_e t +\theta \right) \) rotates clockwise (negative direction).</p>
+	
+	  <p>The idea of ac machines with more than two poles is introduced, along with the idea of electrical and mechanical angles, and the relationship between them. The very important equations for synchronous speed are defined. 
+		  These formulae for synchronous speed in rad/s and rpm are critically important for understanding and analysis of electrical machines. 
+		</p>
+	<div class="row">
+		<div class="col">	
+			<div class="equation">
+				\[
+				n_s=\frac{120 f_e}{p}
+				\]
+			</div>
+		</div>
+		<div class="col">	
+			<div class="equation">
+				\[
+				\omega_s=\frac{4 \pi f_e}{p}
+				\]
+			</div>
+		</div>
+		<div class="col">
+			<div class="equation ">
+				\[
+				\begin{aligned}
+				\omega_e &amp; = \frac{p}{2} \omega_m 
+				\end{aligned}
+				\]
+			</div>
+		</div>
+		<div class="col">
+			<div class="equation ">
+				\[
+				\begin{aligned}
+				\theta_e &amp; = \frac{p}{2} \theta_m \\
+				\end{aligned}
+				\]
+			</div>
+		</div>
+	</div>
+	
+</div>
+</article>	
+	
+
+</main>
+	
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

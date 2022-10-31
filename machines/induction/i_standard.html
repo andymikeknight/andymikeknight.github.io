@@ -1,0 +1,408 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+<main>	
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./i_main.html">Introduction</a></li>
+							<li><a class="dropdown-item"  href="./im_construction.html">Construction</a></li>
+							<li><a class="dropdown-item"  href="./im_principles.html">Principles of Operation</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit.html">Equivalent Circuit</a></li>
+							<li><a class="dropdown-item"  href="./im_trq_speed.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit_examples.html">Equivalent Circuit Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./i_standard.html">Standardization</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_params.html">Parameters</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_start.html">Starting</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_speed_control.html">Speed Control</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_gen.html">Induction Generators</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+	  </nav>
+
+
+	<article>
+		<div class="container-lg bg-white">
+			<h2>Standards and Legislation</h2>
+			<h2>Influence of Rotor Design on Performance</h2>
+			<div class="row">
+				<div class="col-sm">
+					<p>When evaluating the <a href="im_trq_speed.html">torque speed curve</a> it is clear that the 
+						rotor circuit resistance has significant impact on pull-out slip, the speed at which maximum torque occurs.
+						Figure 1 illustrates two cases, with low rotor resistance on the left and high rotor resistance on the right.It can be seen from the plots that a high rotor resistance will provide a high starting torque, 
+						leading to rapid acceleration of the mechanical system. This can desirable since during starting the 
+						stator current is significantly above the rated current. 
+						Short acceleration times reduce the stress on the power system caused by high currents.</p>
+					<p>While high starting torques are desirable, high rotor resistance results in a relatively high slip during normal running operation. As torque is porportional to rotor joule losses divided by slip, high resistance causes increased losses and reduced efficiency during normal operation.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/ind/low_high_r2.gif" alt="Torque Speed Curves for cases with low and high rotor resistance"/>
+						<figcaption>Torque Speed Curves for cases with low and high rotor resistance</figcaption>
+					</figure>
+				</div>
+			</div>
+
+			<p>The above points cause a problem. For most applications it is desirable to have:</p>
+			<ul>
+				<li>high starting torque</li>
+				<li>high efficiency at rated speed</li>
+				</ul>
+			<p>However, designs with high starting torque will have low efficiency at rated speed and designs with
+			high efficiency will have low starting torque. In order to resolve these confilicting requirements, two steps must be considered:</p>
+			<ol>
+				<li>Careful consideration of the application requirements</li>
+				<li>Designs of motors with variable rotor resistance.</li>
+			</ol>
+
+			<h3>Application Requirements</h3>
+			<p>Many motor applications will not need both high start torque and high rated efficiency. Alternately, the requirement for either high start torque or efficiency may be so significant that it over-rides other requirements. Consider two examples:</p>
+			<ol>
+				<li><h4>Fan Load</h4>
+					<p>Fans and rotary pumps typically have a torque requirement that varies as either the square or cube of mechanical speed. When driving a fan, the motor must provide rated torque at rated speed, but at lower speeds the torque demand is significantly lower. 
+					A fan application will therefore not usually require significant starting torque, efficiency during steady operation at rated speed is 	the over-riding concern.</p>
+				</li>
+				<li><h4>Variable-torque high-inertia loads</h4>
+					<p>This type of load typically includes mechanical punches and reciprocating rod pumps used in oil production. 	In the case of a reciprocating pump, the mechanical laod varies with time, some of the time the motor is working against gravity to lift oil out of the ground, at other times, it is working with gravity as the rod falls. The speed range of this system is significant, requiring very
+					high torques at low speeds. When the motor is at high speed (as the rod falls) the torque (and efficiency) requirement is minimal. In this case high torque at low speed is the over-riding requirement.</p></li>
+			</ol>
+
+			<h3>Varirable Rotor Resistance</h3>
+			<div class="row">	
+				<div class="col-sm">
+					<p>Although it is common to think of low frequency conductors as having a constant resistance, the resistance of
+					all ac conductors is a function frequency. Induced currents in conductors act to oppose the originating magnetic field. As a result, the depth of penetration of the magnetic field into the conductor will vary with frequency. (The magnitude of the induced voltage is a function of rate of change of flux, and therfore a function of frequency)</p>
+					<h4>Skin Depth</h4>
+					<p>The <span class="emph">skin depth</span> of a conductor is defined as the depth at which the magnitude of a magnetic field 	has fallen to <span class="maths">1/e</span> of the magnitude of the surface. We can approximate this as the depth at which currents are actually
+					flowing in the conductor. Skin depth is given by</p>
+					<div class="equation">
+					\[
+						\delta=\sqrt{\frac{1}{\pi \sigma \mu f}}
+					\]
+					</div>
+					<p>where</p>
+					<ul>
+						<li>\(\delta\) is skin depth</li>
+						<li>\(\mu\) is the permeability of the conducting material (\(\mu_0\) for non magnetic metals)</li>	
+						<li>\(\sigma\) is the conductivity of the conducting material</li>
+						<li>\(f\) is the frequency of the magnetic field as seen by the conductor</li>
+					</ul>
+				</div>
+				<div class="col-sm">
+					<p>Since the frequency of the stator magnetic field seen by the rotor conductors is a function of slip, the actively conducting region of the rotor bars will be a function of slip. Hence, the effective rotor resistance will be a function of slip. Table 1 plots skin depth
+					for aluminum, \(\sigma=2.9\times10^7\), in a machine with a 60Hz supply.</p>
+					<p>The table illustrates a number of important points:</p>
+					<ol>
+						<li>No matter how deep a rotor bar, only the top 12mm conducts at standstill</li>
+						<li>Medium-large machines with bars deeper than 12mm will have varying rotor resistance</li>
+						<li>Smaller machines with bars less than 12mm deep will have effectively constant rotor resistance</li>
+					</ol>
+					<p>As an example, a machine with a rectangular bar 72 mm deep will have a resistance 6 times smaller
+					at low slips than it will at starting.</p>
+					<figure>
+					<table class="data">
+						<tr><th>Slip</th><th >Slip Frequency (hz)</th><th>&delta; (mm)</th></tr>
+						<tr><td>0.025</td><td>1.5</td><td>76.3</td></tr>
+						<tr><td>0.05</td><td>3.0</td><td>54.0</td></tr>
+						<tr><td>0.083</td><td>5.0</td><td>42.8</td></tr>
+						<tr><td>0.167</td><td>10.0</td><td>29.6</td></tr>
+						<tr><td>0.333</td><td>20.0</td><td>20.6</td></tr>
+						<tr><td>0.50</td><td>30.0</td><td>17.1</td></tr>
+						<tr><td>0.667</td><td>40.0</td><td>14.8</td></tr>
+						<tr><td>0.833</td><td>50.0</td><td>13.2</td></tr>
+						<tr><td>1.0</td><td>60.0</td><td>12.0</td></tr>
+					</table>
+					<figcaption>Table 1. Skin Depth as a Function of Slip</figcaption>
+				</figure>
+				</div>
+			</div>
+
+			<h3>NEMA Motor Design Classes</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p>Since different applications need different characteristics from induction motors, the National 
+					Electical Manufacturers Association (NEMA), a US organization, has specified different classes of induction motor,
+					with different characteristics. Typical torque speed-curves for classes A-D are sketched in Fig. 2.</p>
+					<p>Motor Classes A and D are obtained by designing the rotor resistance to be either low (class A) or
+					high (class D). Classes B and C are obtained by exploiting the effect of skin depth to obtain a variable resistance rotor circuit. Example rotor conductor designs for classes A through D are shown in Fig. 3. Comparing classes A and B, class B has a deeper bar to exploit skin depth effects. The bar width may vary in order to enhance this effect. Class C rotors are typically fabricated with two seperate cages. Only the outer cage will conduct at starting. There is air between the cages and at the top of the slot (to reduce leakage flux). Note that cast rotor designs must have a <span class="emph">closed slot</span> design to prevent molten aluminum from escaping. Class D has a small conductor, giving a high resistance at all slips. The class D example shown has an open slot, for a fabricated rotor design.</p>
+				</div>	
+				<div class="col-sm">
+					<figure>
+						<img src="../images/ind/trq_speed_a_d.gif" alt="sketches of NEMA cals A-D torque speed curves"/>
+						<figcaption>Fig. 2. sketches of NEMA cals A-D torque speed curves</figcaption>
+					</figure>
+				</div>
+			</div>
+
+			<figure>
+				<img src="../images/ind/class_a_d.jpg" alt="illustration of rotor bar shapes for different motor classes"/>
+				<figcaption>Fig. 3. illustration of rotor bar shapes for different motor classes</figcaption>
+			</figure>
+				
+
+			<p>A summary of the performance of the motor classes is provided in the table below</p>
+			<figure>
+				<table>
+					<tr><th>&nbsp;</th><th>Class A</th><th >Class B</th><th>Class C</th><th>Class D</th></tr>
+					<tr><td>Type</td><td>General Purpose</td><td >General Purpose</td><td>High Starting Torque</td><td>Very High Starting Torque</td></tr>
+					<tr><td>Start Torque</td><td>100% rated for larger motors, 200% rated, smaller motors</td><td >100% rated for larger motors, 200% rated, smaller motors</td><td>Approx 250% rated</td><td>&gt; 275% rated</td></tr>
+					<tr><td>Start Current</td><td>&tilde;800% rated</td><td >500%-600% rated</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+					<tr><td>Pullout Torque</td><td>200%-300% rated</td><td >&ge;200% rated</td><td>Slightly lower than class A</td><td>&nbsp;</td></tr>
+					<tr><td>Pullout Slip</td><td>&lt;0.2</td><td >&lt;0.2</td><td>&nbsp;</td><td>High, can be as much as 1.0</td></tr>
+					<tr><td>Rated Slip</td><td>&lt;0.05, lower than similar sized class B</td><td >must be &lt;0.05, usually &lt;0.03</td><td>&lt;0.05, higher than class B</td><td>High, typically 0.07 to 0.11, can be up to 0.17</td></tr>
+					<tr><td>Applications</td><td>Fans, Blowers, Pumps, Machine Tools</td><td >As for Class A</td><td>Compressors, pumps, conveyors</td><td>High inertia applications, e.g. mechanical punches</td></tr>
+					<tr><td>Notes</td>
+					<td>High starting inrush current causes power system problems, it can cause the supply voltage to sag and requires special starting techniques. 
+					More efficient than same sized class B</td>
+					<td >Replacemesnt for Class A due to lower start current. The standard off-the shelf commodity motor.</td>
+					<td>Applications that require high start torques. Note that the pullup and pull-out torque can both be lower than the start torque. Less efficienct than class B</td>
+					<td>Very high inertia applications. e.g. in a punch or reciprocal pump where the slip may vary between 0 and 0.50 Much less efficient than other designs</td></tr>
+				</table>
+				<figcaption>Table 2. Summary of Motor Design Class Characteristics</figcaption>
+			</figure>
+
+
+			<h2>History, Efficiency &amp; Standards</h2>
+			<h3>History</h3>
+			<p>The induction motor was demonstrated and desctibed in a paper published by Gallileo Ferraris in Turin, Italy, in 1888. At the same time in N. America, the principle was patented by Nikola Tesla, also in 1888. By 1895 three-phase induction motors
+			similar to today's designs were available. Since then induction motors have become
+			smaller and more efficient. These improvements are not necessarily compatible with
+			each other and have occurred for different reasons.</p>
+			<ul>
+			<li>Smaller machines have been developed because it is in the manufacturers
+			interest to do so. A physically smaller induction machine with the same output capability 
+			will have lower material costs and therefore can be made more profitably.</li>
+			<li>More efficient machines have been developed because of a combination
+			of end user desire and legislation. More efficient machines will have lower operating costs and
+			require less generation= which results in lower greenhouse gas emissions from fossil fuel
+			power plants. </li></ul>
+			<h3>Energy Efficient Design</h3>
+			<p>The techniques to make a more efficient motor are well understood:</p>
+			<ol>
+			<li>Use thicker conductors. Increasing the cross-section of the conductors will result in
+			lower <span class="maths">I<sup>2</sup>R</span> losses.</li>
+			<li>Increase the length of the machine. A longer machine requires a lower torque density, which
+			means a lower flux density. Lower flux density will result in lower iron losses.</li>
+			<li>Increase the outer diameter of the stator. Increased outer diameter means an increased 
+			surface area, allowing more effective cooling. This in turn means that a smaller, lower power 
+			fan can be used</li>
+			<li>Use a low loss lamination steel. Lamination steels can be bought in different grades,
+			with variable hysteresis losses. Laminations can also be bought in various thicknesses, with
+			thinner laminations resulting in lower eddy current losses. A thin low-loss lamination will have
+			significantly lower iron loss than an thicker standard lamination</li>
+			<li>Ensure that the air gap length is constant. If the air gap surfaces are machined to
+			give a constant air gap, there will be smaller variations in flux density and therefore
+			reduced likelihood of concentrations of iron losses. (Eddy current losses are a function of
+			flux density squared.)</li>
+			</ol>
+	
+			<h4>Factors limiting the use of higher efficiency motors</h4>
+			<p>The first limit on uptake of premium efficiency motors is cost.
+			Reviewing the above options to improve efficiency, 1-3 require more material to be put into the
+			motor, increasing material costs. Option 4 requires more expensive laminations (thinner 
+			laminations and low loss steel are both more expensive). In addition, if thinner laminations
+			are used, more laminations are required for a given length of machine, resulting in higher
+			manufacturing costs (more lamination punches per machine, increased wear on punches, more
+			difficult handling). Option 5 adds an additional step to the manufacturing process, again
+			increasing manufacturing costs.</p>
+			<p>It can be seen that all the obvious options to improve motor efficiency
+			result in more expensive machines. To maintain profitability, manufacturers must therefore
+			increase the purchase price of a machine if it is more efficient.</p>
+			<p>From an end user point of view, the increased initial purchase price of a
+			more efficient motor is more than offset by reduced lifetime operating costs. A premium 
+			efficiency motor will typically pay for itself in electricity savings in about 4 years (assuming
+			constant operation). Typical motor lifetimes are around 20 years, so from a lifetime
+			perspective, premium efficiency motors are a sound financial choice.</p>
+			<p>If premium efficiency motors are such a sound choice, the question must
+			be asked why people don't buy premium efficiency motors. (They typically don't). A number 
+			of reasons can be found:</p>
+			<ul>
+			<li>Most motor purchases are not made by the end user. They are made by &quot;OEM&quot;s: other
+			equipment manufacturers. OEM's don't pay the operating costs of the motor and must keep
+			their costs down to maintain their profitability.</li>
+			<li>New equipment is purchased from capital budgets. This is typically independent of any
+			future operating budget. Capital costs must usually be minimized during the development of
+			a new facility and are typically funded by one-time fixed budgets. Once a facility is
+			built, the operating costs are funded from another budget.</li>
+			<li>Large users generate their own electricity. In a regulated electricity market, large
+			users do not particularly care how much electricity they use, as long as it is lower than
+			their generating capacity. With the advent of de-regulated markets and the possibility of
+			selling excess generating capacity back to the grid, this is less of an issue. </li>
+			</ul>
+			<p>A second limit on the development of premium efficiency motors has
+			been standards. All motors in the small-medium (up to several hundred Hp) size range must be
+			made to meet industrial standards. This limits the ability of manufacturers to be innovative
+			with new motors. e.g. the maximum length and outside diameter are specified in the standard,
+			so cannot be increased beyond a certain point to improve efficiency.  In addition, standards
+			specify minimum efficiency levels that must be met. Since all motors that meet the standard
+			are viewed as equivalent, manufacturer A has no incentive to exceed the standard, as this would
+			make its motors more expensive than those from manufacturer B who just meets the standard.
+			In order to remain in business, the manufacturer must aim to meet the standards at minimum
+			unit cost, which typically means <span class="emph">just</span> meeting the standard.</p>
+			<h3>Increasing Market Penetration</h3>
+			<p>There are number of sectors in society that are attempting to increase
+			the use of premium efficiency motors. The most influential in this area are governments, 
+			utilities and environmentally conscious consumers.</p>
+			<p>Governments are concerned about reducing energy usage primarily because 
+			of commitments to reduce greenhouse gases and other pollutants produced by fossil fuel
+			power plants. In addition, a more efficiency industry will, in the long term, be more
+			globally competitive.</p>
+			<p>An increasing number of consumers are demanding &quot;greener&quot; products. This
+			significant market segment has the purchasing power to influence the development of
+			more efficient products. This type of consumer is typically willing to pay
+			more for &quot;greener&quot; products  (e.g. hybrid cars, front load washing machines)</p>
+			<p>Governments have the largest power to influence this area. In order
+			to promote energy efficient products to end consumers, the &quot;Energy Star&quot; approach has been used,
+			highlighting the benefits of energy efficient designs. This is particularly effective
+			with consumer goods as the purchaser is usually the end user.</p>
+			<p>Influencing the industrial use of energy efficient machines has proved
+			more difficult. Governments globally are turning to legislation to specify minimum efficiencies. This can be acheived by increasing the minimum efficnincy specifed in standards</p>
+			<h3>Standards</h3>
+			<p>The techniques to make motors more efficient are well 
+			known. However, it can be seen that the steps to make a more efficient machine are 
+			not necessarily in the best interest of either the machine manufacturer or purchaser. It
+			can also be seen that in some instances, Standards could in the past have been said to hinder
+			the development of new, more efficient designs. </p>
+			<p>The standard that covers the design, construction and operating limits
+			of induction machines in N. America is <a href="http://www.nema.org/stds/mg1.cfm">NEMA MG1</a>.</p>
+			<p><a href="http://www.nema.org">NEMA</a> is the National Electrical Manufacturers
+			Association, a US group which represents electrical equipment manufacturers. MG-1 is the
+			standard for motors and generators. Canadian motors also follow MG-1.</p>
+			<p>NEMA MG-1 sets minimum performance values, (e.g. start, pullup, 
+			pullout torque, efficiency) and also mechanical constraints. Motors are grouped
+			by frame size and all motors of a certain frame must have the same external dimensions, 
+			bolt hole locations etc. The standard also specifies the following classifications</p>
+			<ul>
+			<li>TEFC: Totally Enclosed Fan Cooled</li>
+			<li>TENV: Totally Enclosed Natural Ventilation</li>
+			<li>ODP: Open, Drip-Proof</li>
+			<li>Explosion-Proof</li>
+			</ul>
+			<p>The benefit of the standard is that the consumer knows what they are
+			buying, independent of the manufacturer. This allows easy comparison between brands based
+			on cost. e.g. all 5 Hp motors will be the same physical size and shape and in the event of 
+			failure one motor can be replaced by another from a different manufacturer without the 
+			need to redesign the mounting points, bolts etc.</p>
+			<h3>Legislation</h3>
+			<p>At times, Standards have limited the incentive to develop higher efficiency 
+			designs. As a result, Governments have mandated legislated improvements over MG-1 (MG-1 
+			was re-written to reflect the legislation. Canada was one of the first jurisdictions to 
+			legislate for higher efficiency, introducing standard CSA 390, which mandated a step change
+			in motor efficiency. This was followed in the US by NEPACT legislation, which duplicated
+			the Canadian efficiency limits, resulting in a common North American standard on efficiency.</p>
+			<h3>Summary</h3>
+			<p>Standards specify motor design and performance parameters, allowing consumers
+			to make informed choices about the motors they are buying. At times, the reluctance of
+			industry to improve standards has required legislators to force changes and impose minimum
+			standards. Due to the relationship between efficiency and motor cost, this is not usually
+			in the best interest of motor manufacturers. Manufacturers have recently pro-actively announced
+			extensions to the standard to enable higher efficiency motors in the marketplace.</p>
+		</div>			
+	</article>
+</main>
+		
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

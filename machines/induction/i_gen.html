@@ -1,0 +1,308 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+<main>	
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./i_main.html">Introduction</a></li>
+							<li><a class="dropdown-item"  href="./im_construction.html">Construction</a></li>
+							<li><a class="dropdown-item"  href="./im_principles.html">Principles of Operation</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit.html">Equivalent Circuit</a></li>
+							<li><a class="dropdown-item"  href="./im_trq_speed.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit_examples.html">Equivalent Circuit Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./i_standard.html">Standardization</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_params.html">Parameters</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_start.html">Starting</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_speed_control.html">Speed Control</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_gen.html">Induction Generators</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+	  </nav>
+
+
+	<article>
+		<div class="container-lg bg-white">
+			<h2>Induction Generator (Cage Rotor)</h2>
+
+				<p>If the rotor of an induction machine rotates above synchronous speed,
+				slip is negative, as are torque, mechanical output power and air gap power. i.e.
+				the machine is operating as a generator. When considering synchronous machines it is normal 
+				to re-define the direction of positive current when switching between generators and motors
+				(keeping a positive power flow for both cases). With induction machines we will not do this.
+				If slip is negative, the &quot;input power&quot; to the electrical terminals will be negative, implying
+				that power is flowing out of the electrical terminals.</p>
+				<p>Consider the machine used in the following examples:</p>
+				<p>A 480V, 60 Hz, 6-pole, three-phase, delta-connected induction motor with the following parameters:</p>
+				<p class="equation"><span class="maths">
+					R<sub>1</sub>=0.461 &Omega;, R<sub>2</sub>=0.258 &Omega;, X<sub>1</sub>=0.507 &Omega;, X<sub>2</sub>=0.309 &Omega;, X<sub>m</sub>=30.74 &Omega; </span></p>
+				<p>Rotational losses are 2450W.</p>
+				<p>Now, suppose that the machine is being driven by a mechanical system such that it is rotating at 1224 rpm.
+				Calculate the following information:</p>
+				<ol class="lr">
+					<li>slip</li>
+					<li>Line Current</li>
+					<li>Power and Reactive Power at the terminals</li>
+					<li>Airgap Power</li>
+					<li>Torque Developed</li>
+					<li>Mechanical Power</li>
+					<li>Efficiency</li>
+				</ol>
+				<p>Much of the theory for this problem is identical to a motor problem:</p>
+				<ol class="lr">
+					<li>Slip is given by 
+						<div class="equation">
+							\[
+							s = \frac{n_s - n_m}{n_s}
+							\]
+						</div>
+						and 
+						<div class="equation">
+							\[
+								n_s = \frac{120 f}{p} = \frac{120 \times 60}{6} = 1200\text{ rpm}
+							\]
+						</div>
+						Therefore 
+						<div class="equation">
+							\[
+								s = \frac{1200 -1224}{1200} = \frac{-24}{1200} = \color{red}{-0.02}
+							\]
+						</div>
+					</li>
+					<li>Now, phase current is given by
+						<div class="equation">
+							\[
+								I_1 = \frac{V_1}{Z_{in}}
+							\]
+						</div>
+						where phase impedance is given by
+						<div class="equation">
+							\[
+								\begin{aligned}
+								Z_{in}&amp; = Z_1+ Z_m \mathbin{\!/\mkern-1mu/\!} Z_2 \\
+								Z_m &amp; = R_C \mathbin{\!/\mkern-1mu/\!} jX_m \\
+								\end{aligned}
+							\]
+						</div>
+						In this case, \(R_C\) can be neglected, giving \(Z_m=jX_m\) and
+						<div class="equation"> 
+							\[
+								\begin{aligned}
+								Z_{in}&amp; = Z_1+ \frac{jX_m \left( \frac{R_2}{s} +j X_2\right) } {\frac{R_2}{s}+j\left(X_2+X_m \right)}
+								\end{aligned}
+							\]
+						</div>
+						Using the above equation
+						<div class="equation"> 
+							\[
+								Z_{in}=-10.3=j5.29\Omega
+							\]
+						</div>
+						And noting that the machine is delta connected:
+						<div class="equation"> 
+							\[
+								\begin{aligned}
+									V_1 &amp; =V_{LL} = 480V \\
+									\vec{I_1} &amp; = -36.7-j18.8A \quad I_1=41.4A \\
+									\text{Therefore: } \color{red}{I_L} &amp; \color{red}{= 71.7A}
+								\end{aligned}
+							\]
+						</div>
+					
+						Note that the real part of phase current is negative, indicating that real power flows <strong>out of</strong> the terminals.
+						Also, the imaginary part of the phase current is negative, which indicates that reactive power must flow <strong>into</strong> 
+						the terminals. An induction generator cannot operate without a reactive power supply. This reactive power can be supplied from the grid or, in a standalone appliucation, a capacitor bank.
+					</li>
+
+					<li>Using complex notation,
+						<div class="equation"> 
+							\[
+								S=3VI^*
+							\]
+						</div>
+						or 
+						<div class="equation"> 
+							\[
+								\begin{aligned}
+									P_{elec}&amp;=3V_1\operatorname{Re}\{I_1\} \quad \color{red}{P_{elec}=-53.0kW} \\
+									Q_{elec}&amp;=-3V_1\operatorname{Im}\{I_1\} \quad \color{red}{Q_{elec}= +27.2kVAR} \\
+								\end{aligned}
+							\]
+						</div>
+					</li>
+					<li>Airgap Power is given by
+						<div class="equation">\[
+							P_{gap}=\frac{3I_2^2R_2}{s}
+						\]</div>
+						This approach requires rotor current to be found. With no core loss resistance:
+						<div class="equation">
+							\[
+								\begin{aligned}
+									\vec{I_2} &amp; = \frac{jX_m}{\frac{R_2}{s}+j\left(X_2+X_m \right)} \vec{I_1}\\
+									I_2 &amp; = \left| \frac{jX_m}{\frac{R_2}{s}+j\left(X_2+X_m \right)} \right| I_1
+								\end{aligned}
+							\]
+						</div>
+
+						Giving \(I_2=37.8A\). Substituting into the power equation \(\color{red}{P_{gap}=-55.4kW}\)
+					</li>
+					<li>Torque developed can be found from
+						<div class="equation">
+						\[
+						\tau=\frac{P_{gap}}{\omega_s}
+						\]
+						</div>
+						where synchronous speed in radians per second is given by
+						<div class="equation">
+						\[
+						\omega_s = \frac{4 \pi f }{p} = 40\pi
+						\]
+						</div>
+						giving \(\color{red}{\tau=-441Nm}\)
+					</li>
+					<li>Mechanical power can be found using
+						<div class="equation">
+							\[
+								\begin{aligned}
+									P_{shaft} &amp; =P_{conv}-P_{rotational} \\
+									P_{conv} &amp; = P_{gap}(1-s)
+								\end{aligned}
+							\]
+						</div>
+
+						Therefore 
+						<div class="equation">
+							\[
+								\begin{aligned}
+									P_{conv}  = -55.4 \times \left(1-\left(-0.02\right)\right) &amp; \quad P_{conv}= -56.5kW \\
+									P_{shaft} = -56.5 - 2.45  &amp; \quad \color{red}{P_{shaft}= -58.9kW}
+								\end{aligned}
+							\]
+						</div>
+
+					</li>
+					<li>Efficiency is given by 
+						<div class="equation">
+							\[
+							\eta=\frac{P_{elec}}{P_{shaft}} = \frac{53.0}{58.9} \quad \color{red}{\eta= 89.9\%}
+							\]
+						</div>
+
+					</li>
+				</ol>
+				<h3>Summary</h3>
+				<p>It can be seen from the above analysis that the equations for an induction motor can all be applied to 
+					an induction generator. (As long as output and input power are correctly described as either electrical or mechanical).
+					Induction generation used to be relatively rare. However, it is becoming increasingly common as induction generators are
+					the generator of choice for large wind turbines. These generators are usually wound rotor machines, using the rotor voltage to to supply reactive power via a variable speed drive.
+				</p>
+			</div>
+	</article>
+</main>
+		
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

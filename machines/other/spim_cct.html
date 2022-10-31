@@ -1,0 +1,326 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Other Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link"  href="./spim.html">1-&Phi; IM</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./spim_cct.html">1-&Phi; IM Circuit</a></li>  
+					<li class="nav-item"><a class="nav-link" href="./stepper.html">Steppers</a></li>
+					<li class="nav-item"><a class="nav-link" href="./sr.html">Switched Reluctance</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white">
+			<h2>Single Phase Induction Motor Circuit Model</h2>
+			<p>The steady state model for a single winding of a single phase induction motor
+			  is developed in this section. It should be noted that the steady state circuit model does not
+			  include effects such as pulsating torques. It also doesn't apply to the case where a split-phase
+			  winding is used (with or without capacitors). In that case, the backwards rotating field may
+			  be completely or partially eliminated.</p>
+
+			<p>Assuming a single-phase single-winding motor, the equivalent circuit at standstill
+			  may be drawn as</p>
+			<figure>
+				<img src="../images/oth/spim_lr_cct1.gif" alt="Single phase equivalent circuit at standstill"/>
+				<figcaption>Fig. 1. Single phase equivalent circuit at standstill</figcaption>
+			</figure>
+			<p>Note that this circuit is identical to the the per-phase circuit of a multi-phase induction
+			  machine at standstill. Now, assuming that the pulsating field in the motor can be described using forwards and
+			  backwards rotating fields, the standstill circuit can be modified as shown below.</p>
+			<figure>
+				<img src="../images/oth/spim_lr_cct2.gif" alt="Single phase equivalent circuit at standstill"/>
+				<figcaption>Fig. 2 ingle phase equivalent circuit at standstill showning forward and backwards branches"</figcaption>
+			</figure>
+			<p>In the diagram shown above, the total impedance is equal to the original circuit, but the magnetising
+			  and rotor branches have been divided into two equal components, with forwards and backwards currents to represent the forwards
+			  and backwards magnetic fields.</p>
+			<p>Now, if the rotor rotates, the equivalent rotor resistance in each of the forwards and backwards circuits will
+			  be divided by slip, relative to the forwards or backwards rotating field.</p>
+			<figure>
+				<img src="../images/oth/spim_cct.gif"  alt="Single phase induction motor equivalent circuit"/>
+				<figcaption>Fig. 3. Single phase induction motor equivalent circuit</figcaption>
+			</figure>
+
+			<p>In the final circuit, shown above, forwards slip is shown as \(s_f\) and
+			  backwards slip is shown as \(s_b\). These slips are defined as</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  s_f &amp; = \frac{n_s-n_m}{n_s}\\
+			  s_b &amp; = \frac{-n_s-n_m}{-n_s} = \frac{n_s+n_m}{n_s} = \frac{n_s+n_s(1-s_f)}{n_s} =2-s_f
+			  \end{aligned}
+			  \]
+			</div>
+			<p>Using the same notation for forward slip as used in three-phase machines:</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  s_f &amp; = s\\
+			  s_b &amp; = 2-s
+			  \end{aligned}
+			  \]
+			</div>
+
+			<p>Analyzing the circuit, rather than solve for the currents in the various parallel paths, it is easier to think
+			  in terms of impedances of the different parts of the circuit and the power flow into each part of the circuit. Using this approach it is possible to write the phase input impedance is given as</p>
+
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  Z_{in} &amp; = Z_1+\left(\frac{Z_f+F_b}{2}\right) \\
+			  \text{where} &amp; \\
+			  Z_f &amp; =  \frac{jX_m \left( \frac{R_2}{s} +j X_2\right) } {\frac{R_2}{s}+j\left(X_2+X_m \right)} \\
+			  Z_b &amp; =  \frac{jX_m \left( \frac{R_2}{(2-s} +j X_2\right) } {\frac{R_2}{(2-s)}+j\left(X_2+X_m \right)} 
+			  \end{aligned}
+			  \]
+			</div>
+
+			<p>Considering the circuit and remembering that air gap power is defined as the input power minus the power losses
+			  in the stator, the air gap power can be defined using</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  P_{gap} &amp; = P_{{gap}_f}+P_{{gap}_b}\\
+			  P_{{gap}_f} &amp; =  \frac{1}{2}I_1^2 \operatorname{Re}\{Z_f\}  \\
+			  P_{{gap}_b} &amp; =  \frac{1}{2}I_1^2 \operatorname{Re}\{Z_b\} \\
+			  \text{or} &amp; \\
+			  P_{{gap}_f} &amp; =  \frac{1}{2}I_1^2 R_f \\
+			  P_{{gap}_b} &amp; =  \frac{1}{2}I_1^2 R_b \\
+			  \text{where} &amp; \\
+			  R_f &amp; = \operatorname{Re}\{Z_f\} \\
+			  R_b &amp; = \operatorname{Re}\{Z_b\} \\
+			  \color{blue}{P_{gap}} &amp; \color{blue}{= \frac{1}{2}I_1^2 \left(R_f + R_b\right)}
+			  \end{aligned}
+			  \]
+			</div>
+			<p>When considering the torque components, it is important to remember that the forwards and backwards torques correspond
+			  to positive and negative synchronous speeds. Using knowledge from three-phase machines, torque is given by airgap power divided
+			  by synchronous speed:</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  \tau   &amp;  = \tau_f+ \tau_b\\
+			  \tau_f &amp;  = \frac{P_{{gap}_f}}{\omega_s} \\
+			  \tau_f &amp;  = \frac{I_1^2 R_f}{2\omega_s} \\
+			  \tau_b &amp;  = \frac{P_{{gap}_b}}{-\omega_s} \\
+			  \tau_b &amp;  =-\frac{I_1^2 R_b}{2\omega_s} \\
+			  \tau    &amp; = \frac{1}{2}\frac{I_1^2}{\omega_s}\left(R_f-R_b\right)
+			  \end{aligned}
+			  \]
+			</div>
+			<p>The power converted to the mechanical system is calculated by multplyig torque by speed in mechanical radians per second:</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  P_{conv} &amp; = \tau \omega_m \\
+			  P_{conv} &amp; = \left( \tau_f + \tau_b \right)  \omega_m \\
+			  P_{conv} &amp; =\frac{I_1^2 \omega_m}{2\omega_s}\left(R_f-R_b\right) \\
+			  \color{blue}{P_{conv}} &amp; \color{blue}{=\frac{1}{2} I_1^2(1-s)\left(R_f-R_b\right) }
+			  \end{aligned}
+			  \]
+			</div>
+
+			<p>The losses in the rotor circuits can be found from the difference between airgap power and output power. Note above that the backwards component contributes to airgap power but acts against output power.</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  P_{RCL} &amp; = P_{gap} -P_{conv}\\
+			  P_{RCL} &amp; = P_{{gap}_f} + P_{{gap}_b} - (1-s) \left(P_{{gap}_f} +P_{{gap}_b} \right) \\
+			  P_{RCL} &amp; = s P_{{gap}_f} +(2-s)  P_{{gap}_b}
+			  \end{aligned}
+			  \]
+			</div>
+			<p>Finally, the output power available on the shaft is given by the mechanical power converter minus the rotational
+			  losses.</p>
+			<div class="equation">
+			  \[
+			  P_{out} = P_{conv} - P_{rotational}
+			  \]
+			</div>
+			<h3>Points to note</h3>
+			<ul>
+			  <li>The air gap power is the sum of both forwards and backwards components.</li>
+			  <li>If the motor is rotating in the forwards direction, the backwards field is in the braking or <span class="emph">plugging</span>
+				region and the rotor copper losses will be higher than the backwards air gap power. (Power flows into the rotor from both
+				the stator and the backwards torque component)</li>
+			</ul>
+
+			<h3>Example</h3>
+			<p>A 2-pole, 120V, 50hz, single-phase induction motor is running at 3420 rpm. The equivalent circuit parameters are:</p>
+			<p class="centered"><span class="maths">
+			  R<sub>1</sub>&nbsp;=&nbsp;3.5&Omega;,
+			  R<sub>2</sub>&nbsp;=&nbsp;3.2&Omega;,
+			  X<sub>1</sub>&nbsp;=&nbsp;4.1&Omega;,
+			  X<sub>2</sub>&nbsp;=&nbsp;4.1&Omega;,
+			  X<sub>m</sub>&nbsp;=&nbsp;80&Omega;,
+			  P<sub>rot</sub>&nbsp;=&nbsp;42.5W
+			</span></p>
+			<p>Calculate the input current, input power, power factor, output power and efficiency</p>
+			<h4>Solution</h4>
+			<p>This is a 2-pole 60hz motor, therefore synchronous speed and forwards slip are given by</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  n_s= \frac{120f}{p} \quad &amp; \color{red}{n_s = 3600\text{ rpm}} \\
+			  s = \frac{n_s-n_m}{n_s} \quad &amp; \color{red}{s = 0.05} 
+			  \end{aligned}
+			  \]
+			</div>
+			<p>To find current, first find phase impedance</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  Z_{in} &amp; = Z_1+\left(\frac{Z_f+F_b}{2}\right) \\
+			  Z_1&amp; = R_1+jX_1 \\
+			  \color{red}{Z_1}&amp;\color{red}{= 3.5+j4.1\Omega} \\
+			  Z_f&amp; =  \frac{jX_m \left( \frac{R_2}{s} +j X_2\right) } {\frac{R_2}{s}+j\left(X_2+X_m \right)} \\
+			  \color{red}{Z_f}&amp;\color{red}{= R_f+jX_f= 36.7+j31.7\Omega}\\
+			  Z_b&amp; = \frac{jX_m \left( \frac{R_2}{(2-s} +j X_2\right) } {\frac{R_2}{(2-s)}+j\left(X_2+X_m \right)} \\
+			  \color{red}{Z_b}&amp;\color{red}{= R_b+jX_b = 1.5+j3.9\Omega}\\
+			  \color{red}{Z_{in}}&amp;\color{red}{= 22.6+j22.0\Omega \quad Z_{in}=31.5 \Omega \angle 44.3^{\circ}}
+			  \end{aligned}
+			  \]
+			</div>
+
+			<p>Input current can be found as</p>
+			<div class="equation">
+			  \[
+			  I_1=\frac{V_1}{Z_{in}} \quad I_1=\frac{120}{31.5} \quad \color{red}{I_1=3.81A}
+			  \]
+			</div>
+			<p>The power factor can be found from the anlge of the input impedance; given by \(\cos(44.3); \color{red}{\text{pf}=0.717\text{lagging}}\)</p>
+			<p>Remebering that this is a single phase system:</p>
+			<div class="equation">
+			  \[
+			  P_{in}=V_1 I_1 \text{pf} \quad P_{in}=120 \times 3.8 \times 0.717 \quad \color{red}{P_{in}=328W}
+			  \]
+			</div>
+			<p>To find output power:</p>
+			<div class="equation">
+			  \[
+			  \begin{aligned}
+			  P_{conv} &amp; =\frac{1}{2} I_1^2(1-s)\left(R_f-R_b\right)  \\
+			  P_{conv} &amp; =\frac{1}{2} 3.8^2(1-0.05)\left(36.7-1.5\right) \quad \color{red}{P_{conv} = 242.5W} \\
+			  P_{out} &amp; =P_{conv}-P_{rotational} \quad \color{red}{P_{out} = 200W} 
+			  \end{aligned}
+			  \]
+			</div>
+
+			<p>Therefore efficiency is given by</p>
+			<div class="equation">
+			  \[
+			  \eta=\frac{P_{out}}{P_{in}} = \frac{200}{328} \quad \color{red}{\eta = 61\%} 
+			  \]
+			</div>
+
+			<h3>Summary</h3>
+			<p>The equivalent circuit model for a single phase induction machine with only one winding is developed. The airgap power and torque equations are developed in terms of a backwards rotating field theory. Note that as in the example, the efficiency and power factor of single phase machines is typically low, relative to three-phase machines. The low efficiency is due to the additional losses due to the backwards field, the low power factor because reactive poewr is required to support the backwards field.
+			</p> 
+
+		</div>
+
+	</article>
+</main>
+
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

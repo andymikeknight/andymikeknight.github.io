@@ -1,0 +1,335 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+<main>	
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./i_main.html">Introduction</a></li>
+							<li><a class="dropdown-item"  href="./im_construction.html">Construction</a></li>
+							<li><a class="dropdown-item"  href="./im_principles.html">Principles of Operation</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit.html">Equivalent Circuit</a></li>
+							<li><a class="dropdown-item"  href="./im_trq_speed.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit_examples.html">Equivalent Circuit Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./i_standard.html">Standardization</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_params.html">Parameters</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_start.html">Starting</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_speed_control.html">Speed Control</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_gen.html">Induction Generators</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+
+	<article>
+		<div class="container-lg bg-white">
+			<h2>Induction Machine Circuit Analysis Examples</h2>
+			<h3>Per Phase Equivalent Circuit</h3>
+			<div class="row">
+		
+				<div class="col-sm">
+					<p>A 480V, 60 Hz, 6-pole, three-phase, delta-connected induction motor has the following parameters:</p>
+					<p>\(R_1=0.461\Omega.\), \(R_2=0.258\Omega.\), \(X_1=0.510\Omega.\), \(X_2=0.756\Omega.\), \(X_m=30.74\Omega.\) </p>
+
+					<p>Rotational losses are 1300W. The motor drives a mechanical load at a speed of 1170 rpm. Calculate the following information:</p>
+					<ol>
+					  <li>Synchronous speed in rpm</li>
+					  <li>slip</li>
+					  <li>Line Current</li>
+					  <li>Input Power</li>
+					  <li>Airgap Power</li>
+					  <li>Torque Developed</li>
+					  <li>Output Power in Hp</li>
+					  <li>Efficiency</li>
+					</ol>
+					<button class="step" onclick="ShowHideSoln1()">Show / Hide Solution</button>
+				</div>
+				<div class="col-sm" id="solution1">
+					<h4>Solution</h4>
+					<p>This machine has no iron loss resistance, so the equivalent circuit is as follows:</p>
+					<figure><img src="../images/ind/equiv_cct_no_rc.gif" alt="im equivalent cct without core loss resistor"/></figure>
+					<ol>
+						<li>Synchronous speed is given by:
+							<div class="equation">
+								\[
+								n_s=\frac{120 f}{p} = 1200\textrm{ rpm}
+								\]
+							</div>
+						</li>
+						<li>Slip is given by 
+							<div class="equation">
+								\[
+								s=\frac{n_s-n_m}{n_s}=\frac{1200-1170}{1200}=0.025
+								\]
+							</div>	
+						</li>
+						<li>To calculate the line current, it is first necessary to calculate the stator phase current, which in turn requires the calculation of the phase impedance:
+							<div class="equation">
+								\[
+								\begin{aligned}
+								Z_{in}&amp;=Z_1+Z_{||} \quad Z_1=R_1+jX_1 \\
+								Z_{||}&amp;=\frac{jX_m Z_2}{Z_2+jX_m} \quad Z_2= \frac{R_2}{s}+jX_2 
+								\end{aligned}
+								\]
+							</div>
+							and \(Z_1=0.461+j0.510\Omega\), \(Z_2=10.32+j0.765\Omega\), \(Z_{||} = 8.873+j3.653\Omega \), \(Z_{in}=9.33+j4.16\Omega \). Noting that the machine is delta connected to \(V_1=V_{LL}\),  the phase current is then given by
+							<div class="equation">
+								\[
+								\begin{aligned}
+								\vec{I}_1 &amp;=\frac{V_1}{Z_{in}}=\frac{480}{9.33+j4.16}=42.9-j19.1A \\
+								I_1 &amp; = 47.0A, I_{L}=81.3A
+								\end{aligned}
+								\]
+							</div></li>
+						<li>Input Power is given by \(3V_1 I_1 \cos\theta\) where \(\cos\theta =\cos\tan^{-1}\left(\frac{4.16}{9.33}\right)\). \(P_{in} = 61.8kW\) 
+						</li>
+						<li>To find airgap power, There are two possible approaches:
+						<ol class="la">
+							<li>Airgap power is the input power minus stator losses. In this case the core losses are grouped with rotational loss. Therefore
+							\(P_{gap}=P_{in}-3I_1^2R_1\), \(P_{gap}=61.8kW-3*47.0^2*0.461\), \(P_{gap}=58.7kW\). </li>
+							<li>Airgap Power is given by
+							<div class="equation">
+								\[
+								P_{gap}=\frac{3I_2^2R_2}{s}
+								\]
+							</div>
+							This approach requires rotor current to be found. 
+							<ol class="lr">
+								<li>With no core loss resistance the current divider equation can be used:
+								<div class="equation">
+									\[
+									\vec{I}_2=\frac{jX_M}{jX_m+Z_2}\vec{I}_1
+									\]
+								</div></li>
+								<li>Or, the rotor current can be found from the voltage across the magnetizing branch:
+								<div class="equation">
+									\[
+									\vec{I}_2=\frac{\vec{E}}{Z_2} \quad \vec{E}=V_1-\vec{I}_1 Z_1
+									\]
+								</div></li>
+							</ol>									
+							Either of these approaches gives \(I_2=43.5A\). Substituting into the power equation, we again obtain 
+							\(P_{gap}=58.7kW\).</li>
+						</ol>
+						</li>
+						<li>Torque can be found from \(\tau=\frac{P_{gap}}{\omega_s}\); with  
+							\(\omega_s=\frac{4 \pi f}{p}\). Substituting gives
+							\(\tau=467Nm\).</li>
+						 <li>Output power in horsepower is the output power in Watts divided by 746. (there are 746 W in one Hp).
+							<div class="equation">
+								\[
+								P_{out}=P_{conv}-P_{rotational} = \tau \omega_m - P_{rotational}
+								\]
+							</div>
+							 where \(\omega_m=1170\frac{\pi}{30}=122.52 rad/s\). Therefore 
+							 \(P_{out}=55.95kW\), \(P_{out}=75hp\)
+						</li>
+						<li>Efficiency is given by \(\eta=\frac{P_{out}}{P_{in}}\) = 88.9%</li>
+					</ol>
+				</div>
+			</div>
+			<h3>Thevenin Circuit Model Analysis Example</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p>For the machine in the previous example, find:</p>
+					<ol>
+					  <li>Thevenin circuit parameters and Thevenin voltage</li>
+					  <li>Pullout slip</li>
+					  <li>Pullout Torque</li>
+					  <li>Start Torque</li>
+					</ol>
+					<p>Using Matlab or Excel (or another computer program) plot the torque speed curve for slip in the range 0 to 1</p>
+					<button class="step" onclick="ShowHideSoln2()">Show / Hide Solution</button>
+				</div>
+				<div class="col-sm"  id="solution2">
+					<ol>
+						<li>Thevenin circuit parameters and Thevenin voltage:
+							<p>Thevenin circuit parameters an voltage can be found using the equations provided on the 
+							formula sheet, or from first principles. The Thevenin voltage is the voltage applied to the rotor assuming that
+							the rotor current is zero. Thevenin impedance is the impedance of the stator part of the circuit, seen from the
+							rotor, assuming that the stator supply is short circuited.</p>
+							<div class="equation">
+								\[
+								\begin{aligned}
+								\vec{V}_{TH} &amp; =\frac{jX_m}{R_1+j\left(X_1+X_m\right)}\vec{V}_1 \\
+								V_{TH} &amp; = |\vec{V}_{TH}| = 472.1V
+								\end{aligned}
+								\]
+							</div>
+							<div class="equation">
+								\[
+								\begin{aligned}
+								Z_{TH} &amp; =\left(R_{1}+jX_1\right)|| jX_m \\
+								Z_{TH} &amp; = \frac{jX_m\left(R_1+jX_1\right)}{R_1+jX_1+jX_m} \\
+								Z_{TH} &amp; = R_{TH}+jX_{TH} = 0.446+j0.508 \Omega
+								\end{aligned}
+								\]
+							</div></li>
+						<li>Pullout slip
+							<p>The slip at which maximum torque occurs can be found from maximum power transfer
+							theory. Maximum torque and maximum airgap power occur at the same slip, therefore maximum torque
+							occurs when</p>
+							<div class="equation">
+								\[
+								\begin{aligned}
+								\frac{R_2}{s} &amp; = \left| R_{TH}+j\left(X_{TH}+X_2\right) \right| \\
+								\frac{R_2}{s} &amp; = \left| 0.446+ j1.273 \right | \\
+								s=\frac{0.258}{1.35}= 0.191
+								\end{aligned}
+								\]
+							</div>
+						</li>
+						<li>Pullout Torque
+							<p>Pullout torque can be found by substituting the above pullout slip into the Thevenin torque equation</p>
+							<div class="equation">
+								\[
+								\tau =  \frac{3 V^2_{TH}} {\left(R_{TH}+\frac{R_2}{s}\right)^2+\left(X_{TH}+X_2\right)^2 } \frac{R_2} {s\omega_s}
+								\]
+							</div>
+							<p>which gives \(\tau_{po}=1482Nm\)</p></li>
+						<li>Start Torque. Using the same equation with s=1 gives \(\tau_{start}=649Nm\)</li>
+					</ol>
+					<p>Using Matlab or Excel, the torque can be plotted as a function of slip using the equation in part 3:</p>
+					<figure>
+						<img src="../images/ind/torque_example_plot.png" alt="example torque speed plot"/>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</article>
+</main>
+
+<script>
+	var x = document.getElementById("solution1");
+	x.style.display = "none";
+	x = document.getElementById("solution2");
+	x.style.display = "none";
+</script>
+	
+<script>
+function ShowHideSoln1() {
+    var x = document.getElementById("solution1");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+
+<script>
+function ShowHideSoln2() {
+    var x = document.getElementById("solution2");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+		phasorex();
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>	
+	
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

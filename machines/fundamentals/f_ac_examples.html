@@ -1,0 +1,264 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../js/respond.min.js"></script>
+
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_emreview.html">EM Fields review</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_basic.html">Basic Machines</a></li>
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			DC Machines
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./f_dc_simple.html">Simple DC Machine </a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_armature.html">DC Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_field.html">Field Connections</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_power.html">Power</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	AC Machines
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item"  href="./f_ac.html">AC Circuits Review</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_gen.html">Generating AC</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_rotation.html">Rotating Fields</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_torque.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_losses.html">Machine Losses</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_examples.html">Examples</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+<article>
+	<div class="container-lg bg-white">
+		<div class="row">
+			<div class="col-sm">
+				<h3>Example</h3>
+				<p>A three-phase six pole 60Hz generator is designed with &quot;2 slots per pole per phase&quot;.</p>
+				<ol>
+					<li>How many slots are required</li>
+					<li>How many coils are there per phase?</li>
+					<li>If the rotor produces a flux density \(B=1.0\cos(\omega_e t -3\theta_m)\), there are 10 turns per coil and the
+					dimensions are: stator inside radius \(r=0.5m\), stator axial length  \(l=1.0m\)
+					<ol class= "la">
+						<li>What is the rms induced voltage in one coil?</li>
+						<li>What is the total voltage induced in one phase, if all coils are connected in series?</li>
+					</ol>
+					</li>
+				</ol>
+				<button class="step" onclick="ShowHideSoln()">Show / Hide Solution</button>
+
+			</div>
+			<div class="col-sm">
+				<div id="solution">
+				<h4>Solution</h4>
+				<ol>
+					<li>There are six poles and three phases, so 2 slots per pole per phase requires 2&times;3&times;6&nbsp;=36 slots</li>
+					<li>Each coil requires two slots (one for each side of the coil). In a single layer winding (which is all you need to 
+					know about in this course) 36 slots will be filled by 18 coils. There are three phases, so each phase will have 6 coils.</li>
+					<p>The basic location of the coils in the machine is shown in the diagram below. The diagram on the left shows the
+					location of all 18 coils, for phases coloured red, green and blue. The diagram on the right shows the coils for only
+					one of the phases, with two colours to indicate the different coils.
+					The coils are physically separated by 10 mechanical degrees, which for a 6 pole machine equals 30 electrical degrees. 
+					The scale at the bottom shows that all the red coils are at the same electrical angle (multiples of 360 degrees), 
+					while all the orange coils are 30 electrical degrees from the red coils. As a sinusoidal flux of electrical period 
+					360 degrees moves past the coils, the voltages in the red coils will be in phase. The voltages in the orange coils 
+					will be offset by 30 electrical degrees.</p>
+					
+					<figure><img src="../images/fund/ac/example6pole.jpg" alt="illustration" />
+					</figure>
+					
+					<p>Consider just the red coils for the time being. There are 3 coils that will have induced voltages in phase
+						with each other. Mechanically, the coils can be thought of as being located as follows:</p>
+					
+					<div>
+						<table class="data">
+						<tr><th>Coil #</th><th>Start Angle, \(\beta\) </th>   <th>Return Angle,  \(\beta + \gamma\)</th>  </tr>
+						<tr><td>1</td>     <td>0&deg;</td>  <td>60&deg;</td> </tr>
+						<tr><td>2</td>     <td>120&deg;</td><td>180&deg;</td></tr>
+						<tr><td>3</td>     <td>240&deg;</td><td>300&deg;</td></tr>
+						</table>
+					</div>
+
+					<li>
+						<p>Now, to find the voltage in a coil or a phase, we can  use the formula</p>
+						<div class="equation">
+							\[
+							E = \frac{1}{\surd 2} \omega_e \hat{\lambda}_{ph}
+							\]
+						</div>
+						<p>For a single coil in a multi-pole machine</p>
+						<div class="equation">
+							\[
+							\begin{aligned}
+							\lambda_{coil} &amp; = N_t r l \int_{\beta}^{\beta+\gamma} \hat{B} \cos\left(\omega_e t - \frac{p}{2}\theta_m\right) d\theta_m \\
+							\lambda_{coil} &amp; = 2 N_t r l \frac{2}{p} \hat{B} \sin\left(\omega_e t -\frac{p}{2}\beta \right) \\
+							\hat{\lambda}_{coil} &amp; = 2 N_t r l \frac{2}{p} \hat{B}
+							\end{aligned}
+							\]
+						</div>	
+						<p>For the specific case in this example</p>
+						<div class="equation">
+							\[
+							\begin{aligned}
+							\hat{\lambda}_{coil} &amp; = 2 \times 10 \times 0.5 \times 1.0 \frac{2}{6} 1.0 \\
+							\hat{\lambda}_{coil} &amp; = 3.33 \\
+							E_{coil} &amp; = 2 \pi 60 \frac{3.33}{\surd 2} \\
+							E_{coil} &amp; = 888V
+							\end{aligned}
+							\]
+						</div>						
+
+						</li>
+					<li><p>All three red coils are electricall 360&deg; apart, so their voltages will be in phase with each other. Similarly, all three orange coils will be in phase with each other. The orange coils are 10&deg; mechanically from the red coils, or \(10\frac{p}{2}=30\)&deg; apart electrically. From the derivation above, if the coil is at angle +30&deg; then the voltage will lag, with phase angle -30&deg;. Therefore the total phase voltage is given by:</p>
+						<div class="equation">
+							\[
+							\begin{aligned}
+
+							\vec{E}_{phase} &amp; = 3E_{coil}\angle 0^{\circ} + 3E_{coil}\angle -30^{\circ} \\
+							E_{phase} &amp; = 3E_{coil} \left| 1+1\angle -30^{\circ} \right| \\
+							E_{phase} &amp; = 3E_{coil} \left| 1+\frac{\surd 3}{2} -j 0.5 \right| \\
+							E_{phase} &amp; = 5150V
+							\end{aligned}
+							\]
+						</div>
+					</li>
+						
+
+				</ol>
+				</div>	
+			</div>
+		</div>
+
+
+	</div>
+</article>	
+	
+
+</main>
+	
+
+<script>
+	var sn = document.getElementById("solution");
+	sn.style.display = "none";
+</script>
+  
+<script>
+function ShowHideSoln() {
+    var x = document.getElementById("solution");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>	
+
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

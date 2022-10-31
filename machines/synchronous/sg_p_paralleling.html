@@ -1,0 +1,207 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../images/synch/phasor_infbus.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Synchronous Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./s_main.html">Principles</a></li>
+			  				<li><a class="dropdown-item"  href="./s_field.html">Field Winding</a></li>
+			  				<li><a class="dropdown-item"  href="./s_armature.html">Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./s_tests.html">Open and Short Circuit Tests</a></li>
+			  				<li><a class="dropdown-item"  href="./s_power_torque.html">Power &amp; Torque</a></li>
+							<li><a class="dropdown-item"  href="./s_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./sg_standalone.html">Stand-Alone</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	Parallel
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="./sg_p_intro.html">Principles of Parallel Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_infinite_bus.html">Infinite Bus Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_paralleling.html">Paralleling Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_finite_bus.html">Similar Sized Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_examples.html">Examples</a></li>
+							
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link"  href="./sg_power_limits.html">Power Limits</a></li>
+					<li class="nav-item"><a class="nav-link"  href="s_motor.html">Synchronous Motors</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white p-3">
+	
+
+		<h2>Paralleling Generators</h2>
+			<div class="row">
+				<div class="col-sm">
+					<p>In the  diagram, a generator is to be added to an existing power
+					system that is connected to a load. Before the switch, S, can be closed, there are a number of steps which
+					must be taken:</p>
+					<ol>
+					<li>The rms line-line voltages must be equal</li>
+					<li>The phases must be sequenced in the same order (i.e. Phase A - Phase A; Phase B - Phase B; Phase C - Phase C)</li>
+					<li>The phase angles must be equal</li>
+					<li>The no-load frequency of the oncoming generator must be slightly higher than the existing system frequency</li>
+					</ol>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/gen_connect.gif" alt="Schematic of parallel generator connection"/>
+						<figcaption>Fig. 1. Schematic of parallel generator connection</figcaption>
+					</figure>
+				</div>
+			</div>
+
+			<p>The importance of closing the switch when the generator is at a slightly higher frequency than the system can be seen when you
+				consider the speed droop and \(f-P\) equations. The power from the supplied from a generator to bus after the switch is closed in Fig. 1  can be found using</p>
+			<div class="equation">
+				\[
+				P=S_p \left(f_{nl}-f_{sys}\right)
+				\]
+			</div>
+			<p>If \(f_{nl} \lt f_{sys}\) then the power supplied from the generator will be negative. This implies the generator has become a motor, and both the mechanical system and
+				electrical system will try to accelerate the rotor up to synchronous speed. This can have significant negative effects on the prime mover. Simmilarly, if \(f_{nl} \gg f_{sys}\) there
+			will be a sudden step change in the power supplied and the power and current flowing in the bus, which can also cause negative impacts to hte power system and the prime mover.</p>
+
+
+
+			<h3>Paralleling Procedure</h3>
+			<ol>
+				<li>With the generator running, adjust the field current of the oncoming generator such that the measured line-line voltages
+				of the system and the generator are equal</li>
+				<li>Check the phase sequencing. This can be done in two ways:
+					<ol class ="la">
+					<li>Connecting small motors to each three-phase system and observing the direction of rotation. If the phases are sequenced correctly,
+					the two motors will rotate in the same direction. If the sequencing is different, the motors will rotate in opposite directions.</li>
+					<li>Connect bulbs across the switch. If the phases are sequenced correctly, the bulbs will light up/go dim together. If the phases 
+					are not correctly sequenced, the lights will flash one after the other</li>
+					</ol>
+				</li>
+				<li>Check the phase angles. If the frequency of the oncoming generator is slightly higher than the system frequency, the phase 
+				angle between the system and generator voltages will slowly change at a frequency equal to the difference between system and
+				generator frequencies. If the voltages and sequencing are correct, the oncoming generator can be connected to the
+				system when the phase difference is zero. This can be test using two approaches:
+				<ol class ="la">
+					<li>Using a synchrometer. A synchrometer measures the phase angle between 2 voltages. If the meter needle rotates clockwise, the
+					generator frequency is greater than the system. Counterclockwise rotation indicates that the oncoming generator frequency is
+					lower than the system. When the needle is vertical, the phase angle is zero. In the ideal case, the needle should be rotating 
+					slowly in the clockwise direction and the switch should be closed when the needle is vertical.</li>
+					<li>Using bulbs connected across the switch. This lower cost approach does not provide information about the relative
+					frequency between the oncoming generator and the system. If there is a phase difference between the voltages, the lights
+					will be bright. When the lights go out, there is no voltage across the switch and the switch can be closed.</li>
+					</ol>
+				</li>
+			</ol>
+		</div>
+
+	</article>
+</main>
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

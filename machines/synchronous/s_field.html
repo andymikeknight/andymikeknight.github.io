@@ -1,0 +1,216 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Synchronous Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./s_main.html">Principles</a></li>
+			  				<li><a class="dropdown-item"  href="./s_field.html">Field Winding</a></li>
+			  				<li><a class="dropdown-item"  href="./s_armature.html">Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./s_tests.html">Open and Short Circuit Tests</a></li>
+			  				<li><a class="dropdown-item"  href="./s_power_torque.html">Power &amp; Torque</a></li>
+							<li><a class="dropdown-item"  href="./s_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./sg_standalone.html">Stand-Alone</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	Parallel
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="./sg_p_intro.html">Principles of Parallel Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_infinite_bus.html">Infinite Bus Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_paralleling.html">Paralleling Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_finite_bus.html">Similar Sized Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_examples.html">Examples</a></li>
+							
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link"  href="./sg_power_limits.html">Power Limits</a></li>
+					<li class="nav-item"><a class="nav-link"  href="s_motor.html">Synchronous Motors</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white p-3">
+			<h2>Field Winding</h2>
+
+			<p >In large synchronous machines, the field is produced by large
+			  electromagnets placed on the rotor. The rotor construction can either
+			  be cylindrical (also called round-rotor or non-salient) or have a varying
+			 air gap length (a salient pole machine). </p>
+
+			<h3>Salient Pole Designs</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Salient pole machines are typically found in large (many MW), low mechanical
+					  speed applications, including hydrogenerators, or smaller higher speed machines 
+					  (up to 1-2 MW). Salient pole machines can be constucted in pieces and then assembled later.
+					  Each pole of the machine has its own field winding which is bolted on to the rotor
+					  shaft. An illustration of a 4-pole salient pole rotor is shown below:</p>
+					<p>Each pole has a winding (which may be constructed away from the rotor), placed
+					  around a pole body, with a &quot;pole face&quot; bolted on top. The pole face may have a different curvature
+					  than the stator surface, making the resulting flux density more sinusoidal.</p>
+					<p>Salient pole machines are more difficult to model than round rotor machines.
+					  The torque and power characteristics are also different than those for round rotor machines. In
+					  this set of notes we only consider round rotor machines, but you should know the fundamental differences in 
+					  the design of salient pole machines</p>
+				</div>
+				<div class=" col-sm">
+					<figure>
+						<img src="../images/synch/prin/salient_rotor.jpg" alt="illustration of a salient pole rotor"/>
+						<figcaption>
+							Fig.1 Illustration of a Salient Pole Rotor
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Round-Rotor Machines</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Machines with cylindrical rotors are typically found in higher speed higher power applications
+					  such as turbogenerators. Using 2 or 4 poles, these machines rotate at 3600 or 1800 rpm (with 60hz systems). Remember
+					  that machine power is a function of the size of the machine. If a high power high speed machine were to be made
+					  with salient poles, the design would cause difficulties in 2 areas: the uneven air gap length could cause unacceptable
+					  turbulence in the air gap, the centrifugal forces around the periphery of the machine make it difficult to maintain
+					  the mechanical integrity. A cylindrical design is significantly stonger and has much lower windage losses than a 
+					  salient pole machine. A simplified cross-section of a cylindrical rotor is shown below.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/prin/round_rotor.jpg" alt="Illustration of a Non-Salient (Round) Rotor"/>
+						<figcaption>
+							Fig.2 Illustration of a Non-Salient (Round) Rotor
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+
+			<h3>Field Current Source</h3>
+			<p >In order to produce a stationary field (with respect to the rotor) the rotor field winding must be excited
+			using a dc current. This creates the difficulty of passing DC current to the moving rotor. There are two basic options:</p>
+			<ol type="a">
+				<li>Use slip rings and carbon brushes to pass DC current to the rotor from a stationary circuit</li>
+				<li>Use a <span class="emph">brushless exciter</span>. A brushless exciter creates a stationary magnetic field using
+				a field winding similar to that in a DC machine. As conductors on the rotor pass through the stationary field, an ac voltage
+				is induced. This ac voltage is connected to a diode rectifier mounted on the rotor and converted to dc before connection to
+				the field winding</li>
+			</ol>
+			<p>If slip rings and brushes are used, the open circuit voltage induced in the armature winding at a given field current should be proportional to the speed. If a
+				brushless exciter is used, the induced voltage will be a nonlinear function of speed if the brushless exciter current is held constant.</p>
+			<p >Both of the above options need an external power source to make the generator work. One option to avoid this is
+			to us a <span class="emph">pilot exciter</span>. Small permanent magnets on the shaft induce a voltage in a stationary circuit,
+			the current in this circuit is then used to create the field in the stationary exciter.</p>
+
+		</div>
+
+	</article>
+
+		
+</main>
+	
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+<main>	
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./i_main.html">Introduction</a></li>
+							<li><a class="dropdown-item"  href="./im_construction.html">Construction</a></li>
+							<li><a class="dropdown-item"  href="./im_principles.html">Principles of Operation</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit.html">Equivalent Circuit</a></li>
+							<li><a class="dropdown-item"  href="./im_trq_speed.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit_examples.html">Equivalent Circuit Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./i_standard.html">Standardization</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_params.html">Parameters</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_start.html">Starting</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_speed_control.html">Speed Control</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_gen.html">Induction Generators</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+
+	<article>
+		<div class="container-lg bg-white">
+
+			<h2>Induction Machine Equivalent Circuit Model</h2>
+			<div class="row">
+				<div class="col-sm">
+					<p>We have seen that induction machines (as you might guess from the name) operate on
+					  the principle of induced currents. There are still two magnetic fields, one from each of the rotor and
+					  stator, but the rotor field is induced by the stator field. Effectively, we can think of the induction
+					  machine as a rotating transformer. The stator is like the primary of a transformer and creates the
+					  initial field, inducing voltages and currents in the secondary rotor winding. The fundamental differences
+					  from  a stationary transformer are:</p>
+					<ul>
+					  <li>The secondary rotates</li>
+					  <li>There is an airgap, therefore more mmf is needed for a given flux density</li>
+					  <li>The secondary voltage and frequency depend on speed</li>
+					</ul>
+					<p>As an aside, a wound rotor induction machine can actually be used as a variable frequency
+					  transformer. For instance, a 60Hz system connected to the primary of an induction machine can transfer power to
+					  a 50hz system connected to the rotor if the machine is mechanically driven at a slip of 5/6. </p>
+
+					<p>The per-phase equivalent circuit model for an induction machine in steady state operation
+					  supplied by a balances three-phase supply is based on the transformer model shown in Fig. 1. </p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/ind/trans_cct.gif" alt="transformer equivalent circuit"/>
+						<figcaption>Fig. 1. transformer per-phase equivalent circuit</figcaption>
+					</figure>
+					<p>In Fig. 1.,</p>
+					<ul class="symbols">
+					  <li><span class="maths">V<sub>1</sub> = </span> Phase RMS Voltage</li>
+					  <li><span class="maths">I<sub>1</sub> = </span> Stator Phase Current</li>
+					  <li><span class="maths">R<sub>1</sub> = </span> Stator Winding Resistance</li>
+					  <li><span class="maths">X<sub>1</sub> = </span> Stator Winding Leakage Reactance</li>
+					  <li><span class="maths">X<sub>m</sub> = </span> Magnetizing Reactance</li>
+					  <li><span class="maths">R<sub>c</sub> = </span> Core Loss Resistance</li>
+					  <li><span class="maths">E<sub>1</sub> = </span> Air Gap Voltage</li>
+					  <li><span class="maths">I<sub>2</sub> = </span> Rotor Current Referred to Stator</li>
+					  <li><span class="maths">E<sub>R</sub> = </span> Rotor Induced Voltage (Actual)</li>
+					  <li><span class="maths">I<sub>R</sub> = </span> Rotor Current Voltage (Actual)</li>
+					  <li><span class="maths">X<sub>R</sub> = </span> Rotor Leakage Reactance (Actual)</li>
+					  <li><span class="maths">R<sub>R</sub> = </span> Rotor Resistance (Actual)</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<h3>Rotor Circuit</h3>
+				<div class="col-sm">
+					<p>We know from the <a href="im_principles.html">operating principles</a> that induced voltage \(E_R\)
+					and rotor leakage reactance \(X_R\) both depend on slip. To simplify the model we can define them both
+					in terms of their values when the speed is zero, slip \(s=1\)</p>
+					<div class="equation">
+						\[
+						\begin{aligned}
+						E_R &amp; = sE_{R0} \\
+						X_R &amp; = sX_{R0}
+						\end{aligned}
+						\]
+					</div>
+					<p>where</p>
+					<ul class="symbols">
+						<li>\(E_{R0}\) is the induced voltage at standstill</li>
+						<li>\(X_{R0}\) is the rotor leakage reactance at standstill</li>
+					</ul>
+					<p>With the above definitions we can write the equation for actual rotor current as</p>
+					<div class="equation">
+						\[
+						\begin{aligned}
+						I_R &amp; =\frac{E_R}{R_R+jX_R} \\
+						I_R &amp; =\frac{sE_{R0}}{R_R+jsX_{R0}} \\
+						I_R &amp; =\frac{E_{R0}}{\frac{R_R}{s}+jX_{R0}} 
+						\end{aligned}
+						\]
+					</div>
+					<p>and the transformer model may be re-drawn as shown in Fig. 2</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/ind/trans2.gif" alt="modified per-phase transformer equivalent circuit model"/>
+						<figcaption>Fig. 2. modified per-phase transformer equivalent circuit model </figcaption>
+					</figure>
+					<p>In Fig. 2, the effective turns ratio \(a_{eff}\) 
+					  is constant and equal to the effective turns ratio at standstill. In a wound rotor machine, 
+					  \(a_{eff}\), \(R_R\) and \(X_{R0}\) can be measured. In a cage machine these parameters cannot be directly determined, there is no method to directly measure voltages or currents on the rotor. To overcome this difficulty, the rotor (secondary) circuit
+					  can be referred to the stator (primary) side.</p>
+				</div>
+			</div>
+			<div class="row">
+				<h3>Full Equivalent Circuit Model</h3>
+				<div class="col">
+					<p>Referring the rotor circuit to the primary the induction motor per-phase eqiuvalent circuit, shown in Fig. 3. is obtained.</p>
+					<figure>
+						<img src="../images/ind/equiv_cct.gif" alt="Induction Motor per-phase equivalent circuit"/>
+						<figcaption>Fig. 3. Induction Motor per-phase equivalent circuit</figcaption>
+					</figure>
+					<p>In the above circuit</p>
+					<ul>
+						<li>\(R_2=a_{eff}^{2}R_R\), is the rotor resistance referred to the stator</li>
+						<li>\(X_2=a_{eff}^{2}X_{R0}\), is the rotor leakage reactance referred to the stator</li>
+					</ul>
+					<p>The symbols used in induction machine models vary depending on the text and the context in which the circuit
+					is being used. \(R_I\), \(R_o\), \(R_{fe}\), \(R_m\)  can all be found as references
+					to the iron loss resistance. In some texts (especially from Europe), \(R_2\). \(X_2\) refer
+					to actual rotor values with \(R'_2\), \(X'_2\) used for referred values. In drives texts, it
+					is common to find \(R_s\), \(R_r\) for stator resistance and rotor resistance referred to the stator with \(X_{ls}\), \(X_{lr}\) for stator 
+					and rotor leakage reactance.</p>
+				</div>
+			</div>
+
+			<h2>Power Flow</h2>
+			<p>The input power to a three-phase induction machine is given by</p>
+			<div class="equation">
+				\[
+				P_{in}=\sqrt{3}V_{LL}I_{L}\cos\theta=3V_1I_1\cos\theta
+				\]
+			</div>
+			<p>Output power can be found by subtracting the losses from the input power</p>
+			<h4>Losses</h4>
+			<ol>
+				<li>Stator Copper Loss. The stator resistive losses
+				<div class="equation">
+					\[
+					P_{SCL}=3I_1^2R_1
+					\]
+				</div>
+				</li>
+				<li>Rotor Joule Loss. The rotor resistive losses. This is often called rotor copper loss, but since the
+				rotor conductors are aluminum, rotor joule loss is the more correct terminology.
+					<div class="equation">
+						\[
+						P_{RCL}=3I_2^2R_2
+						\]
+					</div>
+				</li>
+				<li>Core Loss, or Iron Loss. The losses due to eddy current and hysteresis losses in the laminations. This can be calculated
+				using the resistor \(R_c\). At times, core losses are grouped with friction and windage and stray loss
+				as <span class="emph">rotational</span> <a href="../fundamentals/f_ac_losses.html">losses</a>.</li>
+			</ol>
+			<h4>Rotor Power</h4>
+			<p>The power transferred to the rotor is called the <span class="emph">&quot;Airgap Power&quot;</span>. Consider the equivalent
+			circuit below (the core loss resistance has been removed and core losses grouped into rotational loss).</p>
+			<figure>
+				<img src="../images/ind/equiv_cct_no_rc.gif"  alt="induction motor equivalent circuit without core loss"/>
+				<figcaption>Fig. 4. induction motor equivalent circuit without core loss resistance</figcaption>
+			</figure>
+			<p>From the above circuit, the total power transfer to the rotor is given by</p>
+			<div class="equation highlight">
+				\[
+				P_{gap}=\frac{3I_2^2R_2}{s}
+				\]
+			</div>
+			<p>To find the power converted to the mechanical system the rotor joule loss must be subtracted from the
+			total rotor power</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				P_{conv} &amp; = P_{gap}-P_{RCL} \\
+				P_{conv} &amp; =\frac{3I_2^2R_2}{s} -3I_2^2R_2
+				\end{aligned}
+				\]
+			</div>
+			<div class="equation highlight">
+				\[ 
+				P_{conv} =3I_2^2R_2 \frac{1-s}{s}
+				\]
+			</div>
+
+			<p>From the above equations, it can be seen that power converted to the mechanical system is a function of the airgap power and slip:</p>
+			<div class="equation">
+				\[
+				P_{conv}=(1-s)P_{gap}
+				\]
+			</div>
+			<p>Final output power may be obtained by subtracting the rotational loss from \(P_{conv}\).</p>
+			<div class="equation">
+				\[
+				P_{out}  = P_{conv}-P_{rotational}
+				\]
+			</div>
+
+			<div class="col boxed">
+				<h3>Summary</h3>
+				<p>The induction machine per-phase equivalent circuit developed on this page is valid for steady state analysis of an induction machine with a cage rotor, 
+					when connected to a balanced supply. It is used extensively in induction motor analysis. The equations for air gap power and the power convertered to mechanial energy are used extensively in induction motor analysis. </p>
+			</div>
+		</div>
+	</article>
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+		  
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../images/ind/pwm.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+<main>	
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./i_main.html">Introduction</a></li>
+							<li><a class="dropdown-item"  href="./im_construction.html">Construction</a></li>
+							<li><a class="dropdown-item"  href="./im_principles.html">Principles of Operation</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit.html">Equivalent Circuit</a></li>
+							<li><a class="dropdown-item"  href="./im_trq_speed.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./im_circuit_examples.html">Equivalent Circuit Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./i_standard.html">Standardization</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_params.html">Parameters</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_start.html">Starting</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_speed_control.html">Speed Control</a></li>
+					<li class="nav-item"><a class="nav-link"  href="./i_gen.html">Induction Generators</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white">
+
+			<h2>Induction Motor Speed Variation</h2>
+			
+			<h2>Cage Rotor Machines</h2>
+
+			<p>Analysis of the torque speed curve of an induction machine shows that an induction motor will find a steady equilibrium operating point at a speed between pull-out and sychronous speed. For typical Class B motors, the design operating slip is below 0.05. Although induction machines can operate from standstill, the normal operating speed range is over a small range of slips just below synchronous speed. To change the speed of an induction machine, the synchronous speed must change. Since</p>
+			<div class="equation">
+				\[
+				n_s=\frac{120p}{f}
+				\]
+			</div>
+			<p>there are two options: change the number of poles or change the supply frequency.</p>
+			
+			<h3>Pole Changing</h3>
+			<p>Changing the number  number of poles in a machine gives a set of discrete operating speeds. e.g. if a machine can have 2 or 6 poles, it can operate at approximately 1200 rpm or 3600 rpm (with a 60Hz supply). Changing the number of poles can be done either by using redundant stator windings and switching between the windings, (which is costly) of by re-connecting coils to change the orientation of conductors to change the number of magnetic poles. Pole changing is not very common in three phase machines, and has mostly been replaced by variable frequency supplies. One of the most common uses for pole changing motors has been in traditional top-load washing machines, to switch between wash and spin cycles. </p>
+
+			<h3>Variable frequency supply</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p>If a variable frequency supply is available, the synchronous speed of
+					an induction machine may theoretically be set at any desired value. However, there are practical and safety limits that constrain operation. In variable frequency operation, we are generally interested in understanding how to control a machine to provide the required torque at a particular frequency. So far, we have calculated torque-speed relationships at single supply frequencies, now we need to think about how the torque changes with changing frequency. </p>
+					<p>Consider the circuit diagram in Fig. 1, which shows the induction machine equivalent circuit in terms of inductances, rather than reactances:</p>
+				</div>
+				<div class="col-sm">	
+					<figure>
+						<img src="../images/ind/im_cct_l.gif" alt="Indcution Motor per-phase equivalent circuit in terms of inductance" />
+						<figcaption>Fig. 1. </figcaption>
+					</figure>
+				</div>
+			</div>
+			<p>Now, from analysis with a constant frequency supply we know that the torque is given by:</p>
+			<div class="equation">
+				\[
+				\tau=\frac{3I_2^2R_2}{s\omega_s}
+				\]	
+			</div> 
+			<p>If the voltage across the rotor branch is defined as \(V_2\) then</p>
+			<div class="equation">
+				\[
+				I_2=\frac{V_2}{\frac{R_2}{s}+j\omega_e L_2}
+				\]
+			</div>
+			<p>The first assumption in analysing variable speed drive operation is say that in steady state the machine will be operating at small values, and therefore it is reasonable to say that</p>
+			<div class="equation">\[
+				\frac{R_2}{s} \gg \omega_e L_2\textrm{ , } \quad R_2 \gg s\omega_e L_2
+				\]
+			</div> 
+			<p>Therefore:</p>
+			<div class="equation">\[
+				\begin{align*}
+					I_2 &amp; \approx \frac{V_2}{\frac{R_2}{s}} \\
+					I_2 &amp; \approx \frac{sV_2}{R_2} \\
+					\tau &amp; \approx \frac{3V_2^2s}{R_2 \omega_s}
+				\end{align*}
+				\]
+			</div>
+			<p>Now, remembering that \(\omega_s=\frac{2}{p}\omega_e\), we can re-write this in terms of electrical supply frequency:</p>
+			<div class="equation">\[
+				\tau \approx 3\frac{p}{2}\frac{3 V_2^2 s}{R_2 \omega_e}
+				\]
+			</div>
+			<p>Multiplying top and bottom by \(\omega_e\):</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\tau &amp; \approx 3 \frac{p}{2}\left(\frac{V_2^2}{\omega_e^2}\right) \frac{s \omega_e}{R_2} \\
+				\tau &amp; \approx 3 \frac{p}{2}\left(\frac{V_2}{\omega_e}\right)^2 \frac{\omega_{sl}}{R_2}
+				\end{aligned}
+				\]
+			</div>
+			<p>This final step shows that under certain conditions, the torque produced is proportional to the slip frequency.</p>
+			<p>In fact, if the ratio \(\frac{V_2}{\omega_e}\) is constant, the torque will be proportional to slip frequency. Considering another approach to define \(V_2\):</p>
+			<div class="equation">\[
+				V_2=j \omega_e L_m I_m
+				\]
+			</div>
+			<p>and</p>
+			<div class="equation">\[
+				\begin{align*}
+				\left| \frac{V_2}{\omega_e} \right| &amp; = L_m I_m \\
+				\left| \frac{V_2}{\omega_e} \right| &amp; = \lambda
+				\end{align*}
+				\]
+			</div>
+			<p>where \(\lambda\) is the magnetizing flux in the machine. Substituting we get:</p>
+			<div class="equation">\[
+				\tau \approx \frac{3p}{2R_2} \lambda^2 \omega_{sl}
+				\]
+			</div>
+			<p>This is an important result, <span class="emph">if \(R_2 \gg s\omega_e L_2\)</span>, <span class="bold red">torque is proportional to flux squared times slip speed:</span></p>
+			<div class="equation">\[
+				\tau \propto  \lambda^2 sn_s
+				\]
+			</div>
+
+			<h4>Operating regions</h4>
+			<h5>Below Rated Speed - Constant Flux Region</h5>
+			<p>If we wish to operate an induction machine below rated speed, then full torque capability can be acheived if we maintain rated flux. Given that flux is given by voltage over frequency, for most of the operating range below rated speed (nameplate speed, i.e. with 60Hz or 50Hz supply), rated flux can be obtained by keeping the ratio of voltage to frequency constant. (Essentially, assuming that constant \(\frac{V_1}{f}\) constant gives constant \(\frac{V_2}{f}\) .)  This is called <span class="emph">constant Volts per Hertz</span> operation. However, if the machine is operated at low frequencies (e.g. less than 1/4 rated) the
+			voltage drop across the stator resistance will be significant. (As reactances get smaller, 
+			<span class="maths">R<sub>1</sub></span> gets proportionally bigger.) At low freqeuncies, the stator supply
+			voltage must be compensated to allow for additional stator resistance voltage drop, else the available
+			torque will fall.</p>
+			<h5>Above Rated Speed - Field Weakening Region</h5>
+			<p>If the machine is to be operated above rated frequency, the voltage cannot
+			be increased above rated voltage and the magnetizing current in the machine will be reduced. This
+			mode of operation is called <span class="emph">field weakening</span> operation.</p>
+			<h4>Summary</h4>
+			<ul>
+				<li>Below rated frequency, keep the ratio <span class="maths">V/f</span> constant at rated values.</li>
+				<li>At low frequencies, the <span class="maths">V/f</span> ratio must be boosted to maintain
+					rated torque.</li>
+				<li>Above rated frequency, maintain rated voltage.</li>
+			</ul>
+			<p>The above statements can be used as a basis for relatively simple open loop speed control. This is commonly called open loop V/f control. </p>
+
+			<h4>Example</h4>
+			<p>A 480V, 60Hz, 4-pole motor has rated speed of 1750 rpm and rated torque of 10Nm. If 
+			a torque of 10Nm is needed at a mechanical speed of 1500 rpm, find the synchronous speed, supply frequency 
+			and line-line supply voltage.</p>
+			<p>At rated torque, the slip speed will be the rated value. For a 4-pole 60hz machine, 
+			synchronous speed is 1800 rpm, therefore rated slip speed =1800-1750=50rpm. When operating at 
+			1500rpm, 10Nm, slip speed will still be 50rpm and the synchronous speed is given by</p>
+			<div class="equation">\[
+				\begin{align*}
+					n_s &amp; =n_m + sn_s \\
+					n_s &amp; =1500 + 50
+				\end{align*}
+				\]
+			</div>
+			<p>With the synchronous speed, the supply frequency can be found</p>
+			<div class="equation">\[
+				\begin{align*}
+				n_s &amp; = \frac{120 f_e}{p} \\
+				f_e &amp; = \frac{n_s p}{120} = \frac{1550 \times 4}{120} \\
+				f_e &amp; = 51.67Hz
+				\end{align*}
+				\]
+			</div>
+
+			<p>Finally, if V/f is constant, the supply voltage must be:</p>
+			<div class="equation">\[
+				\begin{align*}
+				V_{{LL}_{new}} &amp; = 51.67 \frac{480}{60} \\
+				V_{{LL}_{new}} &amp; = 413.3V
+				\end{align*}
+				\]
+			</div>
+
+			<h3>Variable Voltage Variable Frequency Supply</h3>
+
+			<p>Most modern drives use Pulse Width Modulation (PWM) supplies to approximate a variable voltage and frequency
+			sinusoidal supply. In a PWM supply, a DC voltage is switched rapidly to approximate the shape of the desired waveform. In its simplest to understand implementation, the desired (modulating) voltage is compared to a triangular carrier waveform. If the per-unit modulating waveform is greater than the per-unit carier waveform, the output is connected to he positive terminal of a DC supply. If the per-unit modulating waveform is less than the per-unit carrier waveform, the output is connected to the negative terminal of the DC link. This is illustrated in Fig. 2 for the case where the DC link voltages are defined to be +VDC and 0V. 
+				
+			<figure id = "canvasholder_pwm">
+				<canvas id="canvas_pwm">							
+				</canvas>
+				<div class="button_group">
+					<button class="step" id="stepUpma">\(+m_a\) </button>
+					<button class="step" id="stepDnma">\(-m_a\)</button>
+					<button class="step" id="stepUpf">\(+f\) </button>
+					<button class="step" id="stepDnf">\(-f\)</button>
+					<button class="step" id="stepUpfc">\(+f_c\) </button>
+					<button class="step" id="stepDnfc">\(-f_c\)</button>
+				</div>
+				<figcaption>Fig. 2. Interactive plot of PWM voltges for two phases of a three-phase supply. In this animation, the carrier frequecny is limted to a minimum of 11 times modulating frequency.  </figcaption>
+
+
+			</figure>
+
+
+			<h2>Wound Rotor Machines</h2>
+			<div class="row">
+				<div class="col-sm">
+					<p>If the rotor of an induction machine is made with a full three phase winding that can be accessed via slip rings, the speed of the machine can be controlled by adjusting the rotor circuit, <span class="emph">while the
+					stator supply voltage and frequency remain constant</span>.</p>
+
+					<p>Consider the equivalent circuit of a wound rotor induction machine when 
+					the rotor circuit is not referred to the stator, shown in Fig. 3.</p>
+
+
+					<p>The induced rotor voltage \(E_R\) is a function of slip and the frequency of the actual rotor circuits (and magnitude of \(X_R\)) is also a function of slip, as described in the devlopment of the <a href="../im_circuit.html">per-phase equivalent circuit model</a>. However, in a wound rotor induction machine, the effective turns ratio at standstill, \(a_{eff}\) is actually known. It can be found by measuring the open circuit rotor terminal voltage when the rotor is stationary. As with the process when devloping the conventional <a href="../im_circuit.html">per-phase equivalent circuit model</a>, the rotor components may be referred to the stator (primary) side of the transformer, dividing by slip to account for the change in induced rotor voltages as speed changes, shown in Fig. 4.</p>
+					<p>The rotor terminal phase voltage, referred to the stator can be thought of as a voltage injected into the rotor circuit, and is given by:</p>
+					<div class="equation">
+						\[
+						V_i=a_{eff} V_R
+						\]
+					</div>
+				</div>
+				<div class="col-sm">
+
+					<figure>
+						<img src="../images/ind/wrim_transformer.png" alt="WRIM with rotor as secondary circuit" />
+						<figcaption>Fig. 3. WRIM with rotor as secondary circuit</figcaption>
+					</figure>
+					<figure>
+						<img src="../images/ind/wrim.png" alt="WRIM per phase circuit in steady state" />
+						<figcaption>Fig. 4. WRIM per phase circuit in steady state</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm">
+					<h3>Operating Principle and Analysis</h3>
+					<p>Considering the equivalent circuit, if the injected voltage is increased, the rotor current will be reduced, resulting in a reduction in the available torque generated by the motor. If there is a load applied to the motor, the rotor will slow down, resulting in  an increase in slip. Considering the circuit model using a transformer between stator and rotor, as slip increases the induced rotor voltage \(E_R\) increases and the rotor current \(I_R\) will increase. This represents what physically happens in the machine. In the circuit model with the rotor variables referred to the stator, the rotor current referred to the stator \(I_2\) increases as the effective injected voltage seen by the stator \(V_i/s\) reduces as slip increases. This process allows the machine to find a new steady state where the induced rotor current produces enough torque to equal the load torque.</p>
+					<p>To analyse performancethe analysis, the stator phase voltage, stator impedance and magnetising reactance
+					can be replaced by a Thevenin source and impedance, as shown in Fig. 5.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/ind/wrim_thev.png" alt="WRIM per phase circuit in steady state with Thevenin impedances" />
+						<figcaption>Fig. 5. WRIM per phase circuit in steady state with Thevenin impedances</figcaption>
+					</figure>
+				</div>
+			</div>
+			<p>If the injected voltage is in phase with the rotor current, then the voltages in the equivalent circuit may
+			be written as</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				V_{TH}&amp; = \vec{I_2} \left(R_{TH}+\frac{R_2}{s} +j X_{TH}+j X_2 \right) + \frac{\vec{V_i}}{s} \\
+				\left|V_{TH} \right| &amp; = \left( \left( I_2 R_{TH}+ I_2 \frac{R_2}{s} + \frac{V_i}{s} \right)^2 + \left(I_2  X_{TH}+ I_2 X_2 \right)^2 \right)^{\frac{1}{2}}
+				\end{aligned}
+				\]
+			</div>
+			<p>and re-arranging:</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				s &amp; = \frac{V_i + I_2 R_2}{ \left(V_{TH}^2 - I_2^2 \left( X_{TH}+X_2 \right)^2 \right)^\frac{1}{2} - I_2 R_{TH}} \\
+				\frac{V_i + I_2 R_2} {s} &amp;= \left(V_{TH}^2 - I_2^2 \left( X_{TH}+X_2 \right)^2 \right)^\frac{1}{2} - I_2 R_{TH}
+				\end{aligned}
+				\]
+			</div>
+
+			<h4>Power and Torque</h4>
+			<p>Considering the diagram above and remebering that the injected voltage is in phase with the rotor current, the air gap power of the machine, (total power flow from the stator to the rotor), may be written as:</p>
+			<div class="equation">
+				\[
+				P_{gap}=3I_2\frac{V_i + I_2 R_2} {s}
+				\]
+			</div>
+			<p>Given that for all induction machines</p>
+			<div class="equation">
+				\[
+				\tau=\frac{P_{gap}} {\omega_s}
+				\]
+			</div>
+			<p>the torque may be written as </p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\tau &amp; = 3I_2\frac{V_i + I_2 R_2} {s \omega_s} \\
+				\tau &amp; = \frac{3I_2}{\omega_s} \left(\left(V_{TH}^2 - I_2^2 \left( X_{TH}+X_2 \right)^2 \right)^\frac{1}{2} - I_2 R_{TH}\right)
+				\end{aligned}
+				\] 
+			</div>
+
+			<p>The first of the two equations above gives the torque as a function of slip, rotor current and injected rotor voltage. The second equation shows that at a given torque, the rotor current \(I_2\) must be constant. In turn, this means that <b>if the torque is constant</b> the ratio </p>
+			<div class="equation">
+				\[
+				\frac{V_i + I_2 R_2} {s} \rightarrow \textbf{constant}
+				\]
+			</div>
+			<p>Finally, consider the power flow components of the airgap power. The airgap power is the sum of the power lost in the rotor circuit, the power flow out of the rotor terminal and the power converted to mechanical energy. Since the injected voltage is assumed to be in phase with the rotor current, the rotor terminal power will simply be \(3 V_i I_2\). The airgap power compoments are:</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				P_{gap} &amp; = 3I_2 \frac{V_i + I_2 R_2} {s} \\
+				P_{gap} &amp; = 3 I_2^2 R_2 +3 V_i I_2 +3 I_2 \left(V_i + I_2 R_2 \right) \frac{(1-s)}{s}
+				\end{aligned}
+				\]
+			</div>
+
+			<p>And the power converted to the mechanical system is given by</p>
+			<div class="equation">
+				\[
+				P_{conv} = 3 I_2 \left(V_i + I_2 R_2 \right) \frac{(1-s)}{s}
+				\]
+			</div>
+
+
+			<h4>No-Load Condition</h4>
+			<p>Consider again the expression for slip:</p>
+			<div class="equation">
+				\[
+				s = \frac{V_i + I_2 R_2}{ \left(V_{TH}^2 - I_2^2 \left( X_{TH}+X_2 \right)^2 \right)^\frac{1}{2} - I_2 R_{TH}} 
+				\]
+			</div>
+			<p>If the torque is zero, then the rotor current will also be zero. Therefore, at zero torque,
+			the <span class="emph">no-load slip</span>, \(s_0\), is given by</p>
+			<div class="equation">
+				\[
+				s_0 = \frac{V_i}{V_{TH}} 
+				\]
+			</div>
+			
+			<h4>Efficiency</h4>
+			<p>Since some of the power supplied to the motor is recovered from the rotor circuit, the
+			efficiency cannot be calculated as simply output power over stator input power. Instead, in a wound rotor machine with a variable voltage and frequency supply connected to the rotor, the efficiency is</p>
+
+			<div class="equation">
+				\[
+				\eta= \frac{P_{out}}{P_{stator}-P_{rotor}}
+				\]
+			</div>
+			<p>where \(P_{stator}\) and \(P_{rotor}\) are the stator and rotor terminal power flows respectively.</p>
+
+
+			<h4>Wound Rotor Induction Machine Operating Modes</h4>
+			
+			<p>As noted above, the torque may be written as:</p>
+			<div class="equation">
+				\[
+				\tau  = 3I_2\frac{V_i + I_2 R_2} {s \omega_s} 
+				\] 
+			</div>
+			In a motor, torque is positive. Therefore for any given positive torque, as we adjust the speed, the slip changes and \(I_2\) will remain constant. For a motor, irrespective of slip, 
+			<div class="equation">
+				\[
+				\frac{V_i + I_2 R_2} {s} \gt 0
+				\] 
+			</div>
+			Similarly for a generator, torque is negative. Irrespective of speed
+			<div class="equation">
+				\[
+				\frac{V_i + I_2 R_2} {s} \lt 0
+				\] 
+			</div>					
+			<ul>
+				<li>Sub-synchronous motoring
+					<p>In this mode slip and torque are both positive, therefore injected voltage must be in phase with rotor current. Power flows into the stator and back out of the rotor circuit.</p>
+					<div class="equation">
+					\[
+					s \gt 0 \mspace{24mu} \frac{V_i + I_2 R_2} {s} \gt 0 \mspace{12mu} \rightarrow  \mspace{12mu} \ V_i + I_2 R_2 \gt 0
+					\]
+					</div>
+					</li>
+				<li>Super-synchronous motoring
+					<p>Above synchronous speed, the slip is negative. In order for the torque to be positive,</p>
+					<div class="equation">
+					\[
+					s \lt 0 \mspace{24mu} \frac{V_i + I_2 R_2} {s} \gt 0\mspace{12mu} \rightarrow  \mspace{12mu} \ V_i + I_2 R_2 \lt 0
+					\]
+					</div>
+					<p>  Therefore, voltage and current must be out of phase with each other. Power is being injected into the
+					rotor from the drive circuit connected to the slip rings, in addition to input power flowing into the stator</p>
+					</li>
+				<li>Super-synchronous generating
+					<p>If generating above synchronous speed, slip and torque are both negative, therefore</p>
+					<div class="equation">
+					\[
+					s \lt 0 \mspace{24mu} \frac{V_i + I_2 R_2} {s} \lt 0\mspace{12mu} \rightarrow  \mspace{12mu}  \ V_i + I_2 R_2 \gt 0
+					\]
+					</div>
+					<p>Injected voltage is in phase with rotor current. In this case, mechanical input 
+					power is being supplied from the shaft and both the stator and rotor circuits are providing output power.</p>
+					</li>
+				<li>Sub-synchronous generating
+					<p>If generation below synchronous speed is required, torque must be negative whilst slip is positive. Again,</p>
+					<div class="equation">
+					\[
+					s \gt 0 \mspace{24mu} \frac{V_i + I_2 R_2} {s} \lt 0\mspace{12mu} \rightarrow  \mspace{12mu}  \ V_i + I_2 R_2 \lt 0
+					\]
+					</div>
+					<p> Therefore, voltage and current must be out of phase with each other. Power is being injected into the
+					rotor from the drive circuit connected to the slip rings.</p>
+					</li>
+
+			</ul>
+
+			<h3>Comment</h3>
+			<p>In a modern implementation of a drive control for a wound rotor induction machine, the analysis above applies if the rotor terminal voltage is maintained in phase with the rotor current. It is also possible to control the machine operation by injecting reactive power through the rotor terminals, reducing the reactive power requirement of the stator winding. (Effectively, it is possible to use the rotor terminals to provide magnetizing current).  Realization of the rotor voltage phase angle control is a relatively complex task that is beyond the scope of these notes.</p>
+			<p>Wound Rotor Induction Machines are capable of operation up to rated torque, at slips that are not close to the synchronous speed. Injecting voltage into the rotor circuit, the torque speed curve is shifted so that the no-load speed is not at synchonous speed. WRIM are capable of sub-synchonous generating and super-synchronous motoring. Used as "Doubly-Fed Induction Generators" they are used un Type 3 wind turbines, currently the most common type of wind turbine. Wound Rotor Machines are also showing potential for use in variable speed pumped hydro energy storage.</p> 
+
+
+
+
+
+
+
+		</div>
+	</article>
+</main>
+
+
+
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

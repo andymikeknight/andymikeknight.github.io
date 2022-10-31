@@ -1,0 +1,298 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_emreview.html">EM Fields review</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_basic.html">Basic Machines</a></li>
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			DC Machines
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./f_dc_simple.html">Simple DC Machine </a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_armature.html">DC Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_field.html">Field Connections</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_power.html">Power</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	AC Machines
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item"  href="./f_ac.html">AC Circuits Review</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_gen.html">Generating AC</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_rotation.html">Rotating Fields</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_torque.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_losses.html">Machine Losses</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_examples.html">Examples</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+<article>
+<div class="container-lg bg-white">
+<h2>DC Armature</h2>
+
+	<p>The armature of an electric machine is the name historically given to the winding where a voltage is induced and power transfer between electrical and mechanical systems occurs. It is a term used in dc machines and ac synchronous machines. In a dc machine, the armature is the rotating circuit.</p>
+	
+	<h3>Commutation</h3>	
+
+	<div class="row">
+		<div class="col-md">
+			<p>In a DC machine, developed before the era of power electronics, a mechanical system is used to switch the AC generated loop voltage and give a DC voltage at the terminals of the machine. This process is called commutation. The mechanical switching is acheived using a device called a <span class="emph">split-ring commutator</span>. Consider the drawing and illustration in Fig. 1. Each conductor (or each side of a loop) is connected to a cylindrical conductor, that is split into two halves. As the rotor rotates, the cylinder is in contact with stationary <span class="emph">brushes</span>. (Originally, copper wire bushes were used; modern machines use spring loaded graphite blocks.) </p>
+			<p>As the rotor rotates, the halves of the split ring commutator move past the stationary brushes. As time progresses, the x and y terminals become connected to alternating ends of the rotor conducting loop</p>
+			<p>Considering the plots of the induced (red) and terminal (blue) votlages with time, it is clear that the voltage induced in the conducting loop on the rotor continues to alternate between positive and negative. However, because of the positioning of the brushes, the measured voltage at the x-y terminals is uni-directional.</p>
+		</div>
+
+		<div class="col-md">
+			<figure>
+				<img src="../images/fund/dc/commuation.gif" alt="Animated gif panel showing commutator operation"/>
+			</figure>
+			<figcaption>Fig. 1. Illustration of commutator operation</figcaption>
+		</div>
+	</div>
+
+	<h3>Increased Poles &amp; Conductors</h3>
+
+	<div class="row">
+		<div class="col-md">
+			<p>Realistic designs for dc machines usually have more than 2 poles. Increasing the number of poles for a particular flux per pole will increase the induced voltage at a given speed  and increase the torque available per amp. Fig. 1 gives an illustration of the layout of a stator with 4 poles. Each pole will 
+			carry a coil forming part of a field winding. The flux pattern will be similar to the
+			flux lines shown, alternating north and south poles.</p>
+		</div>
+		<div class="col-md">
+			<figure>
+				<img src="../images/fund/dc/dc_4pole.png" alt="Fig. 2. Illustration of a 4-pole DC field"/>
+					<figcaption>Fig. 2. Illustration of a 4-pole DC field</figcaption>
+			</figure>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md">
+			<p>For the general case with \(p\) poles, the field pattern will repeat every \(720/p\) degrees.</p>
+			<p>In the original basic machine that has been considered, there are only 2
+				conductors, or one loop on the rotor. If the number of coils (and split-ring 
+				commutator segments) is increased then the brushes can be designed to always be
+				in contact with a conductor that is under the pole face. An example of this idea with two coils is shown in Fig. 3</p>
+		</div>
+		<div class="col-md">
+			<figure>
+				<img src="../images/fund/dc/comm_more_loops.gif" alt="Animated gif - commutation with 2 loops"/>
+				<figcaption>Fig. 3. Animation of a two-pole system with two perpendicular armature winding coils</figcaption>
+			</figure>
+		</div>
+	</div>
+
+
+	<h3>Equations for a general machine</h3>
+	<p>Each conductor on the rotor of a machine has an average induced voltage given by</p>
+	<div class="equation">
+		\[
+			e_{av}=rlB_{av}\omega_m
+		\]
+	</div>
+	<p>\(e_{av}\)is the average induced voltage and 
+	\(B_{av}\)is the magnitude of the average flux density under the pole face.
+	Using the general equation for the surface area of a pole</p>
+	<div class="equation">
+		\[
+			A_p=\frac{2\pi rl}{p}
+		\]
+	</div>
+	<p>an equation for average voltage induced across a conductor under the pole face
+	can be found in terms of flux and speed:</p>
+	<div class="equation">
+		\[
+			e_{av}=\frac{p}{2\pi}\phi\omega_m
+		\]
+	</div>
+	<p>Now, if instead of a single loop of wire there is a coil with a total of
+	<span class="maths">Z conductors</span> (\(Z/2\)turns) connected 
+	in series at any one time :</p>
+	<div class="equation">
+		\[
+			e_{av}=\frac{Zp}{2\pi}\phi\omega_m
+		\]
+	</div>
+	<p>The winding in the machine where the voltage is induced is called an
+	<span class="emph">armature</span> winding. In a dc machine, the armature winding is the 
+	winding on the rotor. Defining the DC machine constant \(k\):</p>
+	<div class="equation">
+		\[
+			k=\frac{ZP}{2\pi}
+		\]
+	</div>
+	<p>results in the <span class="highlight">armature voltage equation</span>.</p>
+	<div class="equation boxed">
+		\[
+			E_A=k\phi\omega_m
+		\]
+	</div>
+	<p>Similarly to the general voltage derivation, the torque on a single conductor
+	can be written as </p>
+	<div class="equation">
+		\[
+			\tau_{av}=rlB_{av}i
+		\]
+	</div>
+	<p>which results in the total torque given by the <span class="highlight">dc machine torque equation</span>.</p>
+	<div class="equation boxed">
+		\[
+			\tau=k\phi I_A
+		\]
+	</div>
+	<p>Note that as we have moved to equations with steady dc values, the armature voltage equation is written in upper case as \(E_A\) to denote that it is a constant voltage, and the torque equation uses \(I_A\) to show that the curent is a constant DC value.</p>
+
+
+<h3>Armature Circuit</h3>
+<h4>Armature Equivalent Circuit Model</h4>
+<div class="row">
+	<div class="col-md">
+	
+		<p>The equivalent circuit model for the armature of a 
+		  dc machine is shown in Fig. 1. The induced armature voltage, 
+		  \(E_A\) is represented by a voltage source, 
+		  connected via 2 brushes to the rest of the circuit. The armature
+			winding resistance is \(R_A\) and <span class ="emph">terminal voltage</span> is \(V_T\). The armature circuit equation is </p>
+		<div class="equation">
+		\[
+		V_T = E_A + I_A R_A	
+		\]
+		</div>
+		<p>Considerig the equivalent circuit model, it can be seen that the measurable voltage of the machine, the <span class="emph">terminal voltage</span> \(V_T\) is only equal to the armature induced voltage \(E_A\) when the armature current \(I_A\) is zero. This occurs in two cases:</p>
+		<ul>
+			<li>no-load: The armature terminals are connected to a voltage source but there is no load torque. In steady state, the motor torque and load torque are equal and opposite, i.e. \(\tau=0\). Therefore the armature current \(I_A\)  is zero acccording to the torque equation and \(E_A=V_T\) </li>
+			<li>open circuit: This is a testing case when the machine is rotated by an external mechnical system, and the terminals of the machine are open circuit. Again in this case, \(I_A = 0 \), and  \(E_A=V_T\) </li>
+		</ul>
+	</div>
+	<div class="col-md">
+		<figure><img src="../images/fund/dc/dc_armature_circuit.png" alt="Dc machine armature circuit"/>
+			<figcaption>Fig. 4. Equivalent Circuit Model of a DC Motor Armature</figcaption>
+		</figure>
+	</div>
+</div>
+
+
+<div class="boxed">
+	<h3>Summary</h3>
+	<p>This page extends the simple DC equations to a case with mulitple poles and conductors. Two important equations for DC machines are derived:</p>
+	<ul>
+	<li>The armature voltage equation</li>
+	<li>The DC machine torque equations</li>
+	</ul>
+	<p>The armature is modelled using an equivalent circuit that includes the effect of the armature winding resistance.</p> 
+	<p>\(E_A\) is the induced internal armature voltage; \(V_T\) is the terminal voltage. </p>
+	
+</div>
+
+</div>
+</article>
+</main>
+	
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-md"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-md"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

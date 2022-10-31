@@ -1,0 +1,246 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Synchronous Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			Fundamentals
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./s_main.html">Principles</a></li>
+			  				<li><a class="dropdown-item"  href="./s_field.html">Field Winding</a></li>
+			  				<li><a class="dropdown-item"  href="./s_armature.html">Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./s_tests.html">Open and Short Circuit Tests</a></li>
+			  				<li><a class="dropdown-item"  href="./s_power_torque.html">Power &amp; Torque</a></li>
+							<li><a class="dropdown-item"  href="./s_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./sg_standalone.html">Stand-Alone</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	Parallel
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="./sg_p_intro.html">Principles of Parallel Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_infinite_bus.html">Infinite Bus Operation</a></li>
+							<li><a class="dropdown-item" href="./sg_p_paralleling.html">Paralleling Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_finite_bus.html">Similar Sized Generators</a></li>
+							<li><a class="dropdown-item" href="./sg_p_examples.html">Examples</a></li>
+							
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link"  href="./sg_power_limits.html">Power Limits</a></li>
+					<li class="nav-item"><a class="nav-link"  href="s_motor.html">Synchronous Motors</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+	<article>
+		<div class="container-lg bg-white p-3">
+			<h2>Power Limits</h2>
+			<div class="row">
+				<div class="col-sm">
+					<p >There are 3 basic types of physical limit on the operation of a synchronous machine&quot;</p>
+					<ol>
+						<li>Thermal</li>
+						<li>Mechanical</li>
+						<li>Electromagnetic</li>
+					</ol>
+					<p >To understand the impact that the physical limits of a synchronous generator
+					have on operation, first consider a simplified phasor diagram. </p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/lag_phasor.gif" alt="lagging power factor phasor diagram"/>
+						<figcaption>Fig. 1. lagging power factor phasor diagram</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Thermal Limits</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Thermal limits set the maximum temperature rise and therefore the maximum power loss
+					in different parts of the machine. Begin by considering the rotor; the major cause of losses on the
+					rotor is the field winding resistive loss. If the field current is above a certain level, the
+					\(I^2R\) losses will be too high, possibly causing insulation failure
+					in the field winding. In order to manage thermal conditions, field current is limited therefore the
+					induced excitation in the armature winding will be limited. The <span class="emph">rotor heating limit</span>
+					sets \(\left|E\right|_{max}\). Similarly on the stator, excessive armature currents will cause the
+					stator temperature to rise beyond a safe level. The <span class="emph">stator heating limit</span>
+					sets \(\left|I_A\right|_{max}\). In steady state, this limit is the rated current 
+					of the machine. (This may be exceeded by an allowed &quot;service factor&quot;. e.g. if a machine has a rated current of
+					100A and a service factor of 1.15, it may safely operate continuously at 115A). The heating limits can be drawn as
+					locii on the phasor diagram:</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/heating_limits.gif" alt="Heating limits"/>
+						<figcaption>Fig. 2. Heating Limits</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Mechanical and Electromagnetic Limits</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p >Mechanically, the input power to the generator is limited by the physical 
+					capacity of the prime mover. As a result, the <span class="emph">prime mover limit</span> sets
+					the maximum output power from the generator, \(P_{max}=\left(E\sin\delta\right)_{max}\).
+					The final limit is related to the mechanical input and the ability of the generator 
+					to electromagnetically create a torque equal and opposite to the driving mechanical torque. Recall
+					that the torque can be thought of as the cross product of two electromagnetic fields or a function of
+					the sine of the angle between \(V\ and \(E\) At a
+					given excitation, if the mechanical torque increases, the rotor speeds up, increasing &delta; and
+					the electromagnetic torque. This negative feedback continues until the electromagnetic and mechanical
+					torques balance. However, if the generator is operating with  &delta; close to 90&deg; when the rotor
+					speeds up, &delta; increases past 90&deg;, the electromagnetic torque falls and positive feedback occurs,
+					causing the rotor to accelerate further, pull out of synchronism and result in zero output power and possibly
+					catastrophic failure. The <span class="emph">static stability limit</span> is set at \(\delta=90^{\circ}\).
+					Adding these limits to the phasor diagram:</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="../images/synch/phasor_limits.gif"  alt="Mechanical limits"/>
+						<figcaption>Fig. 3. Mechanical Limits</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3>Power limits</h3>
+			<div class="row">
+				<div class="col">
+					<p >While the above phasor diagram limits can be used to describe the limits of operation
+					of the generator, it is more useful to think in terms of limits on power, reactive power and voltamps. For
+					this reason, the phasor diagram can be scaled by \(3V/X_S\)to obtain power
+					and reactive power:</p>
+					<figure>
+						<img src="../images/synch/scaled_phasor.gif"  alt="Scaled Phasor Diagram "/>
+						<figcaption>Fig. 4. Scaled Phasor Diagram</figcaption>
+					</figure>				
+					<p >In the above diagram, positive power is on the y-axis and reactive power is on the x-axis.
+					As it is more usual to see power on the x-axis and reactive power on the y-axis, the diagram can be re-drawn</p>
+					<figure>
+						<img src="../images/synch/pq_plot.gif"  alt="power Diagram "/>
+						<figcaption>Fig. 5. power Diagram</figcaption>
+					</figure>
+				</div>
+			</div>
+	
+			<h3>Capability Diagram</h3>
+			<p >Finally, the limits from the phasor diagram can be drawn on a P-Q plot, to obtain the generator
+			capability diagram.</p>
+			<figure>
+				<img src="../images/synch/capability_curve.gif"  alt="Capability Diagram  "/>
+				<figcaption>Fig. 6. Capability Diagram</figcaption>
+			</figure>
+	
+			<h3>Summary</h3>
+			<p >The steady state limits on synchronous generator operation are:</p>
+			<ol>
+				<li>Rotor Heating Limit : Sets \(\left|E\right|_{max}\)</li>
+				<li>Stator Heating Limit : Sets \(S_{max}\)and \(I_{A_{max}}\)</li>
+				<li>Prime Mover Limit : Sets \(P_{max}\)</li>
+				<li>Static Stability Limit: \(\delta=90^{\circ}\)</li>
+			</ol>
+		</div>
+	</article>
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

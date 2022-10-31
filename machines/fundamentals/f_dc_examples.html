@@ -1,0 +1,444 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_emreview.html">EM Fields review</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_basic.html">Basic Machines</a></li>
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			DC Machines
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./f_dc_simple.html">Simple DC Machine </a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_armature.html">DC Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_field.html">Field Connections</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_power.html">Power</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	AC Machines
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item"  href="./f_ac.html">AC Circuits Review</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_gen.html">Generating AC</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_rotation.html">Rotating Fields</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_torque.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_losses.html">Machine Losses</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_examples.html">Examples</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+<article>
+	<div class="container-lg bg-white">
+		<h2>DC Machine Examples</h2>
+		<div class="row">	
+			<div class="col-sm">
+
+				<h3>Separately Excited</h3>
+
+				<p>A separately excited DC motor is rotated at 1000rpm and  the variation of armature 
+				terminal voltage as a function of field current is measured under open-circuit conditions and tabulated below:</p>
+				<div>
+					<table class="data">
+						<tr><td>\(I_F\) (A)</td><td>0.0</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td><td>0.6</td><td>0.7</td><td>0.8</td></tr>
+						<tr><td>\(V_{T_{oc}}\) (V)</td><td>0</td><td>30</td><td>60</td><td>85</td><td>102</td><td>115</td><td>124</td><td>130</td><td>134</td></tr>
+					</table>
+				</div>
+				<p>The field winding is supplied with a constant voltage \(V_F=24V\) and the field resistance is adjustable. The armature winding
+				resistance \(R_A=0.2\Omega\), and the armature terminal voltage \(V_T=130V\). Friction and windage losses can be neglected. </p>
+				<ol class="la">
+				<li>Calculate the field current if the motor is operated with no-load at 1000 rpm</li> 
+				<li>The motor drives a load at 1200 rpm. Calculate the armature voltage at 1200 rpm if the field resistance \(R_F=60\Omega\)</li>
+				<li>Calculate the torque for the above condition</li>
+				<li>Maintaining the terminal voltage constant,  the field current is adjusted until the motor is operating at steady state, supplying a mechanical load of 4160W at 1450 rpm. Calculate the efficiency.</li>
+				</ol>
+
+				<h4>Comments</h4>
+				<p>This question is similar to many DC machine questions and falls into two parts. At the start of the question, you are given a
+				reasonable amount of data about a specific operating condition. You need to then take useful information from this operating condition and
+				apply it to the new operating conditions specified in the rest of the question.</p>
+				<button class="step" onclick="ShowHideSoln1()">Show / Hide Solution</button>
+			</div>
+			<div class="col-sm" id="solution1">
+
+				<h4>Solution</h4>
+				<p>This is a separately excited motor problem:</p>
+				<figure><img src="../images/fund/dc/dc_sepex_circuit.png" alt="Sep Ex Dc machine circuit"/>
+				</figure>
+
+				<p>There are two important pieces of information in the beginning of the question:</p>
+				<ul>
+					<li>The information is being given for <span class="emph">open circuit</span> conditions. In this case, there is no armature
+					current, \(I_A=0\) and therefore the terminal voltage equals the armature voltage: \(E_A |_{1000}=V_{T_{oc}} |_{1000}\) </li>
+					<li>You are being given data on the induced armature voltage at a specific known speed. Because \(E_A\) is a function of speed, we use the notation \(E_A |_{1000}\) to explicity note that the data is valid for only one speed, 1000 rpm.</li>
+				</ul>
+				<div class="boxed">
+					<p>Although the test is recording open circuit terminal voltage, the data in the table can also be thought of as \(E_A |_{1000}\). If desired, it is now possible to re-write and add another row to the table, calculating the values of \(k
+						phi\) at each field current. \(k\phi\) is only a function of field current and is independent of speed. Some students find this helpful, but it is not always required and adds additional calculations (and time) to the solution</p>
+				</div>
+			
+				
+				<p>Knowing how the data in the question is useful is a significant part of the solution process for DC machine questions.</p>
+
+				<ol class="la">
+					<li>This asks about a condition where the motor is operating under no-load at the same speed as the data was tabulated. No-load operation with negiligble friction and windage loss means that the motor is producing no torque. Therefore there is no armature current, \(I_A=0\), and \(V_T=E_A|_{1000}=130\). From the table under open circuit conditions, \(E_A\big|_{1000}=130V\) occurs when <span class="answer">\(I_F=0.7A\)</span></li>
+					<li><p>The motor is no-longer operating at 1000 rpm. Armature voltage is given by</p>
+					
+						<div class="equation">\[E_A=k\phi \omega_m\]</div>
+						<p>i.e. voltage is a function of \(k\phi\) and speed. Flux is only a function of field current, and
+						since field voltage and resistance are specified in the question, a first step is to find field current:</p>
+						<div class="equation">
+							\[
+							V_F=I_F R_F
+							\]
+						</div>
+						<p>gives \(I_F=0.4A\)</p>
+						<p>From the table in the question, when: \(n_m=1000\text{rpm}\) and \(I_F=0.4A\) then \(E_A=102V\).
+						We need to find \(E_A\) for the case when \(n_m=1200\text{rpm}\) and \(I_F=0.4A\) </p>
+						<p>There are two possible approaches:</p>
+						<ol class="lr ">
+							<li>In both cases, the field current is constant, therefore flux will be constant. Armature voltage will be proportional to speed:
+								<div class="equation">
+									\[
+									E_A |_{1200}=E_A |_{1000}\frac{1200}{1000} 
+								\]
+								</div>
+								Giving <span class="answer">\(E_A=122.4V\)</span>
+							</li>
+							<li>Using the armature voltage equation and the table data, find \(k\phi\) at \(I_F=0.4A\). The data in the table gives \(E_A|_{1000} = 102V\) with \(n_m=1000 rpm\) and therefore \(\omega_m=1000\frac{2\pi}{60} = \frac{100\pi}{3}\). Therefore
+							<div class="equation">
+							\[
+							\begin{aligned}
+							k\phi |_{I_F =0.4} &amp;=\frac{102}{\frac{100 \pi}{3}} =\frac{306}{100}\frac{1}{\pi}\\
+							k\phi |_{I_F =0.4} &amp;=0.974
+							\end{aligned}
+							\]
+							</div>
+							Now, at 1200 rpm armature voltage can be found directly from the armature voltage equation:
+							<div class="equation">
+							\[
+							\begin{aligned}
+							E_A |_{1200} &amp;=k\phi |_{I_F =0.4} \omega_m \\
+							\omega_m  &amp; = 1200\frac{2 \pi}{60} = 40\pi
+							\end{aligned}
+							\]
+							</div>
+							Giving <span class="answer">\(E_A=122.4V\)</span>
+							</li>
+						</ol>
+					</li>
+					<li>To find the torque, there are three possible approaches.
+						<ol class ="lr">
+							<li>Consider the impacts of the speed changes on the circuit.
+								<div class="equation">
+									\[
+									\begin{aligned}
+									V_T&amp;=E_A+I_A R_A\\
+									I_A&amp;= \frac{V_T-E_A}{R_A} = 38.0A
+									\end{aligned}
+									\]
+								</div>
+								Using power equations:
+								<div class="equation">
+								\[
+								\begin{aligned}
+								P_{conv} &amp; =\tau \omega_m = E_A I_A \\
+								\tau &amp;   =\frac{122.4 \times 38.0 }{1200\frac{2\pi}{30}} 
+								\end{aligned}
+								\]
+								</div>
+								<span class="answer">\(\tau=37Nm\)</span>
+							</li>
+							<li>Using the torque equation directly: \(\tau=k\phi I_A\). This approach requires the calculation of \(k\phi\),if not already done in the armature voltage calculation, and the calcualtion of \(I_A\) as shown above.
+								<div class="equation">
+									\[
+									\begin{aligned}
+									\tau &amp;   = k\phi |_{I_F =0.4} I_A \\
+									\tau &amp;   = \frac{306}{100}\frac{1}{\pi} 38
+									\end{aligned}
+									\]
+								</div>			
+								<span class="answer">\(\tau=37Nm\)</span>
+							</li>
+							<li>Rearranging the torque-speed equation:
+								<div class="equation">
+									\[
+									\begin{aligned}
+									\omega_m &amp;=\frac{V_T}{k\phi}-\frac{R_A}{(k\phi)^2}\tau \\
+									\tau &amp;=\frac{\left(k\phi\right)^2}{R_A}\left( \frac{V_T}{k\phi}-\omega_m\right)
+									\end{aligned}
+									\]
+								</div>			
+								<span class="answer">\(\tau=37Nm\)</span>
+							</li>
+						</ol>
+						<div class="comment"><h5>Comment:</h5><p>Of the three approaches above, the first and second give some kind of understand that as speed changes, the internal induced voltage \(E_A\) changes, influencing \(I_A\) which in turn impacts torque. This is the logical understanding of the physical mechanisms in the machine. The last approach mathematically gives the correct answer, but gives less understanding of the entire machine response to speed and load changes. </p></div>	
+					</li>
+					<li>
+						<p>In the final part of the question no information is available on the flux in the machine. The preferred
+						approach is to consider the power in the armature circuit:</p>
+						<div class="equation">
+						\[
+						V_T I_A = E_A I_A+ I_A^2 R_A \\
+						\therefore I_A^2 R_A - V_T I_A +P_{conv} =0 \\
+					    0.2 I_A^2  - 60 I_A + 4160 = 0
+						\]</div>
+						<p>Solving the quadratic for armature current results in two values, \(I_A=616A\) or \(IA=33.75A\).
+						The correct answer will be the one that results in the lowest power loss,\(I_A=33.75A\).</p> 
+						<p>At this point, the armature losses can be found, but this is a separately excited machine and it is important to
+						remember to account for power flow in the field circuit. It is therefore necessary to find the field circuit current \(I_F\) and again, there are mulitple approaches to this solution</p>
+						<ol class="lr">
+							<li>Find the armature voltage at 1450 rpm \(E_A|_{1450}\), scale back to \(E_A |_{1000}\) and use the table to look up \(I_F\)</li>
+							<li>Calculate the torque to obtain \(k=phi\) and then calculate the corresponding value in the table</li>
+						</ol>
+						<ol class="lr">
+							<li>
+								<div class="equation">
+								\[
+								V_T = E_A+ I_A R_A 
+								\]</div>
+								gives\(E_A|_{1450}=123.25A\)
+
+								<div class="equation">
+								\[
+								E_A\big|_{1000}=E_A\big|_{1450}\frac{1000}{1450}
+								\]
+								</div>
+								gives \(E_A\ |_{1000}=85.0V\) which, from the table, corresponds to a field current \(I_F=0.3A\)
+							</li>
+							<li>
+								<div class="equation">
+								\[
+								\begin{aligned}
+								P_{conv} &amp; =\tau \omega_m \\
+								\tau&amp; = \frac{4160}{\frac{1450\pi}{30}} = 27.4Nm \\
+								k\phi &amp; = \frac{\tau}{I_A} = 0.812 \\
+								E_A|_{1000} &amp;=k\phi \frac{1000 \pi}{30}	
+								\end{aligned}
+								\]</div>
+							    which gives  \(E_A\ |_{1000}=85.0V\) which, and corresponds to a field current \(I_F=0.3A\)
+							</li>
+						</ol>
+						<p>Finally, efficiency can be found from</p>
+								
+						<div class="equation">
+						\[
+						\begin{aligned}
+						\eta &amp;=\frac{P_{conv}-P_{FW}}{P_{conv}+P_{RA}+P_F} \\
+						P_{RA}+P_F&amp;=I_A^2 R_A +I_F^2 R_F= 235W \\
+						P_{FW}&amp;=0\\	
+						\eta &amp;=\frac{4160}{4395} \\
+						\end{aligned}
+						\]</div>
+						<p>giving <span class=" answer">\(\eta=94.7\%\)</span></p>
+					</li>
+				</ol>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm" >
+
+					<h3>Series Motor Example</h3>
+
+					<p>A series DC motor has combined armature and field resistance of \(R_A+R_S=1.2 \Omega\).
+					When connected to a supply of \(V_T=48V\) at standstill, the motor develops a torque of 1500Nm. </p>
+
+					<ol class="la">
+						<li>Calculate the armature current at standstill and combined motor constant \(kc\)</li>
+						<li>Calculate the torque when the speed is 500 rpm</li>
+						<li>Calculate the output power and efficiency when operating at 500 rpm (neglect mechanical losses)</li>
+					</ol>
+					<button class="step" onclick="ShowHideSoln2()">Show / Hide Solution</button>
+				</div>
+				<div class="col-sm" id="solution2">
+
+					<h4>Solution</h4>
+					<p>This is a series motor problem:</p>
+					<figure>
+						<img alt="Equivalent Circuit Model for a Series Connected DC Machine" src="../images/fund/dc/dc_series_circuit.png">
+					</figure>
+					<ol class="la">
+						<li>At standstill, the angular velocity is zero, therefore the armature voltage is zero 
+						\( E_A=kcI_A\omega =0  \). The full terminal voltage is dropped across the winding
+						resistances and \(V_T=I_A(R_A+R_S) \) gives <span class=" answer">\(I_A=40A\)</span>.
+						Using the torque equation for a series excited DC machine, \( \tau=kcI_A^2\), 
+						the combined motor constant can be found: <span class="answer"> \( kc=1500/1600=0.9375 Nm A^{-2} \)</span>
+						
+						</li>
+						<li>To find the torque it is possible to either substitute directly into the series motor torque-speed equation, or to first find the
+							armature currents:
+							<ol class="lr">
+								<li>
+								<div class="equation">
+								\[
+								\begin{aligned}
+								\omega_m &amp; = \frac{V_T}{\sqrt{kc}}\frac{1}{\sqrt{\tau}}-\frac{R_A+R_S}{kc} \\
+								\omega_m &amp; =n_m\frac{2 \pi}{60} =\frac{50\pi}{3}
+								\end{aligned}
+								\]
+								</div>
+								<p>Re-arranging the torque speed equation and submitting for kc and speed  
+								gives <span class=" answer">\(\tau=0.854Nm\) </span></p>
+								</li>
+								<li>Alternately, substitute  \( E_A = kcI_A \omega_m \) into in the armature loop
+								equation  to obtain \(V_T=I_A(kc\omega_m +R_A+R_S) \) and solve for armature current. \(I_A=0.955A\) and use the torque equation \(\tau=kc I_A^2\) to obtain <span class=" answer">\(\tau=0.854Nm\) </span>
+								</li>
+							</ol>
+						</li>
+					<li>To find efficiency neglecting rotational losses, in a series excited machine it is valid to use \(P_{in}=V_T I_A\):
+					<div class="equation">
+					\[
+					\eta=\frac{P_{conv}}{P_{in}} = \frac{E_A I_A}{V_T I_A} = \frac{E_A}{V_T}
+					\]
+						</div>
+					<span class="answer">\(\eta=97.0 \%\) </span></li>
+					</ol>
+
+
+				</div>
+			</div>
+		</div>
+
+
+</article>
+
+</main>
+	
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+<script>
+	var sn = document.getElementById("solution1");
+	sn.style.display = "none";
+</script>
+<script>
+	var sn = document.getElementById("solution2");
+	sn.style.display = "none";
+</script>
+	
+<script>
+	function ShowHideSoln1() {
+    	var x = document.getElementById("solution1");
+    	if (x.style.display === "none") {
+        	x.style.display = "block";
+    	} else {
+        	x.style.display = "none";
+    	}
+	}
+</script>
+
+<script>
+	function ShowHideSoln2() {
+    	var x = document.getElementById("solution2");
+    	if (x.style.display === "none") {
+        	x.style.display = "block";
+    	} else {
+        	x.style.display = "none";
+    	}
+	}
+</script>	
+</body>
+</html>

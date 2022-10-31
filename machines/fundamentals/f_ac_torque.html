@@ -1,0 +1,329 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Andy Knight</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	 
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script type="text/javascript" 
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script src="../../js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../js/respond.min.js"></script>
+	<script src="../images/fund/ac/ac_trq.js"></script>
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">Andy Knight</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../ieee.html">IEEE</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  Electric Machines
+				</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../intro.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../fundamentals/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../synchronous/s_main.html">Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../induction/i_main.html">Induction Machines</a></li>
+				  <li><a class="dropdown-item" href="../other/o_main.html">Other Machines</a></li>
+				</ul>
+			  </li>
+			</ul>
+			<form class="d-flex" role="search">
+			  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			  <button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		  </div>
+		</div>
+	  </nav>
+	
+<main>	
+	
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_emreview.html">EM Fields review</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_basic.html">Basic Machines</a></li>
+			  		<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  			DC Machines
+						</a>
+						<ul class="dropdown-menu">
+			  				<li><a class="dropdown-item"  href="./f_dc_simple.html">Simple DC Machine </a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_armature.html">DC Armature</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_field.html">Field Connections</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_power.html">Power</a></li>
+			  				<li><a class="dropdown-item"  href="./f_dc_examples.html">Examples</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  	AC Machines
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item"  href="./f_ac.html">AC Circuits Review</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_gen.html">Generating AC</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_rotation.html">Rotating Fields</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_torque.html">Torque</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_losses.html">Machine Losses</a></li>
+							<li><a class="dropdown-item"  href="./f_ac_examples.html">Examples</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	  </nav>
+
+
+<article>
+	<div class="container-lg bg-white">
+
+			
+		<h2>Torque</h2>
+		<p>In the derivations for torque in simple machines the following equations are used to find torque:</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\tau &amp; =\vec{r} \times \vec{F} \\
+			\tau &amp; =\vec{r} \times i \left( \vec{\ell} \times \vec{B} \right)
+			\end{aligned}
+			\]
+		</div>
+		<p>The approach of finding torque from the Lorentz force is not practical in many cases, and in some cases (e.g. in the case when calculating the force between two permanent magnets) requires some fairly advanced approximations or assumptions. In the field of electric machines there is usually a space between the moving surfaces. The principle of virtual work can be used to calculate the force in an airgap as the rate of change of stored energy in the air gap under constant flux conditions. Throughout the course, we use models that predict torque as functions of currents and fluxes, but it is important to recognize that we can always think of torque in terms of air gap magnetic fields density. In rotating machines</p>
+		<div class="equation">
+			\[
+			\tau =\frac{d}{d\theta_R} W |_{constant flux} 
+			\]
+		</div>		
+		<p>where \(\theta_R\) is the rotor position with respect to the stator and \(W\) is the stored energy. The energy density \(w\) of a magnetic field in air is defined as</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			w &amp; =\frac{1}{2}BH \\
+			w &amp; =\frac{1}{2\mu_0}B^2 
+			\end{aligned}
+			\]
+		</div>
+		<p>And the total stored energy in the air gap is given by integrating over the air gap volume. Using an approximation that the flux density vector has only radial components (not circumferential) the energy in the air gap at an instant in time can be approximated as</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			W &amp; = rl \int_0^{2\pi} w(\theta_m) g(\theta_m) d\theta_m\\
+			W &amp; =\frac{rl}{2\mu_0} \int_0^{2\pi}B(\theta_m)^2 g(\theta_m) d\theta_m
+			\end{aligned}
+			\]
+		</div>				
+
+		<p>In the preceeding pages, we have considered magnetic field as occuring due to permanent magnets, or due to the mmf produced by coils. Considering the rotating mmf produced by three-phase AC coils on a stator, </p>
+		<div class="equation">
+			\[
+			\mathcal{F}_{s}  = \frac{3\hat{I}N}{\pi} \cos\left[ \omega_e t - \frac{p}{2} \theta_m \right]
+			\]
+		</div>
+		<p>the resulting flux density can be written as</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			B_s(\theta_m, t) &amp; = \frac{\mu_0}{g}\mathcal{F}_s(\theta_m, t)  \\
+			B_s(\theta_m, t) &amp; = \frac{\mu_0}{g(\theta_m, t) }\hat{\mathcal{F}}_s\cos\left[ \omega_e t - \frac{p}{2} \theta_m \right]
+			\end{aligned}
+			\]
+		</div>
+		<p>Note that in the above equation, the air gap length, g, is given as a function of position and time, it is not necessarily uniform. To simplify things we can set the elecrical frequency to zero, and consider forces in a static field.</p>
+		<div class="equation">
+			\[
+			B_s(\theta_m) = \frac{\mu_0}{g(\theta_m)} \hat{\mathcal{F}}_s \cos\left[  \frac{p}{2} \theta_m \right] 
+			\]
+		</div>
+		<p>In the sections below, the different components of torque are investgated using a simple 2-pole case.</p>
+
+	<h3>Torque Components</h3>
+	<div class="row">
+		<div class="col-sm">
+			<h3>Excitation Torque</h3>
+			<p>Excitation torque is the torque that occurs when two magnetic fields interact. Most of the machines covered in this material exploit exciation torque. This is similar to the force betwen two magnets. The animation below shows how the air gap flux density changes with rotor position, and plots the normalized torque at each rotor position. A derivation of the torque function is shown below.</p>
+			<figure id="canvasholder_ac_trq-exc">
+				<canvas id="canvas_ac_trq-exc"></canvas>
+				<p>Click one of the buttons below to adjust the rotor angle for the case with rotor magnetic field.</p>
+				<div class="button_group">
+				    <button class="step" id="stepUpAnim">+ angle</button>
+				    <button class="step" id="stepDnAnim">- angle</button>
+				</div>
+				<figcaption>
+				Fig. 1 Interactive demonstration of flux density and excitation torque variation with angle in a system with two flux density sources
+				</figcaption>
+			</figure>
+			<p>In the animation above, the buttons adjust the angle of a rotor magnetic field relative to a stationary stator magnetic field. The air gap between rotor and stator is constant, so the stator magnetic field can be written as</p>
+			  <div class="equation">
+				\[
+				B_s(\theta_m) = \hat{B}_s \cos\left( \theta_m \right) 
+				\]
+			</div>
+			<p>The rotor produces a magnetic field that is sinusoidal with respect to the rotor</p>
+			<div class="equation">
+				\[
+				B_r(\alpha) = \hat{B}_r \cos\left() \alpha \right)
+				\]
+			</div>
+			<p>and therefore when the rotor is at position \(\theta_R\), the rotor magnetic field seen from the stator is given by</p>
+			<div class="equation">
+				\[
+				B_r(\theta_m) = \hat{B}_r \cos\left( \theta_m -\theta_R \right)
+				\]
+			</div>
+			<p>Using the virtual work approach, the torque is given by</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\tau &amp; = \frac{dW}{d\theta_R}  \\
+				\tau &amp; = \frac {d}{d\theta_R} \frac{grl}{2\mu_0} \int_0^{2\pi}B(\theta_m)^2  d\theta_m \\ 
+				\tau &amp; = \frac {d}{d\theta_R} \frac{grl}{2\mu_0} \int_0^{2\pi} \left(\hat{B}_s \cos\left( \theta_m \right) + \hat{B}_r \cos\left( \theta_m -\theta_R \right) \right)  d\theta_m 
+				\end{aligned}
+				\]
+			</div>
+			<p>Since the torque is the derivative with respect to \(\theta_R\), the integral terms that do not include \(\theta_R\) can be neglected.</p>
+			<div class="equation">
+				\[
+				\begin{aligned}						
+				\tau &amp; = \frac{d}{d\theta_R} \frac{grl}{2\mu_0}   \int_0^{2\pi} 2 \hat{B}_s \hat{B}_r \cos \theta_m  \cos \left( \theta_m - \theta_R \right)    d\theta_m \\
+				\tau &amp; = \frac{d}{d\theta_R} \frac{grl}{2\mu_0}   \int_0^{2\pi} \hat{B}_s \hat{B}_r \left( \cos \theta_R  + \cos \left( 2\theta_m -\theta_R \right) \right)  d\theta_m \\
+				\tau &amp; = \frac{d}{d\theta_R} \frac{grl\pi}{\mu_0} \hat{B}_s \hat{B}_r \cos \theta_R \\
+				\tau &amp; =-\frac{grl\pi}{\mu_0} \hat{B}_s \hat{B}_r \sin \theta_R
+				\end{aligned}
+				\]
+			</div>
+			<p>The above result gives the fact that the torque is zero when the flux desnities are aligned, is maximum when the fields are perpendicular, and acts to apply a force on the rotor that opposes the movement. The sinusoidal variation of torque with angle will be seen in the section on synchronous machines. Exciation torque is the product of the magnitudes of the two phasors and the sine of the angle between them. If the angle is positive (rotor flux density leads stator flux density) then the torque is negative. If stator flux density leads rotor flux density then the angle is negative and torque is positive. This relationship can  also be written as the cross-product of the two phasors:</p>
+			<div class="centered">
+				\[
+				\begin{aligned}
+				\tau &amp; \propto \vec{B}_r \times \vec{B}_s \\
+				\vec{B}_{net} &amp; =\vec{B}_r+\vec{B}_s \\
+				\tau &amp; \propto \vec{B}_r \times \vec{B}_{net} \\
+				\end{aligned}
+				\]
+			</div>
+		</div>
+		
+		<div class="col-sm">
+			<h3>Reluctance Torque</h3>
+			<p>Reluctance torque, also known as aligment torque, is due to the forces that occur when a magnetic material interacts with a magnetic field. This is similar to the force between a magnet and a steel bar. The animation below shows how tha air gap flux density changes with rotor position and plot the normalized torque at each rotor position. A derivation of the torque function is shown below.</p>
+			<figure id="canvasholder_ac_trq-rel">
+				<canvas id="canvas_ac_trq-rel"></canvas>
+				<p>Click one of the buttons below to adjust the rotor angle for the case with a passive rotor.</p>
+				<div class="button_group">
+				    <button class="step" id="stepUpRAnim">+ angle</button>
+				    <button class="step" id="stepDnRAnim">- angle</button>
+				</div>
+				<figcaption>
+				Fig. 2 Interactive demonstration of flux density and reluctance torque variation with angle in a system with one flux density source and a variable air gap
+				</figcaption>
+			</figure>
+			<p>In this animation, the buttons adjust the angle of a rotor made of magnetic material relative to a stationary stator magnetic field. The air gap between rotor and stator is now variable, so the stator magnetic must now  be written as</p>
+			<div class="equation">
+				\[
+				B_s(\theta_m) = \frac{\mu_0}{g(\theta_m)} \hat{\mathcal{F}}_s \cos\theta_m 
+				\]
+			</div>
+			<p>In the case of the elliptical rotor, a good approximation for the air gap length is given by</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				g(\alpha)   &amp; = g_{ave}-\hat{g}\cos\left( 2\alpha               \right) \\
+				g(\theta_m) &amp; = g_{ave}-\hat{g}\cos\left( 2\theta_m - 2\theta_R \right) 
+				\end{aligned}
+				\]
+			</div>				
+			<p>Using the virtual work approach, the torque is given by</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\tau &amp; = \frac{dW}{d\theta_R}  \\
+				\tau &amp; = \frac {d}{d\theta_R} \frac{rl}{2} \int_0^{2\pi} \frac{\mu_0}{ g_{ave}-\hat{g}\cos\left( 2\theta_m - 2\theta_R \right) } \hat{\mathcal{F}}_s^2 \cos^2\theta_m   d\theta_m 
+				\end{aligned}
+				\]
+			</div>
+			<p>Using the identity that \(1/(1-x) =1+x^2+x^3+x^4... \quad x\lt1 \), it is possible with some time, to show that the air gap energy desnity is proportional to \( \cos\left( 2\theta_m - 2\theta_R \right) \cos^2\theta_m \). As a result, using a similar approach to the one used to find excitation torque, it is possible to find the result that relcutance torque is propotional to \(\sin(2\theta_R)\).</p>			
+			<div class="equation">
+				\[
+				\tau_{rel} = -\hat{\tau} \sin\left(2\theta_R\right) 
+				\]
+			</div>
+			<p>Reluctance torque has traditionally been exploited together with excitation torque in large hydrogenerators. Reluctance torque is exclusively used in sycnhronous reluctance and switched reluctance machines, and is a significant component of the torque in interior permanent magnet machines, which are commonly found in electric drivetrains for vehicles such as the Toyota Prius.</p>
+		</div>
+
+
+
+	
+		<h3>Summary</h3>
+		<p>The ideas of alignment (or reluctance) torque and exciation torque are introduced. Using the air gap energy it is shown that that for steady excitation torque, relative speeds between fields must be zero and pole numbers must be equal.  
+   		</p> 
+
+	</div>
+</article>	
+	
+
+</main>
+	
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>
