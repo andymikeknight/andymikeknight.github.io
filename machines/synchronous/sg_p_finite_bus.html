@@ -11,9 +11,14 @@
 	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
 	 
 	<!-- script to allow inline latex math, rendered using javascript -->
-	<script type="text/javascript" 
-			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-	</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: {'[+]': [['$', '$']]}
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
 	<script src="../../js/jquery-3.4.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="../images/synch/house.js"></script>
