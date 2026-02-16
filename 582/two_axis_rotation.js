@@ -252,10 +252,11 @@ function plotmmfarrow(ctx, x0,y0, width, theta_e,cdata) {
 	ctx.save();
 	ctx.translate(x0,y0);
 	ctx.translate(origin,origin);
+	ctx.lineWidth=3;
     ctx.strokeStyle="#999999";
 		// draw sum total mmf
 	ctx.save();
-	magn=Math.round(0.49*rotr_od);
+	magn=Math.round(0.48*rotr_od);
 	ctx.rotate(-theta_e);
 	var col="#009900"
 	ctx.fillStyle=col;
@@ -264,11 +265,16 @@ function plotmmfarrow(ctx, x0,y0, width, theta_e,cdata) {
 	ctx.restore();
 
 	for (let ph = 0; ph < 3; ph++) {
-		// draw phase A mmf
+		// draw phase mmf
 		ctx.save();
-		magn=-Math.round(0.33*rotr_od*Math.cos(+theta_e-ph*2*Math.PI/3));
-		ctx.rotate(-cdata[ph].th-Math.PI/2);
-		ctx.fillStyle="rgba("+ Math.round(cdata[ph].r) +","+ Math.round(cdata[ph].g) +","+ Math.round(cdata[ph].b) +",0.5)";
+		magn=Math.round(0.32*rotr_od*Math.cos(+theta_e-ph*2*Math.PI/3));
+		ctx.rotate(cdata[ph].th-Math.PI/2);
+		if (magn<0){
+			magn=-magn;
+			ctx.rotate(Math.PI);
+		}
+		ctx.rotate(+cdata[ph].th-Math.PI/2);
+		ctx.strokeStyle="rgb("+ Math.round(cdata[ph].r) +","+ Math.round(cdata[ph].g) +","+ Math.round(cdata[ph].b) +")";
 		drawarrow(magn);
 		ctx.restore();
 	}
