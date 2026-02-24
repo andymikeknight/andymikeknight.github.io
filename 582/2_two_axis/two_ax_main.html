@@ -1,0 +1,225 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Two-Axis Analysis of Three-Phase Variables</title>
+	
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<!--script links for jsquery and boorstrap-->
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- rotating axis animation uses math.js-->
+	<script src="https://cdn.jsdelivr.net/npm/mathjs@15.1.1/lib/browser/math.min.js"></script>
+	<!--script links for js animations and interactions-->
+	<script src="./img/abc_rotation.js"></script>
+    <script src="./img/two_rotation.js"></script>
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+	
+
+<article>
+	<div class="container-lg bg-white">
+		<h2>Two-Axis Analysis of Three-Phase Circuits</h2>
+		<div class="row">
+			<h3>Principles</h3>
+			<p>We have seen that with a set of balanced 3-phase currents, if we offset the location of coils
+				around the stator of an AC machine by 120 degrees electrically, the mmf produced will be a constant
+				magnitude rotating vector. This is illustrated in the interactive animation in Fig. 1.</p>
+			<p>This process is the mechanism that produces rotating mmmf, and a rotating flux density from 
+				AC stator windings in AC machine.</p>
+			
+			<figure id="canvasholder_abc_rot">
+				<canvas id="canvas_abc_rot"></canvas>
+				<p>Click one of the buttons below to see the animation.</p>
+				<div class="button_group">
+					<button class="start" id="runAnim">Run </button>
+					<button class="stop" id="stopAnim">Stop</button>
+					<button class="step" id="stepAnim">Step Forward</button>
+				</div>
+				<figcaption>Fig. 1. Production of a rotating mmf from three mmf vectors, each with magnitude set by one of three-phase sinusoidal currents</figcaption>
+			</figure>
+			<h3>Rotating MMF in terms of two perpendicular space variables.</h3>
+			<p>Now, if we consider the instantaneous mmf produced by any three currents, the total mmf vector will be at a position 
+				defined by the magnitidues of the three instantaneous currents and three unit vectors:
+			</p>
+			<div class="equation"> 
+				\[ f_{t} = f_a \vec{a}+  f_b \vec{b}+ f_a \vec{c}\] 
+			</div>
+			<p>where $\vec{a}$ is a unit vector $1 \angle 0^{\circ}$,  $\vec{b}$ is a unit 
+				vector $1 \angle 120^{\circ}$, and $\vec{c}$ is a unit vector $1 \angle 240^{\circ}$. Since</p>
+			<div class="equation"> \[ 
+				\begin{align*}
+					\vec{a} &amp; = \cos\left(0\right) + j\sin\left(0\right) \\
+					\vec{b} &amp; = \cos\left(\frac{2\pi}{3}\right) + j\sin\left(\frac{2\pi}{3}\right) \\
+					\vec{c} &amp; = \cos\left(\frac{4\pi}{3}\right) + j\sin\left(\frac{4\pi}{3}\right)
+				\end{align*}
+			\] </div>
+			<p>it should be clear that we can describe the mmf at any point in time in terms of only two perpendicular axes. Above, they are 
+				real and imaginary axes, but can be thought of as (x,y) axes, or any perpendicular axes that is convenient. (Obviously we are 
+				plotting the vector in a 2-D plane so we only need two variables to describe the rotating vector)
+			</p>
+			<p>In the animation in Fig. 2. the mmf is plotted in terms of abc vectors, and in terms of two perpendicular vectors. You can choose to 
+				plot the vectors as (x,y) quantities, (x,-y), which are known as ($\alpha$,$\beta$) axes, or arbitray $q,d$ axes where $q$ and $d$ 
+				can rotate at an arbitrary speed, and be at an arbitrary angle at $t=0$.</p>
+			<p>The time -plot on the right of the animation shows the instantaneous value of the mmf components on the two axes in the central plot.
+				Note that the central space vector plot and the time plot have the magnitude of the mmf scaled by 2/3, so that the magnitude of the 
+				vectors in the two axes is equal to the maximum of any of quantities a, b, or c.</p>
+			<figure id="canvasholder_two_rot">
+				<canvas id="canvas_two_rot"></canvas>
+				<figcaption>Fig 2. Plotting the rotating mmf vector in terms of abc variables, (x,y) quantitties, (x,-y) axes, or 
+					rotating axes</figcaption>
+				</figcaption>
+				<div class="button_group">
+					<button class="start" id="run2A">Run </button>
+					<button class="stop" id="stop2A">Stop</button>
+					<button class="step" id="step2A">Step Forward</button>
+				</div>
+				<div class="button_group">
+					<button class="option" id="xy2A">(x,y)</button>
+					<button class="option" id="ab2A">(x,-y)</button>
+					
+				</div>
+					<div class="button_group">
+					<button class="option" id="qd2A">Rotating</button>
+					<button class="option" id="plusw">+speed</button>
+					<button class="option" id="minusw">-speed</button>
+					<button class="option" id="plusth">+angle</button>
+					<button class="option" id="minusth">-angle</button>
+				</div>
+			</figure>
+		</div>
+		<div class="row">
+			<h3>Converting three-phase ($abc$) voltages, currents and fluxes to two-axis systems ($qd0$)</h3>
+			<p>We have seen above that a balanced 3-phase phasors (phasors sum to zero) can be written in terms of two variables, which we will call the $qd$. 
+				When considering the contribution of three voltages, currents, or fluxes, we must also consider the possibility that all abc 3 phasors have a "common mode" 
+				component. Common mode signals include 3rd harmonics, which are in-phase in each of the three phases, DC bias, or high frequency switching harmonics from PWM. 
+				Common mode signals have no influence on the total q or d values. This component, if present, is called a <span class="emph">zero sequence</span>  component. 
+				If we transform instantaneous abc variables to a $qd-$ axis system, we have to inlude a $0$ component. If the abc variables are balanced, the 0 component will 
+				not be present.</p>
+			<p>We use matrix algebra to define variables in $abc$ and $qd0$ and to convert between them. We can define</p>
+			<div class="equation">\[
+				\begin{equation}
+					i_{qd0} = \begin{bmatrix} i_q \\ i_d \\ i_0 \end{bmatrix} \qquad i_{abc} = \begin{bmatrix} i_a \\ i_b \\ i_c \end{bmatrix} \qquad i_{qd0}=\left[K\right] i_{abc}
+				\end{equation}
+			\] </div>
+			<p>In these equations, $i_{qd0}$ is a vector of instantaneous time varying currents , $i_q(t)$, $i_d(t)$ $i_0(t)$ and $i_{abc}$ is a vector of the instantaneous $abc$ currents
+				$i_a(t)$, $i_b(t)$ $i_c(t)$. Usually, we drop the $(t)$ terms in the equations and note that a lower case letter ($v$, $i$. $\lambda$) is describing a time varying
+				quantity. In many cases we will consider, approprate choice of reference frame means that these variables may become steady DC quantities, but they can rapidly change 
+				with changes in motor conditions.</p>
+			</p>
+			<p>with $K$ the transformation matrix given by</p>
+			<div class="equation">\[
+				\begin{equation}
+					K=\frac{2}{3}\begin{bmatrix} \cos\left(\theta\right) & \cos\left(\theta-\frac{2\pi}{3}\right) & \cos\left(\theta+\frac{2\pi}{3}\right) \\
+									  \sin\left(\theta\right) & \sin\left(\theta-\frac{2\pi}{3}\right) & \sin\left(\theta+\frac{2\pi}{3}\right) \\
+									  \frac{1}{2} &\frac{1}{2} &\frac{1}{2}\end{bmatrix}
+				\end{equation}
+			\] </div>
+			<p>where $\theta$ is the position of the q axis relative to the $\vec{a}$ unit vector.</p>
+			<p>We can also define an inverse transformation matrix $K^{-1}$:</p>
+			<div class="equation">\[
+				\begin{equation}
+					i_{abc}=\left[K\right]^-1 i_{qdo} \qquad 	K^{-1}=\begin{bmatrix} \cos\left(\theta\right) & \sin\left(\theta\right) & 1 \\
+																	\cos\left(\theta-\frac{2\pi}{3}\right) & \sin\left(\theta-\frac{2\pi}{3}\right) & 1 \\
+																	\cos\left(\theta+\frac{2\pi}{3}\right) & \sin\left(\theta+\frac{2\pi}{3}\right) & 1 \end{bmatrix}
+				\end{equation}
+			\] </div>
+		</div>
+	</div>
+</article>	
+	
+
+</main>
+	
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1 text-success">
+				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+					</svg>	
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+          
+
+</body>
+</html>

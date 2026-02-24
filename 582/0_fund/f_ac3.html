@@ -1,0 +1,343 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Three-Phase AC Circuits</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_ac1.html">1-phase AC Circuits</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_ac3.html">3-phase AC Circuits</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_em.html">Electromagnetics</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_gen.html">AC Generation</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_rotating_mmf.html">AC Rotating Fields</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+    <article>
+    <div class="container-lg bg-white">
+		<div class="row">
+			<div class="col-sm">
+				<p>In a three phase power system there are three interconnected circuits. The voltages and currents in 
+					each of the circuits are phase shifted by 120&deg; electrically from the voltages and currents in 
+					the other two circuits. </p>
+			
+				<p>The phase voltages in a circuit may be written in time notation as</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					v_a(t) &amp; = \hat{V}_{\phi}\cos\left(\omega t\right) \\
+					v_b(t) &amp; = \hat{V}_{\phi}\cos\left(\omega t -\frac{2\pi}{3} \right) \\
+					v_c(t) &amp; = \hat{V}_{\phi}\cos\left(\omega t -\frac{4\pi}{3}\right) 
+					\end{aligned}
+					\]
+				</div>
+				<p> where the subscript \(\phi\) is used to identify that this is a phase voltage.</p>
+			</div>
+			<div class="col-sm">
+				<figure>
+					<img src="./img/3p_sines.png" alt="Plot of three-phase variables"/>
+					<figcaption>Fig. 2. Plot of three-phase variables</figcaption>
+				</figure>
+			</div>
+		</div>
+		
+		<p>Writing the voltages as phasors (using electrial degrees this time, rather than radians):</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\vec{V}_a &amp; = V_{\phi}\angle 0^{\circ} \\
+			\vec{V}_b &amp; = V_{\phi}\angle {-120}^{\circ} \\
+			\vec{V}_c &amp; = V_{\phi}\angle {-240}^{\circ}
+			\end{aligned}
+			\]
+		</div>
+		<p> If we assume a balanced system (impedances and induced voltages of each phase branch are equal), the currents may be written as </p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\vec{I}_a &amp; = I_{\phi}\angle \left(\theta \right) \\
+			\vec{I}_b &amp; = I_{\phi}\angle \left(\theta-120^{\circ}\right) \\
+			\vec{I}_c &amp; = I_{\phi}\angle \left(\theta-240^{\circ}\right)
+			\end{aligned}
+			\]
+		</div>
+
+		
+		<h3>Three-phase Circuit Connections</h3>
+		<p>Up to this point the three phase system has been defined in
+		terms of the individual phase legs of a load or supply (a, b or c). The power system line quantities
+		can be found from the phase quantities, depending on the circuit configuration. There are two types of common three-phase connection, Y- and &Delta;. 
+		The relationship between component phase quantiities and supply line quantities can found mathematically graphically. 
+		In the system supplying the load, consider three lines (1,2,3) with</p>
+		<ul>
+			<li><span class ="emph">line-line voltages</span>$V_{12}\, V_{23}\, V_{31}$</li>
+			<li><span class ="emph">line currents </span>$I_{1}\, I_{2}\, I_{3}$ </li>
+		</ul>
+		<p>From the supply line variables (shown in blue in the diagrams below), it is impossible to know if the system is
+			connected to a Y- or &Delta;- circuit (shown red)</p>
+		
+		<div class="row">
+			<div class="col-sm">
+				<h4>Y-Connection</h4>
+				<figure>
+					<img src="./img/y-circuit.png" alt="Three-phase Y-Connection"/>
+					<figcaption>Fig. 3. Three-phase circuit Y-Connection</figcaption>
+				</figure>
+				<p>From the circuit diagram it can be seen that</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					\vec{I}_{1} &amp; =\vec{I}_{aY}\\
+					\vec{I}_{2} &amp; =\vec{I}_{bY}\\
+					\vec{I}_{3} &amp; =\vec{I}_{cY}
+					\end{aligned}
+				\]</div>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					\vec{V}_{12} &amp; =\vec{V}_{aY}-\vec{V}_{bY} \\
+					\vec{V}_{23} &amp; =\vec{V}_{bY}-\vec{V}_{cY} \\
+					\vec{V}_{31} &amp; =\vec{V}_{cY}-\vec{V}_{aY} 
+					\end{aligned}
+				\]</div>			
+				<p> The voltage phasor relationships are plotted graphically in Fig. 4. </p>
+				<figure>
+					<img src="./img/y-voltage-phasors.png" alt="Y-Connection Voltage Phasor Diagram"/>
+					<figcaption>Fig. 4. Y-Connection Voltage Phasor Diagram</figcaption>
+				</figure>
+				<p>Considering \(V_{12}\) the
+				line-line voltage is given in terms of the phase voltage by</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					\vec{V}_{12} &amp; =\vec{V}_A-\vec{V}_B \\
+					\vec{V}_{12} &amp; =V_{\phi} \angle 0^{\circ} - V_{\phi} \angle {-120}^{\circ} \\
+					\vec{V}_{12} &amp; =\sqrt{3} V_{\phi} \angle 30^{\circ}
+					\end{aligned}
+					\]
+				</div>
+				<p>The rms line-line voltage and rms line current are defined in terms of the rms phase quantities as:</p>
+				<div class="equation boxed">
+					\[
+					\begin{aligned} 
+					V_{LL} &amp;=\sqrt{3} V_{\phi Y} \\
+					I_L &amp; = I_{\phi Y}
+					\end{aligned}
+					\]
+				</div>						
+			</div>
+			<div class="col-sm">
+				<h4>&Delta;-Connection</h4>
+				<figure>
+					<img src="./img/delta.png" alt="Plot of three-phase variables"/>
+					<figcaption>Fig. 5. Three-phase circuit &Delta;-Connection</figcaption>
+				</figure>
+				<p>From the circuit diagram it can be seen that</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					\vec{V}_{11} &amp; =\vec{V}_{a&Delta;}\\
+					\vec{V}_{23} &amp; =\vec{V}_{b&Delta;}\\
+					\vec{V}_{31} &amp; =\vec{V}_{c&Delta;}
+					\end{aligned}
+					\]
+				</div>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					\vec{I}_{1} &amp; =\vec{I}_{a&Delta;}-\vec{I}_{c&Delta;} \\
+					\vec{I}_{2} &amp; =\vec{I}_{b&Delta;}-\vec{I}_{b&Delta;} \\
+					\vec{I}_{3} &amp; =\vec{I}_{c&Delta;}-\vec{I}_{a&Delta;} 
+					\end{aligned}
+					\]
+				</div>			
+				<p> The current phasor relationships are plotted graphically in Fig. 6. </p>	
+				<figure>
+					<img src="./img/delta-current-phasors.png" alt="Delta-Connection Current Phasor Diagram"/>
+					<figcaption>Fig. 6. &Delta;-Connection Current Phasor Diagram</figcaption>
+				</figure>
+			    <p>Considering \(I_{1}\) the line current is given in terms of the phase currents by</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					\vec{I}_{1} &amp; =\vec{I}_{A&Delta;}-\vec{V}_{B&Delta;} \\
+					\vec{I}_{1} &amp; =I_{\phi} \angle 0^{\circ} - I_{\phi} \angle {120}^{\circ} \\
+					\vec{I}_{1} &amp; =\sqrt{3} I_{\phi} \angle -30^{\circ}
+					\end{aligned}
+					\]
+				</div>
+				<p>The rms line-line voltage and rms line current are defined in terms of the rms phase quantities as:</p>
+				<div class="equation boxed">
+					\[
+					\begin{aligned} 
+					V_{LL} &amp;= V_{\phi &Delta;} \\
+					I_L &amp; = \sqrt{3}I_{\phi &Delta;}
+					\end{aligned}
+					\]
+				</div>						
+			</div>	
+		</div>
+		
+		<h3>Thee-Phase Power Flow</h3>
+		<p>Instantaneous power flow in each leg of the load is the product
+		of instantaneous voltage and current:</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			p_A(t) &amp; = V_{\phi}I_{\phi} \left\{ \cos\theta + \cos\left(2\omega t + \theta \right) \right\}\\
+			p_B(t) &amp; = V_{\phi}I_{\phi} \left\{ \cos\theta + \cos\left(2\omega t - \frac{4\pi}{3} + \theta  \right) \right\}\\
+			p_C(t) &amp; = V_{\phi}I_{\phi} \left\{ \cos\theta + \cos\left(2\omega t + \frac{4\pi}{3} + \theta \right) \right\}
+			\end{aligned}
+			\]
+		</div>
+		<p>and the total power flow can be found from the sum of the power in
+		each leg. In balanced systems, the total power is constant as the oscillating 
+		components cancel,</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			p(t) &amp; = p_A(t)+p_B(t)+p_C(t) \\
+			p(t) &amp; = 3V_{\phi}I_{\phi}\cos\theta \\
+			P&amp; = 3V_{\phi}I_{\phi}\cos\theta
+			\end{aligned}
+			\]
+		</div>
+
+		<p>i.e. in balanced three-phase systems the total power is three times the average power in one of the phases. Apparent and reactive power are given by</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			\vec{S} &amp; =3\vec{V_{\phi}}\vec{I_{\phi}}^* \\
+			S &amp; =3V_{\phi}I_{\phi} \\
+			Q &amp; =3V_{\phi}I_{\phi}\sin\theta 
+			\end{aligned}
+			\]
+		</div>
+
+		<p>Power flow in a three phase system can be defined in terms of
+		either phase or line quantities:</p>
+		<div class="equation boxed">
+			\[
+			\begin{array}{ll}
+			S = 3V_{\phi} I_{\phi} &amp;= \sqrt{3}  V_{LL} I_{L} \\
+			P = 3V_{\phi} I_{\phi} \cos \theta &amp;= \sqrt{3}  V_{LL} I_{L} \cos \theta\\
+			Q = 3V_{\phi} I_{\phi} \sin \theta &amp;= \sqrt{3}  V_{LL} I_{L} \sin \theta
+			\end{array}
+			\]
+		</div>
+
+		
+	</article>
+	<summary>	
+		<div class="container-lg bg-white">
+			<h3>Summary</h3>
+
+			<p>This page briefly introduces three-phase circuits, which can be connected in either Y or &Delta; configuration.
+				The relationships between phase voltage and line-line voltage, and between phase current and line current are 
+				presented. The expressions for three-phase power flow, Apparent Power, Complex Power and Reactive Power are given.
+			</p>
+		</div>
+	</summary>	
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

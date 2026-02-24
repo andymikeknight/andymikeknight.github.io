@@ -12,8 +12,8 @@ The script plots the spatial variation of the flux density as a function of angl
 The total phase voltage from the summation of individual coil voltages is also plotted as a time varying function*/	
 	
 
-	var cont_acr=document.getElementById("canvasholder_2ax_rot");
-	var myc_acr = document.getElementById("canvas_2ax_rot");
+	var cont_acr=document.getElementById("canvasholder_ac_rot");
+	var myc_acr = document.getElementById("canvas_ac_rot");
 
 	if (null===myc_acr || !myc_acr.getContext) {
 	return; 
@@ -112,9 +112,9 @@ The total phase voltage from the summation of individual coil voltages is also p
 		/* call the functions that draw the components of the animation*/
 		
 		plotblankrotor(ctx_acr, 0, 0, boxsize);
-		plotmmfarrow(ctx_acr, 0, 0, boxsize, omegat, coildata);
-		plotcurrent(ctx_acr, winW/2, 0, boxsize, omegat, coildata);
-		 /*plotiphasors(ctx_acr, winH, winH/2, boxsize, omegat, option, coildata);*/
+		plotmmfarrow(ctx_acr, 0, 0, boxsize, omegat, option, coildata);
+		plotcurrent(ctx_acr, winW/2, 0, boxsize, omegat, option, coildata);
+		plotmmfspace(ctx_acr, winH, winH/2, boxsize, omegat, option, coildata);
 		
 	}
 	
@@ -122,11 +122,33 @@ The total phase voltage from the summation of individual coil voltages is also p
 	init_drawing();
 	window.addEventListener('resize',init_drawing,false);
 
+
+	
+	var ButtonA = document.getElementById('aAnim');
+	var ButtonB = document.getElementById('bAnim');
+	var ButtonC = document.getElementById('cAnim');
 	var ButtonABC = document.getElementById('abcAnim');
 	var stopButton = document.getElementById('stopAnim');
 	var stepButton = document.getElementById('stepAnim');
 
-
+    ButtonA.addEventListener("click", function(){
+          clearInterval(id) ;
+		  option=1;
+		  init_drawing();
+          id=setInterval(animate_drawing,tstep);
+        });
+	ButtonB.addEventListener("click", function(){
+			clearInterval(id) ;
+			option=2;
+			init_drawing();
+			id=setInterval(animate_drawing,tstep);
+        });
+	ButtonC.addEventListener("click", function(){
+			clearInterval(id) ;
+			option=3;
+			init_drawing();
+			id=setInterval(animate_drawing,tstep);
+        });
 	ButtonABC.addEventListener("click", function(){
 			clearInterval(id) ;
 			option=4;
@@ -243,7 +265,7 @@ function plotblankrotor(ctx, x0,y0, width){
 	ctx.restore();
 }
 
-function plotmmfarrow(ctx, x0,y0, width, theta_e,cdata) {
+function plotmmfarrow(ctx, x0,y0, width, theta_e, option, cdata) {
 	'use strict';
 
 	var rotr_od=Math.round(0.65*width);
@@ -252,64 +274,49 @@ function plotmmfarrow(ctx, x0,y0, width, theta_e,cdata) {
 	ctx.save();
 	ctx.translate(x0,y0);
 	ctx.translate(origin,origin);
-	ctx.lineWidth=3;
     ctx.strokeStyle="#999999";
-		// draw sum total mmf
-	ctx.save();
-	magn=Math.round(0.48*rotr_od);
-	ctx.rotate(-theta_e);
-	var col="#009900"
-	ctx.fillStyle=col;
-	ctx.strokeStyle=col;
-	drawarrow(magn);
-	ctx.restore();
-
-	for (let ph = 0; ph < 3; ph++) {
-		// draw phase mmf
+		if (option===4){ // draw sum total mmf at bottom
 		ctx.save();
-		magn=Math.round(0.32*rotr_od*Math.cos(+theta_e-ph*2*Math.PI/3));
-		ctx.rotate(cdata[ph].th-Math.PI/2);
-		if (magn<0){
-			magn=-magn;
-			ctx.rotate(Math.PI);
-		}
-		ctx.rotate(+cdata[ph].th-Math.PI/2);
-		ctx.strokeStyle="rgb("+ Math.round(cdata[ph].r) +","+ Math.round(cdata[ph].g) +","+ Math.round(cdata[ph].b) +")";
-		drawarrow(magn);
+		magn=Math.round(0.49*rotr_od);
+		ctx.rotate(-theta_e);
+		ctx.fillStyle="#009900";
+		drawarrow(magn,width/15);
 		ctx.restore();
 	}
-	function drawarrow(magn){
+
+	if (option===1 || option===4){ // draw phase A mmf
+		ctx.save();
+		magn=-Math.round(0.33*rotr_od*Math.cos(+theta_e));
+		ctx.rotate(-cdata[0].th-Math.PI/2);
+		ctx.fillStyle="rgba("+ Math.round(cdata[0].r) +","+ Math.round(cdata[0].g) +","+ Math.round(cdata[0].b) +",0.5)";
+		drawarrow(magn,width/15);
+		ctx.restore();
+	}
+	if (option===2 || option===4){ // draw phase B mmf
+		ctx.save();
+		magn=-Math.round(0.33*rotr_od*Math.cos(+theta_e-2*Math.PI/3));
+		ctx.rotate(-cdata[1].th-Math.PI/2);
+		ctx.fillStyle="rgba("+ Math.round(cdata[1].r) +","+ Math.round(cdata[1].g) +","+ Math.round(cdata[1].b) +",0.5)";
+		drawarrow(magn,width/15);
+		ctx.restore();
+	}
+    if (option===3 || option===4){ // draw phase C mmf
+	    ctx.save();
+		magn=-Math.round(0.33*rotr_od*Math.cos(+theta_e+2*Math.PI/3));
+		ctx.rotate(-cdata[2].th-Math.PI/2);
+		ctx.fillStyle="rgba("+ Math.round(cdata[2].r) +","+ Math.round(cdata[2].g) +","+ Math.round(cdata[2].b) +",0.5)";
+		drawarrow(magn,width/15);
+		ctx.restore();
+	}
+	function drawarrow(m,w){
 		ctx.beginPath(); 
-		ctx.moveTo(0,0);
-		ctx.lineTo(magn,0); 
-		ctx.lineTo(magn-4,0-4); 
-		ctx.lineTo(magn-4,0+4); 
-		ctx.lineTo(magn,0); 
-		ctx.stroke();
+	    ctx.lineTo(0,-w);ctx.lineTo(0.7*m,-w);ctx.lineTo(m,0);ctx.lineTo(0.7*m,w);
+		ctx.lineTo(0,w);ctx.lineTo(0,0);ctx.stroke(); ctx.fill();
 	}
 	ctx.restore();
 }
 
-function drawPhasor(ctx,x0,y0,magn,phase,col,name, nameoffset){	
-	'use strict';
-	ctx.save();
-	ctx.strokeStyle=col;
-	ctx.fillStyle=col;
-	ctx.translate(x0,y0);
-	ctx.rotate(-phase);
-	ctx.beginPath(); 
-	ctx.moveTo(0,0);
-	ctx.lineTo(magn,0); 
-	ctx.lineTo(magn-4,0-4); 
-	ctx.lineTo(magn-4,0+4); 
-	ctx.lineTo(magn,0); 
-	ctx.stroke();
-	ctx.translate(magn-Math.abs(3*nameoffset),-nameoffset);
-	ctx.rotate(phase);
-	ctx.fillText(name,0,0);
-	ctx.restore();
-}	
-function plotcurrent(ctx,x0,y0,width, theta_e,  cdata){
+function plotcurrent(ctx,x0,y0,width, theta_e, opt, cdata){
 	'use strict';
 	var x1, y1, dh, dw;
 	ctx.save();
@@ -324,10 +331,22 @@ function plotcurrent(ctx,x0,y0,width, theta_e,  cdata){
 
 	
 
-	for (let ph = 0; ph < 3; ph++) {
+	if (opt===1 || opt===4){ // draw phase A 
 		ctx.save();
-		ctx.strokeStyle="rgb("+ Math.round(cdata[ph].r) +","+ Math.round(cdata[ph].g) +","+ Math.round(cdata[ph].b) +")";
-		drawcos(ctx,x1,y1,dw,dh,-ph*Math.PI*2/3);
+		ctx.strokeStyle="rgb("+ Math.round(cdata[0].r) +","+ Math.round(cdata[0].g) +","+ Math.round(cdata[0].b) +")";
+		drawcos(ctx,x1,y1,dw,dh,0);
+		ctx.restore();
+	}
+	if (opt===2 || opt===4){ // draw phase B 
+		ctx.save();
+		ctx.strokeStyle="rgb("+ Math.round(cdata[1].r) +","+ Math.round(cdata[1].g) +","+ Math.round(cdata[1].b) +")";
+		drawcos(ctx,x1,y1,dw,dh,-Math.PI*2/3);
+		ctx.restore();
+	}
+    if (opt===3 || opt===4){ // draw phase C 
+		ctx.save();
+		ctx.strokeStyle="rgb("+ Math.round(cdata[2].r) +","+ Math.round(cdata[2].g) +","+ Math.round(cdata[2].b) +")";
+		drawcos(ctx,x1,y1,dw,dh,Math.PI*2/3);
 		ctx.restore();
 	}
 	

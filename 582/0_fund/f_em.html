@@ -1,0 +1,453 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Electromagnetics</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+ <!--    <script src="./img/plot_1p.js"></script>
+    <script src="./img/single_phasors.js"></script>	-->
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_ac1.html">1-phase AC Circuits</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_ac3.html">3-phase AC Circuits</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_em.html">Electromagnetics</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_gen.html">AC Generation</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_rotating_mmf.html">AC Rotating Fields</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+    <article>
+	<div class="container-lg bg-white">
+
+		<h2>Review of Electromagnetic Fields</h2>
+
+
+		<p>Electrical machines are based on the electromagnetic principles that produce force or induce voltages and currents. Electromagnetic fields provide the link between mechanical systems and electrical systems. There are five principles that allow us to understand this link.</p>
+		<ul>
+			<li>Current flowing in a conductor will produce a magnetic field around the conductor. </li>
+			<li>Magnetic materials, with high relative permeability, provide a means to direct and focus magnetic flux</li>
+			<li>Transformer Action: If the magnetic flux passing through a coil changes, there will be a
+				voltage induced in the coil.</li>
+			<li> Motor Action: If current flows in a conductor subject to an external magnetic field, a 
+				force will be exerted on the conductor.</li>
+			<li> Generator Action: If a conductor is moved through a magnetic field a voltage will be 
+				induced in the conductor.</li>
+		</ul>
+
+
+		<h3>Production of a Magnetic Field</h3>
+
+		<p>Ampere's Law states that:</p>
+
+
+		<div class="equation"> \[I=\oint_c \vec{H}.dl \]</div>
+
+		<p>i.e. <span class="emph">the total current I enclosed by the path c is equal to the integration of magnetic 
+		   field intensity along that path.</span> Note that \(\vec{H}\) 
+			denotes that magnetic field intensity is a vector, <span class="emph">H</span> is the magnitude
+			of the vector.</p>
+
+
+		<div class="row">
+			<div class="col-sm">
+				<p>Consider Ampere's Law applied to the simple magnetic core shown in the figure.
+				  Here, there is a core with average length <span class="emph">l<sub>c</sub></span> with a coil of 
+				  <span class="emph">N</span> turns on one side. The coil carries a current <span class="emph">i</span>.
+				  In this case the total current enclosed by the path following the dotted line is given by </p>
+				<div class="equation"> \[I=Ni\]</div>
+
+				<p>Applying Ampere's Law we get: </p>
+
+				<div class="equation" lang="latex">
+				  \begin{aligned}
+				  NI &amp;= H l_c \\
+				  \mathcal{F}&amp;= Ni
+				  \end{aligned}
+				</div>
+			</div>
+			<div class="col-sm">
+				<figure><img alt="image" src="./img/em_core.png"/>
+					<figcaption>Fig. 1. Simple Iron Core</figcaption>
+				</figure>
+			</div>
+		</div>
+	
+	
+			
+		<p>We can think of <span class="emph">Ni</span> as the driving force which drives flux around the magnetic 
+		circuit. <span class="emph">Ni</span> is the magnetomotive force, or mmf, denoted by 
+		\(\mathcal{F}\).
+		Assuming that all the flux stays in the iron core and that the core has a cross section <span class="emph">A</span>, then we can say that the magnetic flux density \(\vec{B}\) can be 
+		written as:</p>
+
+		<div class="equation">\[
+			\begin{aligned}
+			\vec{B} &amp;= \frac{\vec{\phi}}{A} \\
+			\vec{B} &amp;= \mu \vec{H}
+			\end{aligned}
+			\]</div>
+
+		<p>\(\phi\) is magnetic flux and \(\mu\) is magnetic permeability. \(\mu = \mu_0 \mu_r\)
+			where  \(\mu_0\) is the permeability of free space and \(\mu_r\) is relative permeability.
+			For unsaturated steel,  \(\mu_r\) is typically in the range of about 5,000 - 10,000. Re-arranging the above equations, we get:</p>
+
+		<div class="equation">\[
+			\begin{aligned}
+			\phi &amp;= \frac{A\mu}{l_c}\mathcal{F} \\
+			\phi &amp;= \mathcal{P}\mathcal{F}
+			\end{aligned}
+			\]</div>
+
+		<p>where \(\mathcal{P}\) is called  the 
+			permeance of the magnetic circuit. Alternatively we can write:</p>
+		<div class="equation">\[
+			\begin{aligned}
+			\mathcal{R} &amp; = \frac{1}{\mathcal{P}} \\
+			\nu &amp; = \frac{1}{\mu} \\
+			\mathcal{R} &amp; = \frac{\nu l_c}{A} \\
+			\mathcal{F} &amp; = \mathcal{R} \phi
+			\end{aligned}
+			\]</div>
+		<p>Where \(\mathcal{R}\) is reluctance and \(\nu\) is <span class="emph">reluctivity</span>. Comparing the magnetic circuit to an electrical circuit, flux is analogous to current, reluctance is analogous to resistance and mmf is analogous to emf, or voltage. Using this approach we can calculate the reluctance of various sections of a flux path to calculate the flux and flux density</p>
+
+
+		<h4>Recap</h4>
+		<p>So far:</p>
+		<ul>
+			<li> We can create a magnetic field using current and conductors.</li>
+			<li> If we coil the conductors with <span class="emph">N</span> turns, the magnetic field intensity 
+				will increase by the factor <span class="emph">N</span>.</li>
+			<li> We can direct the path of the magnetic field using ferromagnetic materials (with high relative 
+				permeability).</li>
+			<li> We can consider an electromagnetic circuit as analogous to an electrical circuit.</li>
+		</ul>
+
+		<h4>Gapped Core</h4>
+			
+	
+		<div class="row">
+			<div class="col-sm">
+
+				<p>Now we can consider Ampere's Law applied to the air-gapped magnetic core shown in Fig. 2. In this case the length of the flux path  
+					in the core is $l_c$ and the length of the air gap is $g$.
+				</p>
+				<p>The source mmf from the coil is given as</p>
+
+				<div class="equation">
+					\[
+			  		\begin{aligned}
+			  		\mathcal{F}&amp;= Ni \\
+					\mathcal{F}&amp;=\mathcal{F}_c+\mathcal{F}_g
+			  		\end{aligned}
+					\]
+				</div>
+				<p> where \(\mathcal{F}_c\) and \(\mathcal{F}_g\) are the MMF applied to the core and the air gap respectively. </p> 
+			</div>
+			<div class="col-sm">
+				<figure><img alt="image" src="./img/em_gapped_core.png"/>
+					<figcaption>Fig. 2. Air Gapped Iron Core</figcaption>
+				</figure>
+			</div>
+		</div>
+	
+		<p>Using the magnetic circuit approach the mmf equation can be written as</p>
+		<div class="equation">
+			\[ \mathcal{F}=\left( \frac{\nu_c l_c}{A_c}+\frac{\nu_0 g}{A_g} \right) \phi \]
+		</div>
+		<div class="equation">
+			\[ Ni =\left( \frac{l_c}{\mu_0 \mu_r A_c}+\frac{g}{\mu_0 A_g}\right) \phi \]
+		</div>
+
+		
+		<p>and if we assume fringing is negligible, \(A_g=A_c\) then</p>
+		
+
+		<div class="equation">
+			\[ Ni = \frac{1}{\mu_0} \left( \frac{l_c}{\mu_r}+g \right) \frac{\phi}{A_g} \]
+		</div>
+		<div class="equation">
+						\[ Ni = \frac{1}{\mu_0} \left( \frac{l_c}{\mu_r}+g \right) \left|\vec{B}\right| \] 
+		</div>
+	
+	
+	
+		<p>The above equations indicate that the flux density produced is a function of the MMF amp-turns, the air gap length, the steel core length and the steel relative permeability. If the relative permeability of steel is high (10,000) then the core MMF in the core will be negligible relative to the MMF in the air gap. In this case, to acheive a high flux density, we simply need a small gap, or a high MMF.  Unfortunately, the permeability of steel falls as the flux density increases.</p>
+		
+	
+		<h3>Saturation</h3>
+
+		<div class="row">	
+			<div class="col-sm">	
+
+				<p>A typical magnetisation characteristic, or BH curve, for steel is similar to the one in Fig. 3. The permeability is given by the ratio \(B/H\). </p>
+
+				<p>Increasing the magnetic field intensity will initially cause a rapid rise in flux density This indicates a high permeability. At some point 
+			 	 (typically about 1.0T to 1.5T in steels used in machines) the rate of increase of flux density with field intensity 
+				  is reduced. This is called the knee of the saturation curve. As the field intensity is increased further 
+				 the steel is said to be saturated and larger changes in field intensity result in smaller changes in flux 
+				  density. As a result, the flux density in electrical machines is limited. We will see later that force and 
+			 	 torque are functions of flux density and dimensions. Since flux density is limited, we are left with the fact that a higher 
+				  torque requires a larger machine. This is an important general result. It means that higher speed machines are 
+			 	 smaller for a given power rating (power is torque times speed). It also means that to reduce the size of a machine for a 
+		  			given torque, you must somehow increase the flux density.</p>
+			</div>
+			<div class="col-sm">
+				<figure>
+					<img alt="image" src="./img/saturation_curve.png"/>
+					<figcaption>Fig. 3. Illustration of a Saturation</figcaption>
+				</figure>
+			</div>
+		</div>
+
+
+		
+		<div class="row">
+			<div class="col-sm">
+				<h3>Transformer Action</h3>
+				<p>Faraday's and Lenz' Laws state that</p>
+				<div class="equation">
+					\[
+						e=-\frac{d\phi}{dt}
+					\]
+				</div>
+				<p>If the flux passing though a a single turn of a wire changes with time, there will be an emf induced in 
+				across the turn, and the emf induced will act to induce a current opposing the change in flux. 
+				</p>
+				<div class="boxed">
+					<p>If a single wire is arranged so as to form a closed loop, it is called a 'turn'.
+					A number of turns of wire together form a 'coil'. Coils can often be though of as having 2 'coil-sides', i.e.
+					positive current may flow away from you in one side of the coil and towards you in the other side of the
+					coil. A number of coils may be connected form a 'winding'.</p>
+				</div>
+
+				<p>In a coil the total flux passing through the coil (<span class="emph">linking the coil</span>) will be 
+				the sum of the flux linking each turn of the coil. Often this is approximated as the number of turns
+				multiplied by the flux linking one turn. However, it is more correct to think of the total flux linkage of
+				a coil, denoted by &lambda;. Flux linkage has units of Weber-turns. 
+				In this case we re-write the induced voltage as:</p>
+				<div class="equation">
+					\[ 
+						e=-\frac{d\lambda}{dt} 
+					\]
+				</div>
+			</div>
+
+		<div class="row">
+			<h3>Transformer Model</h3>
+			<div class="col-sm">
+				<p>Consider the simple core from Fig 1., with an additional coil, as shown in Fig. 4.</p>
+
+				<p>Current in the first red coil, produces a flux that passes around the core and links the coils in the second blue coil. We can define
+					the red coil as the <span class="emph">primary</span> coil, denoted with subscript 1 and the blue coil as the 
+					<span class="emph">secondary</span> coil, denoted by subscript 2. If the 
+					current is sinusoidal,</p>
+				<div class="equation">\[
+						i_1(t)=\sqrt(2)I_1\cos\left(\omega_e t\right)
+				\]</div>
+				<p>then from the magnetic ciruuit analysis above, the flux in the core is given by </p>
+				<div class="equation">\[
+						\phi(t)=\frac{\sqrt(2) N_1 I_1 A \mu}{l}\cos\left(\omega_e t\right)
+				\]</div>
+			</div>
+				<div class="col-sm">
+				<figure><img alt="image" src="./img/em_core.png"/>
+					<figcaption>Fig. 4. Simple Transfomer Core</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="row">
+			<p>The flux linkage $\lambda$ for each coil is given by </p>
+			<div class="equation">\[
+				\begin{aligned}
+					\lambda_1(t)&amp;=N_1\phi(t) \\
+					\lambda_2(t)&amp;=N_2\phi(t)
+				\end{aligned}
+			\]</div>
+			<p>Applying Faraday & Lenz's laws as above</p>
+			<div class="equation">\[
+				\begin{aligned}
+					e_1(t)&amp;=-\frac{d\lambda_1(t)}{dt} \\
+					e_2(t)&amp;=-\frac{d\lambda_2(t)}{dt} \\
+					e_1(t)&amp;=\frac{\sqrt(2) \omega_e N_1^2 I_1 A \mu}{l}\sin\left(\omega_e t\right) \\
+					e_2(t)&amp;=\frac{\sqrt(2) \omega_e N_1 N_2 I_1 A \mu}{l}\sin\left(\omega_e t\right)
+				\end{aligned}
+			\]</div>
+			<p>and therefore</p>
+			<div class="equation boxed">\[
+					E_2=\frac{N_2}{N_1}E_1
+			\]</div>
+			<p>Similarly, if current flows in coil 2</p>
+			<div class="equation">\[
+				\begin{aligned}
+					\phi(t)&amp;=\frac{\sqrt(2) N_1 I_1 A \mu}{l}\cos\left(\omega_e t\right) \\
+					\phi(t)&amp;=\frac{\sqrt(2) N_2 I_2 A \mu}{l}\cos\left(\omega_e t\right)
+				\end{aligned}
+			\]</div>					
+			<div class="equation boxed">\[
+					I_2=\frac{N_1}{N_2}I_1
+			\]</div>
+			<p>These boxed equations describe the operation of an ideal transformer.</p>
+		</div>
+		<h4>Equivalent Circuit for a non-ideal transformer</h4>
+		<div class="row"></div>
+			<div class="col-sm">
+				<p>The previous analysis shows that if the transformer core is infinitely permeable $\mu=\infty$, then  voltages will exist when  
+				 the current $I_1$ is zero. In realtity permeability is finite, $\mu \neq \infty$, and there is a magnetiizing reactance $X_m$ required 
+				to support the magnetic field.</p>
+				<div class="equation">\[
+					X_m=\frac{\omega_e N_1^2 A \mu}{l}
+				\]</div>
+				<p>Each coil will also have finite resistance, and some leakage reactance. There are also losses due to hystersis and induced eddy currents
+					in the steel core of the transformer. These lead to the transformer equivalent ciruit model, shown in Fig. 5. </p>
+				<p>In Fig.5. $R_1,\, X_1$ are the resistance and leakage reactance of the primary winding. $X_1=\omega_e L_1$ where $L_1$ is the 
+				leakage inductance. $R_1,\, X_2$ are the resistance and leakage reactance of the secondary winding. $X_m$ is the magnetizing reactance
+				defined above, and $R_c$ is the core loss resistance. In certain cases, where the core losses are relatively small, we can neglect the core losses
+				and $R_c \rightarrow \inf$ and may be eliminated in the circuit model. </p>
+			</div>
+			<div class="col-sm">
+					<figure><img alt="image" src="./img/transformer_cct.png"/>
+						<figcaption>Fig. 5. Transfomer Equivalent Circuit Model</figcaption>
+					</figure>
+			</div>
+		</div>
+
+
+		<div class="row"></div>
+			<h3>Motor Action</h3>
+			<div class="equation">
+				\[
+					\vec{F} = i ( \vec {\ell} \times \vec{B} )
+				\]
+			</div>
+			<p>A force is produced when current flows through a conductor in a magnetic field. Note that if the current
+			flow parallel to the direction of the magnetic flux, the force will be zero. </p>
+			<p class="bold" > Force is a maximum when current flow is perpendicular to flux density.</p>
+
+
+			<h3>Generator Action</h3>
+			<div class="equation">
+				\[
+					e=( \vec{v} \times \vec{B} ) \cdot \ell
+				\]
+			</div>
+			<p>Moving a conductor through a magnetic field will cause a voltage to be induced in the conductor. Note that in the
+			above equation, \(v\) denotes linear velocity.</p>
+			<p class="bold" >Induced voltage is maximized when the conductor, flux density and motion are perpendicular to one another.</p>
+		</div>
+
+	</div>
+	</article>
+	<summary>
+	<div class="container-lg bg-white">
+		<div class="row">
+	
+		<h3>Summary</h3>
+		<p>The ability to create a magnetic field using coils and electric current can be combined with 
+  			ferromagnetic materials to direct and focus magnetic flux. Combined with transformer action, generator action
+  			and motor action, these concepts form the foundation of electrical machine design and operation.</p>  
+		</div>
+  	</div>
+	</summary>
+	
+
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

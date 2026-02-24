@@ -1,0 +1,279 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Induction Machine Circuit Parameters Tests</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<!--script links for jsquery and boorstrap-->
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!--script links for js animations and interactions-->
+
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">AC Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./im_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./im_eqc.html">Equivalent Circuit</a></li>
+					<li class="nav-item"><a class="nav-link" href="./im_stand.html">Standards</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./im_param.html">Parameter Tests</a></li>
+					<li class="nav-item"><a class="nav-link" href="./im_speed.html">Speed Control</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+	<article>
+		<div class="container-lg bg-white">
+		<h2>Determining Induction Machine Parameters</h2>
+			<p>Three tests are needed to determine the parameters in an induction machine
+			  model. Detailed testing is quite involved and is specified in 
+			  <a href="http://ieeexplore.ieee.org/iel1/2875/5495/00210975.pdf">IEEE Standard 112</a>.</p>
+
+			  <h3> DC Resistance Test</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p> If a DC voltage is applied to the stator terminals, there will be no 
+					  potential difference across any inductance and no induced voltage on the rotor. As a 
+					  result, the per-phase circuit is reduced to the stator winding resistance. Applying a 
+					  DC voltage across two motor terminals and measuring the current, the stator resistance 
+					  can be found. Considering the figures below, it can be seen that the apparent impedance 
+					  will depend on whether the machine is wye or delta connected.</p>
+					<div class="equation">
+						\[
+						R_{1Y} =\frac{V_{DC}}{2I_{DC}} \quad R_{1\Delta}= \frac{3V_{DC}}{2I_{DC}} 
+						\]
+					</div>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="./img/wye_or_delta.jpg" alt="Y or Delta Connection for DC Resistance Test"/>
+						<figcaption>Fig. 1. Y or Delta Connection for DC Resistance Test</figcaption>
+					</figure>
+				</div>
+			</div>
+	
+			<h3> Locked Rotor Test</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p> In the locked rotor test, the rotor of the machine is prevented from rotating 
+					  and the supply voltage gradually increased until rated current is reached. When the 
+					  rotor is stationary , the slip, \(s=1\) and the 
+					  equivalent circuit can be drawn as show in Fig. 2. </p>
+					<p>Analysing the circuit:</p>
+					<div class="equation">
+						\[
+						\begin{aligned}
+						P_{LR} &amp; =3I_1^2\left(R_1+R_2\right) \\
+						Q_{LR} &amp; =3I_1^2\left(X_1+X_2\right)_{LR}
+						\end{aligned}
+					    \]
+					</div>
+					<p>Therfore, if the stator power, current and reactive power are measured,
+					  the resistance and leakage reactances can be found.</p>
+					<p> Ideally, the locked rotor test should be performed at a reduced 
+					  frequency to account for skin depth
+					  and more accurately predict the rotor resistance under load conditions.
+					  Typically, this test is done at 1/4 rated frequency.
+					  With the value of stator resistance from the DC test, the rotor resistance referred
+					  to the stator can be found. </p>
+					<p>If the locked rotor test is done at reduced frequency, then the reactances 
+					  (which are proportional to frequency) must be scaled to find the correct value at rated frequency:</p>
+					<div class="equation">
+						\[
+					  	\left(X_1+X_2\right)_{rated}=\frac{f_{rated}}{f_{LR}}\left(X_1+X_2\right)_{LR}
+					  	\]
+					</div>
+
+					<p>At this point, only the total leakage reactance is known.
+					  The relative values of stator and rotor leakage are defined in the Standard, based on experimental experience. 
+					  The fractions of reactance as a function of total leakage reactace are given in Table 1.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="./img/locked_rotor_cct.jpg" alt="Locked Rotor Test Equivalent Circuit"/>
+						<figcaption>Fig. 2. Locked Rotor Test Equivalent Circuit</figcaption>
+					</figure>
+					<figure>
+						<table class="data">
+							<tr> <th>Motor Type</th>  <th>\(X_1\)</th> <th>\(X_2\)</th> </tr>
+							<tr> <td>Wound Rotor</td> <td>50%</td>     <td>50%</td> </tr>
+							<tr> <td>Class A</td>     <td>40%</td>     <td>60%</td> </tr>
+							<tr> <td>Class B</td>     <td>40%</td>     <td>60%</td> </tr>
+							<tr> <td>Class C</td>     <td>30%</td>     <td>70%</td> </tr>
+							<tr> <td>Class D</td>     <td>50%</td>     <td>50%</td> </tr>
+						</table>
+						<figcaption>Table 1. Leakage reactances as percentage of total leakage</figcaption>
+					</figure>
+				</div>
+			</div>
+			<h3> No Load Test</h3>
+
+			<p>The no-load test of an induction machine enables the magnetizing reactance, core loss resistance and friction and windage loss to be calculated. To be able to seperate friction and windage losses from core losses, an adjustable power supply is required. If a fixed voltage power supply is used, the separation of losses is not possible. In this case, the losses may be grouped as "rotational losses". The theory behind this test for both cases is presented.</p>
+
+			<div class="row">
+				<div class="col-sm">
+					<h3>No Load Test - Core Loss combined with Friction and Windage</h3>
+					<p> During the no-load test, the machine is allowed to accelerate up 
+					to synchronous speed with no load applied. The machine will run close to synchronous 
+					speed, with <span class="maths">s&nbsp;&rarr;&nbsp;0</span> If slip 
+					approaches zero, the rotor current will fall to zero and the equivalent circuit 
+					can be drawn as shown below.</p>
+					<figure>
+						<img src="./img/no_load.gif" alt="no load circuit without RC"/>
+						<figcaption>Fig. 3. no load circuit without \(R_c\)</figcaption>
+					</figure>
+					<p>Remembering that this is a per-phase circuit we can write</p>
+					<div class="equation">
+					\[
+						\begin{aligned}
+						P_{nl} &amp; =3I_1^2R_1 +P_{rotational} \\
+						Q_{nl} &amp; =3I_1^2 \left(X_1+X_m\right) 
+						\end{aligned}
+						\]
+					</div>
+					<p> where rotational losses are defined as</p>
+					<div class="equation">
+						\[
+						P_{rotational}=P_{F+W}+P_{core}
+						\]
+					</div>
+					<p>Note that we assume that stray load losses are zero at no-load</p>
+					<p>Measuring the stator current, power and reactive power, the
+					remaining paramters can be found. Using the power, if stator resistance is known 
+					(from the DC test), the total rotational losses can be found</p>
+					<p>Using the value of \(X_1\) from  the locked rotor test, 
+					the magnetising reactance, \(X_m\), may be found from the no load 
+					reactive power.</p>
+				</div>
+				<div class="col-sm">
+					<h3> No Load Test - Identifying Core Loss and Friction and Windage</h3>
+					<p>Including the core loss resistance,the circuit at locked rotor becomes</p>
+					<figure>
+						<img src="./img/locked_rotor_rc.png" alt="locked rotor circuit with RC">
+						<figcaption>Fig. 4. locked rotor circuit with \(R_C\)</figcaption>
+					</figure>
+					<p>In this case, the input power and reactive power are given by:</p>
+					<div class="equation">
+						\[
+						\begin{aligned}
+						P_{nl} &amp; =3I_1^2 R_1 + 3\frac{E^2}{R_c} +P_{F+W} \\
+						Q_{nl} &amp; =3I_1^2 X_1+ 3 \frac{E^2}{X_m}
+						\end{aligned}
+						\]
+					</div>
+					<p>where \(E\) is the voltage across the magnetizing branch</p>.
+					<p>In order to seperate core loss from friction and windage, it is necessary to measure the input power at as the input voltage is reduced. Subtracting the stator copper loss, the total core loss plus friction and windage may be plotted as a function of supply voltage. Extrapolating to zero volts, when the core loss will be zero, it is possible to estimate the friction and windage. An example of this plot together with a quadratic fit (in this case an automatic trendline from Excel) is shown below. From the data, it is possible to estimate the friction and windage as approximately 200W.</p>
+					<figure>
+						<img src="./img/nl_loss_curve.png" alt="loss plot">
+						<figcaption>Fig.5. Iron Loss Test Plot</figcaption>
+					</figure>
+					<p>With \(R_1\) and \(X_1\) known, it is possible to calculate \(E\), then find \(R_C\) and \(X_m\) from the input power and reactive power</p>.
+				</div>
+			</div>
+			
+		</div>
+
+	</article>
+	<summary>
+		<div class="container-lg bg-white">
+			<h3>Summary</h3>
+			<p>Induction machines paramters can be found via no-load, locked rotor and DC winding resistance testing. The ratio of rotor to stator reactance
+				is set by the motor class, from Standards defninitions.</p>
+			</p>
+		</div>
+	</summary>
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

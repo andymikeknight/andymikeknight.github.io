@@ -1,0 +1,412 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AC Generation</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./img/ac_gen.js"></script>
+
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_ac1.html">1-phase AC Circuits</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_ac3.html">3-phase AC Circuits</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_em.html">Electromagnetics</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_gen.html">AC Generation</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_rotating_mmf.html">AC Rotating Fields</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+    <article>
+	<div class="container-lg bg-white">
+		<h2>Generating AC Voltages</h2>
+		<div class="row">
+		
+			<h3>Generator Principles</h3>
+			<p>The animation below is intended to demonstrate the basic structure of and AC generator and to illustrate the mathematical derivation of induced AC voltages in a 3-phase generator. A simplified generator is shown on the left. There is a cylindrical rotor, which prodces a pair of magnetic poles, North (red) and South (blue). The magnitdue of the rotor flux density varies sinusoidally around the circumference of the rotor, but is constant along the axial length. The rotor can rotate along the axis of the center of the cylinder. The rotor is surrounded by a stator, which has a number of coils that are equally spaced around the circumference of the air gap. Each coil is made up of two <span class="emph">coil sides</span> -there are twice as many coil-sides as there are coils. The number of coils in the animation can be changed, but the coils are grouped into three phases (illustrated in red, yellow and blue in the animation). The total number of coils is always a multiple of three.</p>
+			<p>The plots in the centre of the animation show the flux density in the air gap of the machine. The top plot gives the spatial variation of the flux density around the circumference of the inside of the stator. The plot at the bottom centre of the animation gives the instantaneous magnitude of the flux density seen by each coil side.</p>
+			<p>The plot on the right of the animation gives the voltage induced in each coil side, and the total voltage induced in each phase, assuming all the coils for a phase are connected in series</p>
+
+			<figure id="canvasholder_ac_gen">
+				<canvas id="canvas_ac_gen"></canvas>
+				<p>Click one of the buttons below to see the animation with different numbers of coils. Use the stop button to pause the animation. The Step Forward button will move the current animation forward by one time step.</p>
+				<div class="button_group">
+				<button class="start" id="1pAnim">Single Coil</button>
+				<button class="start" id="3cAnim">Three Coils</button>
+				<button class="start" id="6cAnim">Six Coils</button>
+				<button class="start" id="9cAnim">Nine Coils</button>	
+				<button class="stop" id="stopAnim">Stop</button>
+				<button class="step" id="stepAnim">Step Forward</button>
+				</div>
+			</figure>
+		
+
+			<h3>Voltage induced in a single coil</h3>
+			<p>The rotor in the generator illustrated above produces a flux which passes radially from the rotor surface into the stator. The circumferential variation of this radial flux density 
+			around the rotor can be described using</p>
+			<div class="equation">
+				\[
+				B=\hat{B} \cos\alpha
+				\]
+			</div>
+
+			<p>where \(\alpha\) is the angle around the rotor surface. If the rotor of the machine rotates at constant speed \(\omega_m t\)then the flux density seen at a position 
+			\(\theta_m\) on the stator will be given by</p>
+			<div class="equation">
+				\[
+				B=\hat{B} \cos\left(\omega_m t -\theta_m\right)
+				\]
+			</div>
+			<h4>Calculating the voltage induced in a coil using the generator law</h4>
+			<p>Using the generator law</p>
+			<div class="equation">
+				\[
+				e= \left( \vec{v} \times \vec{B} \right) \cdot \vec{l}
+				\]
+			</div>
+			<p>the voltage induced in each side of the coil can be obtained. Considering the
+			conductor at \(\theta=-\pi/2\), the velocity of the conductor with respect to the flux
+			is in the negative x-direction (the flux density is moving left to right relative to the conductor), positive flux density is from the rotor to the stator (down), therefore 
+			cross product \( \vec{v} \times \vec{B} \) is parallel with the conductor, out of the plane. If we take the conductor to be oriented with positve direction in to the page then the induced voltage is given by</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				e &amp; =-\hat{B}lv\cos\left(\omega_m t + \frac{\pi}{2}\right) \\
+				e &amp; =\hat{B}lv\sin\left(\omega_m t \right) 
+				\end{aligned}
+				\]
+			</div>
+			<p>Relating linear velocity to angular velocity</p>
+			<div class="equation">
+				\[
+				|v|=  r \omega_m
+				\]
+			</div>
+			<p>the induced voltage becomes</p>
+			<div class="equation">
+				\[
+				e=\hat{B}lr\omega_m \sin\left(\omega_m t \right)
+				\]
+			</div>
+			<p>For the return side of the conductor at \(\theta=\pi/2\), the conductor is now oriented out the page and  </p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				e &amp; = \hat{B}lr\omega_m \cos\left(\omega_m t - \frac{\pi}{2} \right) \\
+				e &amp; = \hat{B}lr\omega_m \sin\left(\omega_m t  \right)
+				\end{aligned}
+				\]
+			</div>
+
+			<p>Therefore, the total voltage induced in the loop formed by the two conductors is</p>
+			<div class="equation">
+				\[
+				e=2\hat{B}lr\omega_m \sin\left(\omega_m t\right) \\
+				\]
+			</div>
+			<p>Now, if there are \(N_t\) turns forming a coil, the total voltage induced in a coil with coil sides spaced even around the circumfernce of a two-pole ac machine is given by</p>
+			<div class="equation">
+				\[
+				e=2\hat{B}N_t lr\omega_m \sin\left(\omega_m t\right)
+				\]
+			</div>
+			<h4>Calculating the voltage induced in a coil using Faraday's law</h4>
+			<p>The voltage can also be written in terms of the total flux passing through the coil by integrating the flux density over the surface of the air gap between the two coil sides (i.e. from \(\theta=-\pi/2\) to \(\theta=\pi/2\) ) and then differentiating with respect to time. (Applying Faraday &amp; Lenz laws).</p>
+			<p>Integrating the flux density around the circumference of the rotor, the total flux linking the coil is given by</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\lambda &amp; = N_t r l \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \hat{B} \cos\left(\omega_m t -\theta_m\right) d\theta_m \\
+				\lambda &amp; = 2 N_t r l \hat{B} \cos\left(\omega_m t \right) \\
+				\lambda &amp; = \hat{\lambda}  \cos\left(\omega_m t \right) \\
+				\hat{\lambda} &amp; = 2 N_t r l \hat{B} 
+				\end{aligned}
+				\]
+			</div>
+			
+			<p>and using transformer action the voltage induced in the coil is</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				e &amp; = -\frac{d \lambda}{dt} \\
+				e &amp; = -\frac{d }{dt} \left( \hat{\lambda}  \cos\left(\omega_m t \right) \right)\\
+				e &amp; = \hat{\lambda} \omega_m \sin\left(\omega_m t \right)
+				\end{aligned}
+				\]
+			</div>			
+			<p>The two equations above provide equally valid methods to find the voltage induced in an stationary coil by a rotating magnetic field. Alternately the voltage may be written in terms of the rms voltage \(E\) as</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				e &amp; =\sqrt{2}E\cos \left(\omega_m t\right) \\
+				E &amp; =  \frac{1}{\sqrt{2}} 2 N_t r l \hat{B} \omega_m \\
+				E &amp; =  \frac{1}{\sqrt{2}} 2 N_t r l \hat{B} 2 \pi f \\
+				E &amp; =  2\sqrt{2} \pi f  N_t r l \hat{B} \\
+				\end{aligned}
+				\]
+			</div>
+
+			<h3>Voltage induced at different coil positions</h3>
+			<p>Consider an animation example with mulitple coils. Each coil still has a <span class="emph">coil-span</span> of \(\pi\), but the sides of the coils are shifted from the original single-coil case by an angle \(\beta\). Using the transformer approach:</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\lambda &amp; = N_t r l \int_{0+\beta}^{\pi+\beta} \hat{B} \cos\left(\omega_m t -\theta\right) d\theta \\
+				\lambda &amp; = \hat{\lambda}  \sin\left(\omega_m t -\beta \right) \\
+				e &amp; = \hat{\lambda} \omega_m \cos\left(\omega_m t -\beta \right)
+				\end{aligned}
+				\]
+			</div>
+			<div class="boxed">
+				<p>Positioning the coils at a physical angle \(\beta\) causes a time phase shift in the voltage waveform equal to \(-\beta\) </p>
+			</div>
+			<p>In the simple animation case with three coils, the coils are positioned at 0, +120&deg;, and +240&deg; and create the three phase voltages \(\vec{E}_A=E\angle0^{\circ}, \, \vec{E}_B=E\angle -120^{\circ}, \, \vec{E}_C=E\angle-240^{\circ} \) </p>
+
+			<h3>Connecting Mulitple Coils</h3>
+			<p>The voltages induced in different coils are phase shifted, by an angle defined by on the physical position of the coils. If coils are series connected, the total voltage is given by the phasor summation of the individual coil voltages. Consider the two examples of the simple six coil and nine-coil machines in the animations. In the six coil system, there are two coils per phase, per pole - pair. (There is only one pair of poles in this example.) Put more simply, there are two coils for each of phases A, B and C. The usualy terminology for this is to say there are 2 <span class="emph">slots per phase per pole</span>. In the nine-coil system there are 3 <span class="emph">slots per phase per pole</span>. For the general case will use \(q\) to define slots per phase per pole, \(p\) to define the number of poles (two so far) and \(N_slots\) the number of slots, \(N_p\) the number of phases. </p>
+			<p>In a single layer winding (all we are considering in this material) the angle between adjacent coils or slots is given by </p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				q &amp; =\frac{N_{slots}}{pN_p} \\
+				\gamma &amp;= \frac{\pi}{N_p q}
+				\end{aligned}
+				\]
+			</div>
+			<p>The total voltage for each phase is given by:</p>
+			<div class="equation">
+				\[
+				E_{phase}=\sum_i=E\angle (i-1)\gamma
+				\]
+			</div>
+
+		<h4>Example: 2-coils</h4>
+		<p>\(\gamma = \pi/6\) or \( \gamma=30^{\circ} \)</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			E_{phase} &amp; =\left| E\angle0+E\angle30^{\circ} \right|  \\
+			E_{phase} &amp; =\left| E+E \left( \cos 30 + j\sin 30\right)\right|  \\
+			E_{phase} &amp; =\left| E\left( 1.866 + j 0.5 \right)\right|  \\
+			E_{phase} &amp; =1.932 E
+			\end{aligned}
+			\]
+		</div>
+		<p>The total rms voltage obtained by connecting two adjacent coils in series is 96.6% of the sum of the magnitides of the two coils. </p>
+		<h4>Example: 3-coils</h4>
+		<p>\(\gamma = \pi/9\) or \(\gamma=20^{\circ}\)</p>
+		<div class="equation">
+			\[
+			\begin{aligned}
+			E_{phase} &amp; =\left| E\angle   0^{\circ} + E\angle 20^{\circ} +E \angle 40^{\circ} \right|  \\
+			E_{phase} &amp; =\left| E\angle -20^{\circ} + E\angle  0^{\circ} +E \angle 20^{\circ} \right|  \\
+			E_{phase} &amp; =\left| E \left( \cos 20 - j\sin 20 \right) + E + E \left( \cos 20 + j\sin 20 \right) \right|  \\
+			E_{phase} &amp; =\left| E\left( 1+2\cos20 \right)\right|  \\
+			E_{phase} &amp; =2.88 E
+			\end{aligned}
+			\]
+		</div>
+		<p>The total rms voltage obtained by connecting three adjacent coils in series is 95.8% of the sum of the magnitides of the three coils. </p>	
+	</div>
+	<div class="row">
+		<h3>Why Three Phases?</h3>
+		<p>We assumed at the start of the page that coils are connected into three phases. The question is often asked why three, why not 2, 4, 5 or any other nunber. There are a number of factors to be considered. In the first case, third harmonics are the most significant harmonics in an odd Fourier series. (e.g. if you had a rotating square wave flux density), and are in phase with each other in a three-phase system. Therefore in a sytem with third harmonic present in the phase voltages, there is no third harmonic line-line component. The other reason is to do with practicality of making generators. We can see this by considering two extreme examples</p>
+		<h4>Many Coils - Many Phases</h4>
+		 <p>	If there are \(N \)coils, all capable of carrying equal current, \(I\), the maximum available power is available in an \(N_p\) phase machine with \(N_p=N\). In this case, the maximum available power is given by given by</p>
+		<div class="equation">
+			\[
+			P_{max}=N_p E I
+			\]
+		</div>
+		<p> Unfortunately, to access this power, each phase (each coil) would need to be connected to a load by its own transmission line. This is unacceptably expensive for a transmission and distribution system. </p>
+		 <h4>Many Coils - One Phase</h4>
+		<p>As an alternative, all the coils could be connected together
+		  in series to form a single phase voltage. If all the coils are connected in series
+		  the total available voltage is given by the phasor summation of the individal coil voltages. The phase angle between the individual voltages is given by</p>
+		<div class="equation">
+			\[
+		  	\gamma=\frac{\pi}{N}
+		  	\]
+		</div>
+		and using a somewhat obscure identity
+		<div class="equation">\[
+		  \sum_{k=0}^{N-1} \cos\left(A+kB\right) = \frac{\sin\frac{NB}{2}}{\sin\frac{B}{2}} \cos\left(A+\frac{NB}{2}\right)
+		  \]</div>
+		we can write
+		<div class="equation">\[
+		  \begin{aligned}
+		  e_{series}&amp;=\hat{E}\sum_{k=0}^{N-1} \cos\left(\omega t+k \gamma \right) \\
+		  E_{series}&amp;=\frac{E}{\sin\left(\frac{\pi}{2N}\right)}
+		  \end{aligned}
+		  \]</div>
+		<p>The available power (again, assuming each coil carries current \(I\) ) is given by </p>
+		<div class="equation">\[
+		  \begin{aligned}
+		  P &amp;=E_{series}I \\
+		  E_{series}&amp;=\frac{P_{max}}{N\sin\left(\frac{\pi}{2N}\right)}
+		  \end{aligned}
+		  \]</div>
+
+		<p>In the case where \(N\) is large, the series connected power is \(2/\pi\) times the theoretical maxiumum power from an N phase system (about 64%). </p>
+		<h4> A Three-phase machine</h4>
+		<p>Clearly some compromise between generator utilization and power delivery cost must be reached. This compromise is the three-phase power system. In a three-phase generator, there are still many coils in the machine, but the coils are now connected in three distinct groups, called phases. If the three phase phases are connected so that all coils are in series, we can write</p> 
+		<div class="equation">\[
+		\begin{aligned}
+		e_{series}&amp;=E\sum_{k=0}^{N-1} \cos\left(\omega t+k \frac{\pi}{N} \right) \\
+		e_{series}&amp;=E_{ph}\sum_{k=0}^{2} \cos\left(\omega t+\frac{\pi}{3} \right) \\
+		E_{ph}&amp;=E\frac{\sin\frac{\pi}{6}}{\sin\frac{\pi}{2N}}
+		\end{aligned}
+		\]</div>
+		<p>Now, if each phase is connected to a load, the total available power is given by</p>
+
+		<div class="equation">\[
+		\begin{aligned}
+		P_{3ph}&amp;=3E_{ph}I \\
+		P_{3ph}&amp;=3EI \frac{\sin\frac{\pi}{6}}{\sin\frac{\pi}{2N}} \\
+		P_{3ph}&amp;=P_{max}\left(\frac{2}{\pi}\right) \left( \frac{\pi}{2N} \right) \frac{\sin\frac{\pi}{6}}{\sin\frac{\pi}{2N}} 
+		\end{aligned}
+		\]</div>
+		<p>If \(N\) is large then</p>
+		<div class="equation">\[
+		\begin{aligned}
+		P_{3ph}&amp; \approx \frac{6}{\pi} \sin\frac{\pi}{6} P_{max} \\
+		P_{3ph}&amp; \approx \frac{3}{\pi} P_{max} \\
+		\end{aligned}
+		\]</div>
+		<p>This analysis shows that a three-phase generator with many coils has is capable of producing over 95% of the power possible if the 
+			coils were connected to individual phases and power transmission / distribution lines. This analysis is the reason why we have 3-phase 
+			systesms, rather than 5, 7, etc. The increased cost of the power delivery equipment is not justifiable relative to the increased generator 
+			(or motor) utlization. In special cases, such as shipboard propulsion, higher phase numbers are sometimes used.</p>
+
+		<h3>General 3-phase voltages</h3>
+		<p>In general in the course we will think of a three-phase winding as being made up of
+		only three coils, separated by 120 degrees. However, it is important to realise that a real machine
+		has many coils which are grouped in to three phases. As shown above, the fundamental voltage induced in a phase
+		comprised of a number of distributed coils will be slightly lower than that produced by a single coil with
+		the same total number of turns. Distributed windings can also reduce the magnitude of higher harmonics which
+		may be induced in a coil. Detailed infomration about distributed windings is beyond the scope of this material course, but can be 
+		found in the appendices of many formal textbooks on electrical machines.</p>
+
+		<p>In a simple two-pole ac machine constucted using only three coils, the three-phase induced voltages can
+		be written as:</p>
+		<div class="equation">\[
+			\begin{aligned}
+				e_A(t)&amp;=\sqrt{2}E\cos \left( \omega t \right) \\
+				e_B(t)&amp;=\sqrt{2}E\cos \left( \omega t -\frac{2\pi}{3} \right) \\
+				e_C(t)&amp;=\sqrt{2}E\cos \left( \omega t -\frac{4\pi}{3} \right) \\
+				E&amp;=\sqrt{2} \pi f \hat{\lambda}
+			\end{aligned}
+		\]</div>
+		</div>
+	</div>
+</article>
+<summary>
+	<div class="container-lg bg-white">
+		<h3>Summary</h3>
+		<p>This page presents the theory behind ac generation from a rotating two-pole field. <span class="highlight">The equations on this page are for the special case of a two pole machine, and will be expanded for general cases with higher pole machines in later sections. </span></p>
+  		<p>The theory describing the induced voltage in a single stationary coil is presented. We see that the magnitude of the voltage is a function of the magnitude of the magnetic field, size of the machine and the frequency of rotation. The frequency of the induced ac voltage is set by the speed of rotation. </p>
+   		<p>Placing additional coils around the stator, we see that the induced voltages will have a phase shift, defined by the physical angular position between the coils. Theory describing why a three phase system is desirable is also presented.</p>  
+	</div>
+</summary>
+	
+
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

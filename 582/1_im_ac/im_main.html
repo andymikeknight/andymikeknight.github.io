@@ -1,0 +1,503 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Induction Machines</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<!--script links for jsquery and boorstrap-->
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!--script links for js animations and interactions-->
+
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">AC Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./im_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./im_eqc.html">Equivalent Circuit</a></li>
+					<li class="nav-item"><a class="nav-link" href="./im_stand.html">Standards</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./im_param.html">Parameter Tests</a></li>
+					<li class="nav-item"><a class="nav-link" href="./im_speed.html">Speed Control</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+    <article>
+		<div class="container-lg bg-white">
+			<h2>Three-Phase Induction Machines</h2>
+			<div class="row">
+				<p>Induction machines can be operated as either generators or motors. However, they are primarily used as induction motors.</p>
+
+				<p>Induction machines have traditionally been by far the most common type of motor used in industrial,
+				commercial or residential settings. They have also been used in several electric vehicles, especially earlier models by Tesla. 
+				Depending on location (which affects other electrical energy uses, such as lighting, space heating) some estimates suggest that 
+				induction motors may consume up to 70% of all electrical energy generated. There are three underlying reasons why
+				induction motors have long been the general purpose motor of choice:</p>
+				<ul>
+				<li>Induction motors are relatively cheap</li>
+				<li>Induction motors are robust</li>
+				<li>Induction motors will start when connected to an AC supply without the need for any power electronics or controls</li>
+				</ul>
+				<p>Notwithstanding the above statements, the position of induction machines as the standard tool for 
+					systems requiring electic machinery is challenged by the use of permanent magnet synchronous machines
+					operated with variable speed drives. The value of speed control to acheive overall system efficiencies or
+					control requirements has changed the overall machines market in the past 2 decades. </p>
+			</div>
+
+			<h2>Induction Machine Construction</h2>
+			<div class="row">		
+				<h3>Stator</h3>
+				<p>The stator construction of a three-phase induction machine is similar to many other types of AC machine. 
+					A three-phase winding is placed in a number of slots a steel stator, constrcuted from a stack of thin laminations of magnetic steel.
+				The three-phase winding is connected to a three-phase supply to produce a rotating sinusoidal mmf wave. 
+				As with other ac machines, the speed of rotation of the stator magnetic field is described as the <span class="emph">synchronous speed</span>
+				and is given by</p>
+				<div class="centered">\[
+				\begin{aligned}
+				n_s &amp; =\frac{120 f_e}{p} \\
+				\omega_s &amp; = \frac{4 \pi f_e}{p}
+				\end{aligned}
+				\]</div>
+			</div>
+			<div class="row">	
+				<h3>Rotor</h3>
+				<p>The rotor of an induction machine is different from most other types of machine
+				in that there is no requirement for a magnetic field source on the rotor. Instead, we <span class="emph">induce</span> the rotor field.
+				The rotor of an induction machine can be one of two types</p>
+				<ol>
+				<li>Wound Rotor</li>
+				<li>Cage Rotor</li>
+				</ol>
+				<p>This course only considers cage induction motors, but we will use the idea of a wound rotor to help develop models for motor performance.</p>
+				<h4>Wound Rotor Machines</h4>
+				<p>Wound-rotor induction machines have a three-phase winding(similar to the stator winding) on the
+				rotor. The rotor is usually Y-connected with the terminals of the three rotor phases connected to slip-rings that connect to outside circuits
+				with brush contacts.
+				In normal operation, the windings at the slip-rings are short-circuited to allow currents to flow. An advantage
+				of wound rotor machines is that external circuits can be connected to the rotor, allowing external control of the
+				machine. While all induction machines can be controlled to operate at different torques and speeds, wound rotor
+				control is particularly attractive in some applications. Wound-rotor induction machines are usually significantly more
+				expensive than cage rotor machines. Possible applications for wound-rotor machines include</p>
+				<ol>
+				<li>speed control of very large machines (multi-MW)</li>
+				<li>reduced cost control of large machines</li>
+				<li>doubly-fed induction generation (used in class 3 wind turbines). This is the probably the most common type of wound rotor machine</li>
+				</ol>
+
+				<h4>Cage Rotor Machines</h4>
+				<p>Cage rotor machines are the most common type of induction motor.
+				In a cage rotor design, there are solid conductors in slots on the rotor. The ends of the conductors are short-circuited
+				at each end of the rotor using an &quot;end-ring&quot;. For small-medium sized machines (up to a few hundred horsepower) the
+				rotor conductors are cast using aluminum. This construction makes the rotor relatively cheap to produce. In larger
+				machines, rotors are usually made by manually hammering solid copper bars into the rotor slots then 
+				brazing an end-ring in place. Fabricated rotor cages are significantly more expensive that cast rotor cages. As manufacturing 
+				processes improve and efficiency is more valued by end users, cast copper rotors are now possible.</p>
+			</div>
+			<h3>Induction machine photos</h3>
+			<div class="row">
+				<h4>External</h4>	
+				<div class="col-sm">			
+					<p>The photographs below show different aspects of induction machine construction. Clicking on each photo opens a larger version</p>
+					<p>The photos in Fig. 1. show (left to right): an old 15hp induction machine, with open stator housing;
+					  a 5kW induction machine; a modern high efficiency 2hp induction machines. Both of the 
+					  newer machines are of the &quot;TEFC&quot; type: Totally Enclosed Fan Cooled. There is no opening in the stator housing,
+					  and there is no way for environmental material (water, dirt) to get into the motor. The fan is outside the housing and
+					  blows air over the stator housing cooling fins. The 2hp motor is disassembled in Fig 2, showing the fan outside the stator housing, connected to the rotor shaft.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+					  	<a href="./img/photos/old_15hp.jpg"><img  class="thumb_150" src="./img/photos/old_15hp.jpg" alt="Old 15 hp motor"/></a>
+					  	<a href="./img/photos/new5kW.jpg" ><img class="thumb_150" src="./img/photos/new5kW.jpg"  alt="5kW TEFC motor"/></a>
+					  	<a href="./img/photos/full_2hp.jpg"><img class="thumb_150" src="./img/photos/full_2hp.jpg" alt="2hp TEFC motor"/></a>
+						<figcaption>Fig. 1. Photos of Induction Machines</figcaption>
+					</figure>
+					<figure>
+					  	<a href="./img/photos/fan_2hp.jpg"><img class="thumb_150" src="./img/photos/fan_2hp.jpg" alt="2hp TEFC motor with fan cover removed"/></a>
+					  	<a href="./img/photos/parts_2hp.jpg" ><img class="thumb_150" src="./img/photos/parts_2hp.jpg" alt="2hp TEFC motor disassembled"/></a>
+						<figcaption>Fig. 2. Disassembled Induction Machine</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+			<h4>Stator</h4>
+				<div class="col-sm">		
+					<p>The stator of the motor is made up of many thin steel laminations stacked together and held
+					  in the rotor housing. The conductors making up the coils in the stator windings are looped through slots in
+					  the stator lamination. Coils in this machine insulated from the laminations using plastic sheets and held together 
+					  with string and paper to separate coil groups. The stator coils and laminations are then dipped in varnish and baked
+					  to provide mechanical integrity.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+					  	<a href="./img/photos/stator_2hp.jpg"><img class="thumb_150" src="./img/photos/stator_2hp.jpg"  alt="2hp TEFC stator"/></a>
+					  	<a href="./img/photos/stat_zoom_2hp.jpg" ><img class="thumb_150" src="./img/photos/stat_zoom_2hp.jpg"  alt="2hp TEFC stator end winding"/></a>
+						<figcaption>Fig. 3. Stator Photos</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+				<h4>Rotor</h4>
+			
+				<div class="col-sm">
+					<p>The rotor of the 2 hp motor is constructed using steel laminationa and cast aluminum. If you look closely
+					  at the rotor photos it is possible to see where the molten aluminum has leached out between the steel laminations. In addition,
+					  the conductors in the rotor have been constructed with a &quot;skew&quot; of one conductor pitch. The conductors are not arranged parallel
+					  to the axis of the rotor, but at an angle, this is done to reduce torque vibrations and noise.</p>
+
+					<p>The final two photos  highlight different rotor constructions. On the left are two rotors, with a cast cage
+					  rotor with large air fins to aid cooling, and a wound rotor, complete with slip rings. On the right is a cutaway motor with a fabricated cage
+					  of copper bars, also with significant skew.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+					  	<a href="./img/photos/rotor_2hp.jpg"><img class="thumb_150" src="./img/photos/rotor_2hp.jpg"  alt="2hp TEFC motor cast rotor"/></a>
+					  	<a href="./img/photos/rotor2_2hp.jpg" ><img class="thumb_150" src="./img/photos/rotor2_2hp.jpg"  alt="2hp TEFC motor cast rotor"/></a>
+						<figcaption>Fig. 4. Cast Aluminmum Rotor Photos</figcaption>
+					</figure>	
+					<figure>
+					  	<a href="./img/photos/cage_wound.jpg"><img class="thumb_150" src="./img/photos/cage_wound.jpg"  alt="larger cast rotor and wound rotor"/></a>
+					  	<a href="./img/photos/cutaway.jpg" ><img class="thumb_150" src="./img/photos/cutaway.jpg" alt="fabricated rotor in cutaway machine"/></a>
+						<figcaption>Fig. 5. Other Rotor Photos</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+		<div class="container-lg bg-white">
+
+			<h2>Principles of Operation</h2>
+			<div class="row">
+				<p>The basic idea behind the operation of an induction machine is quite simple. Detailed
+				mathematical understanding of the interaction of magnetic fields and resultant torque is more complex.
+				In many cases, understanding the qualitative ideas and then applying a circuit model is sufficient. 
+				The qualitative description is provided here, together with a more mathematical description for those who
+				prefer that type of approach. The mathematical description also includes some important definitions that 
+				are required in order to develop a circuit mode.</p>
+				<h3>Qualitative Description</h3>
+				<ol>
+					<li>The three-phase stator winding is connected to a three-phase supply</li>
+					<li>Currents flow in the stator winding, producing a rotating mmf and flux density</li>
+					<li>The stator flux density rotates at synchronous speed:
+						<div class="equation">
+							\[
+							n_s= \frac{120 f_e}{p}
+							\]
+						</div>
+					</li>
+					<li>The magnetic field passes conductors on the rotor and induces a voltage in those conductors</li>
+					<li>Since the conductors are short circuited, current flows in the rotor conductors</li>
+					<li>The rotor currents produce a second rotor magnetic field, which acts to oppose the stator magnetic
+					field and also rotates at synchronous speed</li>
+					<li>With two magnetic fields rotating at constant speed, a torque is induced:
+						<div class="equation">
+							\[
+							\tau = k \vec{B}_R \times \vec{B}_S
+							\]
+						</div>
+					</li>
+					<li>The rotor flux density will lag the stator flux density (flux density lags current by 90&deg; electrically), 
+					therefore the torque will be in the same direction as the rotation of the magnetic fields</li>
+					<li>The torque accelerates the rotor until synchronous speed is reached, at which time there is no relative
+					motion between the conductors and the stator flux density. Since the relative velocity is zero, the induced voltage, 
+					rotor currents and flux density fall to zero and torque is also zero</li>
+				</ol>
+			</div>
+
+			<h3>Mathematical Principles</h3>
+			<div class="row">			
+				<div class="col boxed">
+					<h4>Definitions</h4>
+					<ul>
+						<li>supply frequency: \(f_e\) in Hz or \(\omega_e\) in rad s<sup>-1</sup> </li>
+						<li>synchronous speed (radians per second): \(\omega_s\)</li>
+						<li>synchronous speed (revolutions per minute): \(n_s\)</li>
+						<li>rotor mechanical speed (radians per second): \(\omega_m\)</li>
+						<li>rotor mechanical speed (revolutions per minute): \(n_m\)</li>
+						<li>rotor electrical speed (electrical radians per second): \(\omega_r\)</li>
+						<li>slip: difference between synchronous and mechanical speeds divided by synchronous speed:
+						<div class="equation">\[
+						\begin{aligned}
+						s &amp; = \frac{\omega_s-\omega_m}{\omega_s} \\
+						s &amp; = \frac{n_s-n_m}{n_s} \\
+						s &amp; = \frac{\omega_e-\omega_r}{\omega_e} 
+						\end{aligned}
+						\]
+						</div>
+						</li>
+						<li>slip speed: 
+						<ul>
+							<li>in rpm: \(sn_s=n_s-n_m\)</li>
+							<li>in rad s<sup>-1</sup>: \(s\omega_s = \omega_s-\omega_m\)</li>
+						</ul> 
+						</li>
+						<li>slip frequency:
+						<ul>
+							<li>in Hz: \(f_{sl}=s f_e\)</li>
+							<li>in rad s<sup>-1</sup>: \(\omega_{sl}= s \omega_e = \omega_e-\omega_r\)</li>
+						</ul> 
+						</li>
+					</ul>
+				</div>
+			</div>
+			<h4>Induced Rotor Voltage</h4>
+			<div class="row">
+				
+					
+				<p>As illustrated in the fundamental theory on <a href="../0_fund/f_rotating_mmf.html">rotating fields</a>, 
+					passing balanced three-phase currents through a balanced three-phase winding can produce a rotating mmf wave. 
+					The mmf rotates at synchronous speed, set by supply frequency and the number of poles in the machine.  
+					In an induction machine the air gap of the machine is designed to be constant, therefore the rotating mmf will produce a rotating flux density.
+					The stator flux density can be defined in terms of either mechanical or electrical quantities:</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					B_S &amp; =\hat{B}_S \cos \left[\frac{p}{2}\left( \theta_m +\phi_m - \omega_s t \right) \right] \\
+					B_S &amp; =\hat{B}_S \cos \left[\left( \theta_e +\phi_e - \omega_e t \right) \right] \\
+					\end{aligned}
+					\]
+				</div>
+
+				<p>In the above equation $\phi_m, \phi_e$are arbitrary phase angles in
+					mechanical and electrical angles respectively. We will set these to zero. $\theta_m$ is the physical location around the air gap surface
+					at which the flux density waveform is observed. (At a given location, the flux density varies sinusoidally with time. At a given time, the flux density
+					varies sinusoidally with location.) Now, to understand how an induction machine works, we need to consider the flux density seen by a 
+					conductor on the rotor.</p>
+				<div class="col-sm">
+					<p>In the image in Fig. 1 , there is a rotor conductor at position \(\theta_m=\alpha\). 
+					  If the rotor is stationary then the rotor will observe the the stator flux density as</p>
+					<div class="equation">\[
+					  B_S=\hat{B}_S \cos \left[\frac{p}{2}\left( \alpha - \omega_s t \right) \right] \\
+					  \]</div>
+					<p>However, if the rotor is rotating at mechanical speed \(\omega_m\) the location of the
+					  conductor becomes</p>
+					<div class="equation">\[
+					  \theta_m=\alpha+\omega_mt
+					  \]
+					</div>
+					<p>where \(\alpha\) is the position of the conductor relative to the rotor.</p>
+				</div>
+				<div class="col-sm">
+					<figure>
+						<img src="./img/rotor_cond_pos.gif" alt="image showing position of a conductor on the rotor"/>
+						<figcaption>Fig. 1. Illustration showing the position of a conductor on the rotor</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row">
+				<p>The flux density seen by the conductor is now given by</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					B_S &amp; =\hat{B}_S \cos \left[\frac{p}{2}\left( \alpha + \omega_m t -\omega_s t \right)\right]\\
+					B_S &amp; =\hat{B}_S \cos \left[\frac{p}{2}\left( \alpha - s\omega_s t \right) \right] \\
+					B_S &amp; =\hat{B}_S \cos \left[\frac{p}{2}\left( \alpha - \omega_{sl} t \right) \right]  
+					\end{aligned}
+					\]
+				</div>
+				<p>Now, the voltage induced in a conductor of length <span class="maths">l</span> moving perpendicular 
+				to a magnetic field is given by</p>
+				<div class="equation">
+					\[
+					e=vBl
+					\]
+				</div>
+				<p>and the relative velocity of the conductor through the magnetic field is given by</p>
+				<div class="equation">
+					\[
+					v=-r\omega_{sl} = -sr\omega_e
+					\]
+				</div>
+				<p>Therefore (choosing the definition of the direction of the conductor to elimate the -ve sign) the voltage induced in the conductor is given by</p>
+				<div class="equation">
+					\[
+					e=srl\omega_e \hat{B}_S \cos \left[\frac{p}{2}\left( \alpha - \omega_{sl} t \right) \right]
+					\]
+				</div>
+				<p>Two important results can be seen in the above equation:</p>
+				<div class="boxed">
+					<ul>
+						<li>The induced voltage is proportional to slip</li>
+						<li>The frequency of the induced voltage is proportional to slip</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<h4>Rotor Currents and Field</h4>
+				<h5>Current Magnitude and Phase</h5>
+				<p>Without knowing the full details of the rotor circuit, we can makes some assumptions about the
+				circuit to enable us to understand the behaviour of the induction machine. We will assume that the rotor conductor
+				is part of a circuit with constant resistance \(R_R\) and inductance 
+				\(L_R\). (We will see later that resistance can actually vary with slip, but
+				will assume that it is constant for now). Now, if slip is low (close to zero) then the
+				reactance associated with the inductance will be negligible since the frequency will be very low. In this case, though induced voltage is small, the induced currents may be significant since the conductors are short circuited and \(R_R\)is low. Currents will be approximately in phase with
+				the induced voltage. If slip is high (close to 1) then the rotor reactance will be significant.
+				Due to the increase in induced voltage, rotor currents will be high, but will lag the induced voltage significantly due to the inductance of the rotor circuit.</p>
+				<h5>Rotor Flux Density</h5>
+				<p>We know that the flux density produced by a set of ac currents rotates at a speed given by</p>
+				<div class="equation">
+					\[
+					n_s= \frac{120 f_e}{p}
+					\]
+				</div>
+				<p>In the case of the rotor currents, the above equation gives the speed of rotation relative to the
+				conductors. The actual speed of rotation of the flux density will be given by</p>
+				<div class="equation">
+					\[
+					\begin{aligned}
+					n_{rot.field} &amp; = n_m + \frac{120 f_{sl}}{p} \\
+					n_{rot.field} &amp; = \left(1-s\right)n_s + sn_s \\
+					n_{rot.field} &amp; = n_s
+					\end{aligned}
+					\]
+				</div>
+				<p>i.e. the rotor magnetic field rotates at synchronous speed. We can get an understanding of the relative
+				position of the rotor and stator fields by drawing phasor diagrams. The phasor diagram of the stator flux density phasor
+				can be drawn from either a stator reference frame, where it rotates at electrical speed \(\omega_e\),
+				or from a rotor reference frame, where it rotates at electrical speed \(\omega_{sl}\)</p>
+				<figure>
+					<img src="./img/stator_phasors.gif" alt="stator flux density phasors"/>
+					<figcaption>Fig. 2. Stator flux density phasors seen from the stator and rotor</figcaption>
+				</figure>
+				
+				<p>First consider the case where slip is low. Induced current lags induced voltage slightly, the rotor flux density
+				is almost 90&deg; electrically behind the stator flux density.</p>
+				<figure>
+					<img src="./img/low_slip_phasors.gif" alt="rotor circuit phasors when slip is small"/>
+					<figcaption>Fig. 3. Rotor Circuit Electrical Phasors when slip is small</figcaption>
+				</figure>
+			</div>
+			<div class="row">
+				<h4>Torque</h4>
+				<p>The torque in a rotating machine can be found using</p>
+				<div class="equation">\[
+				\tau = k \vec{B}_R \times \vec{B}_S
+				\]</div>
+				<p>If we think about this equation using the right-hand rule for cross prodcut, if $B_R$ is physically ahead of $B_S$, the cross product
+					will be in the negative z-direction, indictating a clockwise torque. Using the definition that positive torque and rotation are counter
+					clockwise, this indicates that torque is opposing rotation - we have a generator. If $B_S$ is leading ahead of $B_R$, the cross product
+					is positive,  indictating a counter-clockwise torque that is in the direction of rotation - i.e. we have a motor, the torque we are producing 
+					is supporting rotation. 
+				</p>
+				<p>At low slips, the angle between flux density phasors is close to 90&deg; and the torque will be 
+				approximately proportional to induced voltage and therefore proportional to slip.</p>
+				<p>Now consider the case where slip is close to 1.0, mechanical speed is close to zero. In this case, rotor current
+				lags induced voltage and the angle between rotor and stator flux densities is much greater. As a result, even though the induced rotor voltages and
+				currents are high, the torque produced may be low</p>
+				
+				<figure>
+					<img src="./img/high_slip_phasors.gif" alt="rotor circuit phasors when slip is close to 1"/>
+					<figcaption>Fig. 3. Rotor Circuit Electrical Phasors when slip is close to 1</figcaption>
+				</figure>
+				<p>From the torque equation, even though the magnitude of the induced currents is higher and the rotor flux density phasor
+				has a larger magnitude, torque will not necessarily be higher than it is a low slips.</p>
+			</div>
+		</div>
+	</article>
+	<summary>
+		<div class="container-lg bg-white">
+			<h3>Summary</h3>
+			<ul>
+				<li>Induction machines are robust, and relatively low cost to produce</li>
+				<li>Induction machines produce torque at all speeds <span class="emph">except</span> synchronous speed</li>
+				<li>Induction machines can operate with only one electrical source, they do not require a source to be connected to the rotor.</li>
+				<li>Rotor currents and torque are nonlinear functions of <span class="emph">slip</span>, a measure of the relative speed between the stator magnetic field 
+					and the rotor mechanical speeds</li>
+			</ul>
+
+		</div>
+	</summary>
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

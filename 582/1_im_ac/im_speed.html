@@ -1,0 +1,376 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Induction Motor Speed Control</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<!--script links for jsquery and boorstrap-->
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!--script links for js animations and interactions-->
+	<script src="./img/pwm.js"></script>
+
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">AC Induction Machines</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./im_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./im_eqc.html">Equivalent Circuit</a></li>
+					<li class="nav-item"><a class="nav-link" href="./im_stand.html">Standards</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./im_param.html">Parameter Tests</a></li>
+					<li class="nav-item"><a class="nav-link" href="./im_speed.html">Speed Control</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+	<article>
+		<div class="container-lg bg-white">
+
+			<h2>Induction Motor Speed Variation</h2>
+
+			<p>In this course, analysis of the torque speed curve of an induction motor is limited to cage rotor induction motors.
+				Analysis shows that an induction motor will find a steady equilibrium operating point at a speed between pull-out and sychronous speed. 
+				For typical Class B motors, the design operating slip is below 0.05. Although induction machines can operate from standstill, 
+				the normal operating speed range is over a small range of slips just below synchronous speed. To change the speed of an 
+				induction machine, the synchronous speed must change. Since</p>
+			<div class="equation">
+				\[
+				n_s=\frac{120p}{f}
+				\]
+			</div>
+			<p>there are two options: change the number of poles or change the supply frequency.</p>
+			
+			<h3>Pole Changing</h3>
+			<p>Changing the number  number of poles in a machine gives a set of discrete operating speeds. e.g. if a machine can have 2 or 6 poles, 
+				it can operate at approximately 1200 rpm or 3600 rpm (with a 60Hz supply). Changing the number of poles can be done either by using 
+				redundant stator windings and switching between the windings, (which is costly) of by re-connecting coils to change the orientation 
+				of conductors to change the number of magnetic poles. Pole changing is not very common in three phase machines, and has mostly been 
+				replaced by variable frequency supplies. One of the most common uses for pole changing motors has been in traditional top-load washing 
+				machines, to switch between wash and spin cycles. </p>
+
+			<h3>Variable frequency supply</h3>
+			<div class="row">
+				<div class="col-sm">
+					<p>If a variable frequency supply is available, the synchronous speed of
+					an induction machine may theoretically be set at any desired value. However, there are practical and safety limits that constrain operation. In variable frequency operation, we are generally interested in understanding how to control a machine to provide the required torque at a particular frequency. So far, we have calculated torque-speed relationships at single supply frequencies, now we need to think about how the torque changes with changing frequency. </p>
+					<p>Consider the circuit diagram in Fig. 1, which shows the induction machine equivalent circuit in terms of inductances, rather than reactances:</p>
+				</div>
+				<div class="col-sm">	
+					<figure>
+						<img src="./img/im_cct_l.gif" alt="Induction Motor per-phase equivalent circuit in terms of inductance" />
+						<figcaption>Fig. 1. Induction motor per-phase equivalent circuit in terms of inductance</figcaption>
+					</figure>
+				</div>
+			</div>
+			<p>Now, from analysis with a constant frequency supply we know that the torque is given by:</p>
+			<div class="equation">
+				\[
+				\tau=\frac{3I_2^2R_2}{s\omega_s}
+				\]	
+			</div> 
+			<p>If the voltage across the rotor branch is defined as \(V_2\) then</p>
+			<div class="equation">
+				\[
+				I_2=\frac{V_2}{\frac{R_2}{s}+j\omega_e L_2}
+				\]
+			</div>
+			<p>The first assumption in analysing variable speed drive operation is say that in steady state the machine will be 
+				operating at small values, and therefore it is reasonable to say that</p>
+			<div class="equation">\[
+				\frac{R_2}{s} \gg \omega_e L_2\textrm{ , } \quad R_2 \gg \omega_{sl} L_2
+				\]
+			</div> 
+			<p>Therefore:</p>
+			<div class="equation">\[
+				\begin{align*}
+					I_2 &amp; \approx \frac{V_2}{\frac{R_2}{s}} \\
+					I_2 &amp; \approx \frac{sV_2}{R_2} \\
+					\tau &amp; \approx \frac{3V_2^2s}{R_2 \omega_s}
+				\end{align*}
+				\]
+			</div>
+			<p>Now, remembering that \(\omega_s=\frac{2}{p}\omega_e\), we can re-write this in terms of electrical supply frequency:</p>
+			<div class="equation">\[
+				\tau \approx 3\frac{p}{2}\frac{3 V_2^2 s}{R_2 \omega_e}
+				\]
+			</div>
+			<p>Multiplying top and bottom by \(\omega_e\):</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\tau &amp; \approx 3 \frac{p}{2}\left(\frac{V_2^2}{\omega_e^2}\right) \frac{s \omega_e}{R_2} \\
+				\tau &amp; \approx 3 \frac{p}{2}\left(\frac{V_2}{\omega_e}\right)^2 \frac{\omega_{sl}}{R_2}
+				\end{aligned}
+				\]
+			</div>
+			<p>This final step shows that under certain conditions, the torque produced is proportional to the slip frequency.</p>
+			<p>In fact, if the ratio \(\frac{V_2}{\omega_e}\) is constant, the torque will be proportional to slip frequency. Considering another approach to define \(V_2\):</p>
+			<div class="equation">\[
+				V_2=j \omega_e L_m I_m
+				\]
+			</div>
+			<p>and</p>
+			<div class="equation">\[
+				\begin{align*}
+				\left| \frac{V_2}{\omega_e} \right| &amp; = L_m I_m \\
+				\left| \frac{V_2}{\omega_e} \right| &amp; = \lambda
+				\end{align*}
+				\]
+			</div>
+			<p>where \(\lambda\) is the magnetizing flux in the machine. Substituting we get:</p>
+			<div class="equation">\[
+				\tau \approx \frac{3p}{2R_2} \lambda^2 \omega_{sl}
+				\]
+			</div>
+			<p>This is an important result, <span class="emph">if \(R_2 \gg s\omega_e L_2\)</span>, <span class="bold red">torque is proportional to flux squared times slip speed:</span></p>
+			<div class="equation">\[
+				\tau \propto  \lambda^2 sn_s
+				\]
+			</div>
+			<div class="row">
+				<h4>Operating regions</h4>
+				<div class="col-sm">
+					<h5>Below Rated Speed - Constant Flux Region</h5>
+					<p>If we wish to operate an induction machine below rated speed, then full torque capability can be acheived if we maintain rated flux. Given that flux is given by voltage over frequency, for most of the operating range below rated speed (nameplate speed, i.e. with 60Hz or 50Hz supply), rated flux can be obtained by keeping the ratio of voltage to frequency constant. (Essentially, assuming that constant \(\frac{V_1}{f}\) constant gives constant \(\frac{V_2}{f}\) .)  This is called <span class="emph">constant Volts per Hertz</span> operation. However, if the machine is operated at low frequencies (e.g. less than 1/4 rated) the
+					voltage drop across the stator resistance will be significant. (As reactances get smaller, 
+					<span class="maths">R<sub>1</sub></span> gets proportionally bigger.) At low freqeuncies, the stator supply
+					voltage must be compensated to allow for additional stator resistance voltage drop, else the available
+					torque will fall.</p>
+					<h5>Above Rated Speed - Field Weakening Region</h5>
+					<p>If the machine is to be operated above rated frequency, the voltage cannot
+					be increased above rated voltage and the magnetizing current in the machine will be reduced. This
+					mode of operation is called <span class="emph">field weakening</span> operation.</p>
+				</div>
+				<div class="col-sm">
+					<p>A typical voltage-frequency relationship for open loop V/f control is given below </p>
+					<div>	
+						<figure>
+							<img src="./img/V-f-limits.png" alt="Induction Motor supply V-f Relationship" />
+							<figcaption>Fig. 2. V-f relationship </figcaption>
+						</figure>
+					</div>
+				</div>
+				<h4>Summary</h4>
+					<ul>
+						<li>Below rated frequency, keep the ratio <span class="maths">V/f</span> constant at rated values.</li>
+						<li>At low frequencies, the <span class="maths">V/f</span> ratio must be boosted to maintain
+							rated torque.</li>
+						<li>Above rated frequency, maintain rated voltage.</li>
+					</ul>
+					<p>The above statements can be used as a basis for relatively simple open loop speed control. This is commonly called open loop V/f control. </p>
+
+			</div>
+			<div class="row">
+				<h4>Example</h4>
+				<p>A 480V, 60Hz, 4-pole motor has rated speed of 1750 rpm and rated torque of 10Nm. If 
+				a torque of 10Nm is needed at a mechanical speed of 1500 rpm, find the synchronous speed, supply frequency 
+				and line-line supply voltage.</p>
+				<p>At rated torque, the slip speed will be the rated value. For a 4-pole 60hz machine, 
+				synchronous speed is 1800 rpm, therefore rated slip speed =1800-1750=50rpm. When operating at 
+				1500rpm, 10Nm, slip speed will still be 50rpm and the synchronous speed is given by</p>
+				<div class="equation">\[
+					\begin{align*}
+						n_s &amp; =n_m + sn_s \\
+						n_s &amp; =1500 + 50
+					\end{align*}
+					\]
+				</div>
+				<p>With the synchronous speed, the supply frequency can be found</p>
+				<div class="equation">\[
+					\begin{align*}
+					n_s &amp; = \frac{120 f_e}{p} \\
+					f_e &amp; = \frac{n_s p}{120} = \frac{1550 \times 4}{120} \\
+					f_e &amp; = 51.67Hz
+					\end{align*}
+					\]
+				</div>
+
+				<p>Finally, if V/f is constant, the supply voltage must be:</p>
+				<div class="equation">\[
+					\begin{align*}
+					V_{{LL}_{new}} &amp; = 51.67 \frac{480}{60} \\
+					V_{{LL}_{new}} &amp; = 413.3V
+					\end{align*}
+					\]
+				</div>
+			</div>
+			<div class="row">
+				<h4>Calculating the impact on current and supply requirements</h4>
+				 <p>Consider the torque equation:</p>
+				<div class="equation">\[
+						\tau=\frac{3I_2^2R_2}{s\omega_s}
+					\]
+				</div>
+				<p>If we are operating in the constant flux region $\tau \propto s\omega_s$ therefore $I_2^2 \propto \tau^2 and</p>
+				<div class="equation">\[
+						I_2 \propto \tau
+					\]
+				</div>
+				<p>At the same time, if we have constant flux, it's reasonable to assume constant magnetizing current, and if $R_2 \gg \omega_{sl}L_2$ then
+					$I_m$ and $I_2$ are approximately perpendicular and we can estimate $I_1=\sqrt{\vphantom{a}}\left(I_2^2+I_m^2\right)$. Using this 
+					apprach we can estimate the copper losses when operating at reduced speed.
+				</p>
+				<p>The assumption that $\vec{I}_2$ and $\vec{I}_m$ are approximately perpendicular is valid for induction machines operating at rated flux 
+					and low slip speeds in steady state. We will see later that controling the magnitudes of the perpendicular components of current is a 
+					fundamental concept for variable speed control of induction motors under transient drive conditions. 
+				</p>
+			</div>
+	
+			
+
+			<h3>Variable Voltage Variable Frequency Supply</h3>
+			<p>To implement the variable speed control strategy above, adjusting both supply voltage magnitude and frequency requires a variable voltage 
+				variable frequency power supply for the motor.
+			</p>
+			<p>Most modern drives use Pulse Width Modulation (PWM) supplies to approximate a variable voltage and frequency
+			sinusoidal supply. In a PWM supply, a DC voltage is switched rapidly to approximate the shape of the desired waveform. 
+			In its simplest to understand implementation, the desired (modulating) voltage is compared to a triangular carrier waveform. 
+			If the per-unit modulating waveform is greater than the per-unit carier waveform, the output is connected to he positive 
+			terminal of a DC supply. If the per-unit modulating waveform is less than the per-unit carrier waveform, the output is 
+			connected to the negative terminal of the DC link. This switching is obtained using higher performance power electronic switches. 
+			This principle is illustrated in Fig. 2 for the case where the DC link voltages are 
+			defined to be +VDC and 0V. </p>
+				
+			<figure id = "canvasholder_pwm">
+				<canvas id="canvas_pwm">							
+				</canvas>
+				<div class="button_group">
+					<button class="step" id="stepUpma">+m<sub>a</sub></button>
+					<button class="step" id="stepDnma">-m<sub>a</sub></button>
+					<button class="step" id="stepUpf">+f </button>
+					<button class="step" id="stepDnf">-f</button>
+					<button class="step" id="stepUpfc">+f<sub>c</sub></button>
+					<button class="step" id="stepDnfc">-f<sub>c</sub></button>
+				</div>
+				<figcaption>Fig. 2. Interactive plot of PWM voltges for two phases of a three-phase supply. In this animation, 
+					the carrier frequency is limted to a minimum of 11 times modulating frequency.  </figcaption>
+			</figure>
+			<p>Detailed operation of power electronic converters is beyond the scope of this course, </p>
+
+
+
+		</div>
+	</article>
+	<summary>
+		<div class="container-lg bg-white">
+			<h3>Summary</h3>
+			<p>We can anaylze the steady state operation of induction motors at frequencies other than the rated frequency through analysis
+				of the equivalent circuit model, replacing $X$ with $\omega_e L$. In conventional analysis of an indution motor, we know the supply
+				conditions, and want to analyse the performance to calculate torque, losses etc at a given speed. When we are thining about speed control, 
+				the approach to analysis changes - we know the output conditions we desire and want to find the input conditions that acheive that goal.
+				To do this, we make assumptions about operating with $R_2 \gg \omega_{sl}L_2$, that allow us to estimate the relationship between torque 
+				and slip speed. If we operate at rated flux, we can show that:</p>
+				<div class="equation">\[
+					\begin{align*}
+					\tau  \propto sn_s \\
+					\tau \propto I_2
+					\end{align*}
+				\]
+				</div>
+			<p>If we are operating above rated speed we have to reduce flux. In this case:</p>
+				<div class="equation">\[
+					\begin{align*}
+					\tau  \propto \lambda^2 sn_s \\
+					I_m \propto \lambda
+					\end{align*}
+				\]
+				</div>
+			<p>At speeds above $1/4$ rated speed, it is reasonable to assume that keeping $V_1/f$ constant results in constant flux.</p>
+
+		</div>
+	</summary>
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

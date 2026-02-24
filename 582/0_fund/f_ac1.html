@@ -1,0 +1,370 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Single Phase AC Circuits</title>
+	<link href="../../css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="../../css/amk22_style.css" rel="stylesheet" type="text/css" >
+
+	
+	<!-- script to allow inline latex math, rendered using javascript -->
+	<script>
+		MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ["\\(", "\\)"]],
+			processEscapes: true,
+			}
+		};</script>
+	<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+	<script src="../../js/jquery-4.0.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./img/plot_1p.js"></script>
+    <script src="./img/single_phasors.js"></script>	
+</head>
+	
+	
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg bg-white">
+		  <span class="navbar-brand h1">ENEL 582</span> 
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  <li class="nav-item"><a class="nav-link " href="../../index.html">Home</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../research.html">Research</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ieee.html">IEEE</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../machines/intro.html">Electric Machines</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENEL487/ENEL487.html">ENEL 487</a></li>
+			  <li class="nav-item"><a class="nav-link" href="../../ENPH491/ENPH491.html">ENPH 491</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				  ENEL 582</a>
+				<ul class="dropdown-menu">
+				  <li><a class="dropdown-item" href="../ENEL582.html">Introduction</a></li>
+				  <li><a class="dropdown-item" href="../0_fund/f_main.html">Fundamentals</a></li>
+				  <li><a class="dropdown-item" href="../1_im_ac/im_main.html">AC Induction Motors</a></li>
+				  <li><a class="dropdown-item" href="../2_two_axis/two_ax_main.html">Two-Axis Theory</a></li>
+				  <li><a class="dropdown-item" href="../3_im_drive/id_main.html">Induction Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../4_sm_drive/smdrive_main.html">Synchronous Motor Drives</a></li>
+				  <li><a class="dropdown-item" href="../5_sm_ac/sm_main.html">AC Synchronous Machines</a></li>
+				  <li><a class="dropdown-item" href="../6_spim/spim_main.html">Single Phase Induction Motors</a></li>				
+				</ul>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">Machine Fundamentals</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./f_main.html">Fundamentals</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_ac1.html">1-phase AC Circuits</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_ac3.html">3-phase AC Circuits</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./f_em.html">Electromagnetics</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_gen.html">AC Generation</a></li>
+					<li class="nav-item"><a class="nav-link" href="./f_rotating_mmf.html">AC Rotating Fields</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
+
+    <article>
+    <div class="container-lg bg-white">
+		<div class="row">
+			<h2>Single Phase AC Circuits</h2>
+			<h3>AC Notation</h3>
+			<p>Voltage and currents in ac systems are usually assumed to be sinusoidal. In single phase power systems the voltages 
+				in the system can be described as</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				v(t) &amp; =\hat{V} \cos \left(\omega_e t + \theta_v \right) \\
+				v(t) &amp; = \Re \left\{ \sqrt{2} \vec{V}e^{j\omega_e t} \right\}
+				\end{aligned}
+				\]
+			</div>
+			<p>where $\theta_v$ is the phase angle of the voltage and $\omega_e$ is the angular electrical frequency. 
+				$\vec{V}$ is a phasor defined in terms of the rms voltage. Unlike other areas (e.g. signal processing, 
+				communications) phasors in power systems are always defined in terms of rms magnitude, not peak magnitude. 
+				The rms of a sinusoidal quantity is given by</p>
+			<div class="equation">
+				\[
+				V=\frac{\hat{V}} {\sqrt{2}}
+				\]
+			</div>
+			<p>and the phasor notation is</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\vec{V}=Ve^{j\theta_v} \\
+				\vec{V}=V\angle\theta_v
+				\end{aligned}
+				\]
+			</div>
+			<p>Similarly, an ac current may be defined as</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				i(t) &amp; =\hat{I} \cos \left(\omega_e t + \theta_i \right) \\
+				i(t) &amp; = \Re \left\{ \sqrt{2} \vec{I}e^{j\omega_e t} \right\}\\
+				\vec{I}&amp;=Ie^{j\theta_i} \\
+				\vec{I}&amp;=I\angle\theta_i
+				\end{aligned}
+				\]
+			</div>
+			<p>The relationship between phasors and instantaneous values can be seen in the plot below. 
+				On the left are the stationary phasors $\vec{V}$ (red) and $\vec{I}$ (blue). 
+				In the centre are the corresponding rotating instantaneous complex vectors $\sqrt{2}\vec{V}e^{j\omega_et}$ and 
+				$\sqrt{2}\vec{I}e^{j\omega_et}$. 
+				On the right are the time domain functions $v(t)$ and $i(t)$ which correspond to the real (x-axis) component of the 
+				rotating vectors. Note that the instantaneous vectors and cosine functions have a larger magnitude than the 
+				complex phasors. 
+				In this plot $\theta_v = 45^{\circ}$ and $\theta_i = -30^{\circ}$.</p>
+		</div>
+		<div class="row ">
+			<figure id = "canvasholder_1pac">
+				<canvas id="canvas_1pac">							
+				</canvas>
+				<figcaption>Fig. 1. AC Phasors, instantaneous complex vectors, and time domain variables.</figcaption>
+				<p>Click one of the buttons below to see the animation.</p>
+				<div class="button_group">
+					<button class="start" id="runAnim">Run </button>
+					<button class="stop" id="stopAnim">Stop</button>
+					<button class="step" id="stepAnim">Step Forward</button>
+				</div>
+			</figure>							
+		</div>
+		<div class="row">
+			<p>In single phase systems $\theta_i$ is often set to zero and voltage phase angle is used as the reference for the 
+				rest of the system. 
+				Defining $\theta_v = 0$ the voltage and current in a single phase circuits are written as </p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				v(t) &amp; =\sqrt{2} V \cos\left(\omega_e t\right) \\
+				i(t) &amp; =\sqrt{2} I \cos\left(\omega_e t\ +\theta\right) \\
+				\vec{V} &amp; =V \\
+				\vec{I} &amp; =I\angle\theta =Ie^{j \theta}
+				\end{aligned}
+				\]
+			</div>
+			<p>Where $\theta$ is the electrical angle between the voltage and current. Note that in all this discussin we usually
+				use degrees to describe voltage and current angles, but must use radians when we are calculating angles in terms of 
+				$\omega_et$.</p>
+		</div>
+		<div class="row">
+			<h3>Single Phase AC Power</h3>
+			<p>We can think of AC power as being delivered/absorbed from a source, a circuit component, or simply flowing past a point 
+				in a circuit.</p>
+			<div>
+				<figure>
+					<img src="./img/1p_power_cct.png" alt="Circuit Components"/>
+					<figcaption>Fig. 2. Measurement Points for AC Power.</figcaption>
+				</figure>
+			</div>
+			<p>Power flow in a system is the rate of change of energy at the point in the system
+			where voltage and current are measured. Instantaneous power is the product of the voltage and current functions of time:</p>
+			<div class="equation">\[
+				\begin{aligned}
+				p(t)  = &amp; v(t) i(t) \\
+				p(t)  = &amp; 2VI \cos\left( \omega_e t +\theta_v \right) \cos\left( \omega_e t + \theta_i \right) \\
+				p(t)  = &amp; VI \cos\left( \theta_v-\theta_i\right) \left( 1+ cos\left( 2 \omega_e t +2\theta_v \right)\right) \\
+					+ &amp; VI \sin\left( \theta_v-\theta_i\right) \sin\left( 2 \omega_e t +2\theta_v \right)\\
+				p(t)  = &amp; VI\cos\left( \theta_v-\theta_i\right) +VI \cos \left(2 \omega_e t+\theta_v-\theta_i \right)
+				\end{aligned}
+			\]</div>
+			<p>The last two expressions above provide two different ways to think about single-phase AC power flow. In the first, we have a 
+				term that is always positive with a magnitude that is a function of the cosine of the phase angle between voltage and 
+				curent, plus an oscillating term that is proportional to the sine of the phase angle difference. The final expression gives
+				a consant power term, plus an oscillation term. These expressions are mathematically equivalent.</p> 
+			</p>
+			<p>The interactive graph in Fig. 3 plots example voltage, current and power waveforms as functions of $2\omega_e t$.</p>
+			<p>From the above equation and plots, it can be seen that the power is comprised of two components,
+				a steady value and a component oscillating at twice the supply frequency. It can also be seen that at certain
+				points, the instantaneous power is negative. Negative power indicates that energy flow is in the opposite
+				direction to the defined direction of positive current flow. To obtain the average power flow with time, it
+				is necessary to integrate power over one supply cycle:</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				P&amp;=\frac{1}{2\pi}\int_0^{2\pi}p\left(\omega_e t\right) d{\omega_e t} \\
+				P&amp;=VI\cos\theta
+				\end{aligned}
+				\]
+			</div>
+			<figure id = "canvasholder_plot_1p">
+				<canvas id="canvas_plot_1p">							
+				</canvas>
+				<figcaption>Fig. 3. Single Phase AC Power Plot</figcaption>
+			</figure>							
+		</div>
+		<div class="row">
+			<h4>Reactive and Apparent Power</h4>					
+			<p>It should be clear that there is a current flow and instantaneous power flow which is
+			not associated with actual power transfer. This occurs when a circuit contains energy storage components
+			including capacitors and inductors. With these components, energy is transferred back and forth between
+			the  system and the component each cycle, with no net power transfer. To quantify the current and energy 
+			flow due to these component we use the terms Apparent Power $S$,  Complex Power $\vec{S}$, 
+			Reactive Power $Q$, and power factor. Complex Power is  defined using the product of the voltage
+			phasor and complex conjugate of the current phasor: </p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\vec{S} &amp; = \vec{V} \vec{I}^* \\
+				\vec{S} &amp; = VI\cos\left(\theta_v-\theta_i\right) +jVIsin\left(\theta_v-\theta_i\right) \\
+				\vec{S} &amp; = P+jQ \\
+				P &amp; = VI\cos\left(\theta_v-\theta_i\right) \\
+				Q &amp; = VI\sin\left(\theta_v-\theta_i\right) \\
+				S &amp; = VI \\
+				S &amp; = \sqrt{\vphantom{a}}\left(P^2+Q^2\right)
+				\end{aligned}
+				\]
+			</div>
+			<p>Apparent Power $S$, is the magnitude of $\vec{S}$ which is the complex power. $S$ has units VA. $Q$ is proportional
+			to the oscillating energy stored in the system each cycle, with units of VAR.  
+			(Note that Watts are reserved for real power flow, $P$, and mechanical power.) 
+			The relationship between apparent power and power is given by the power factor:</p>
+			<div class="equation">
+				\[
+				{PF}=\frac{P}{S} \\
+				{DPF} = \cos\left(\theta_v-\theta_i\right) 
+				\]
+			</div>
+			<p>The cosine of the angle between voltage and current is sometimes called displacement 
+			power factor (DPF) or fundamental power factor (FPF). In a system with only fundamental current, the power factor
+			equals the displacement power factor.</p>
+			<h4>Leading and Lagging Power Factor</h4>
+			<p>Power factor is calcualted as the cosine of the angle between voltage and currents phasors. This does not give us 
+				all the information about energy and power flows in an AC circuit, as we can see that the Reactive Power changes sign 
+				dependig on the relative phase angles of voltage and current. In Figure 4, we can see that in the phasor diagram 
+				on the left, the current phasor is 
+				lagging behind the voltage phasor, in this case, we define the power factor as a lagging power factor. 
+				In the diagram on the right, the current phasor is leading the voltage phasor and we define the power factor as
+				a leading power Factor
+			</p>
+			<div>
+				<figure>
+					<img src="./img/lag-lead.png" alt="Lagging and Leading Phasors"/>
+					<figcaption>Fig. 4. Lagging and Leading Phasors.</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="row">
+			<h4>Complex Impedances</h4>
+			<p>Impedance in an AC circuit is a combination of resistance and reactance:</p>
+			<div class="equation">
+				\[
+				\vec{Z}=R+jX
+				\]
+			</div>
+			<p>where X is reactance and for an inductor<p>
+				<div class="equation">
+				\[
+				jX=j\omega_e L = jX_L
+				\]
+			</div>			
+			</p>and for a capacitor:</p>
+							<div class="equation">
+				\[
+				jX=\frac{1}{j\omega_e C} = -jX_C
+				\].
+			</div>
+			<p>The relationship between voltage and current in an impeance is given by Ohms Law</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\vec{V} &amp; = \vec{I} \vec{Z} \\
+				V\angle\theta_v &amp; = I\angle\theta_i Z\angle\theta_z \\
+				Z &amp; =\sqrt{\vphantom{a}}\left( R^2+X^2\right) \\
+				\theta_z &amp;=\arctan\frac{X}{R}\\
+				Z\angle\theta_z &amp;=\frac{V}{I}\left(\theta_v-\theta_i\right) 
+				\end{aligned}
+				\].
+			</div>
+			<p><span class="emph">Power factor in an impedance is defined by the R, X values of the impedance.</span>. Figure 5
+			illustrates the relationships between impedance, voltage and current phasors, and power, plotting the power triangle for
+		    both inductive (lagging) and capactive (leading) impedances and power</p>
+			<div>
+				<figure>
+					<img src="./img/impedance_power_tri.png" alt="Impedance and Power Triangles"/>
+					<figcaption>Fig. 5. Impedance and Power Triangles.</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="row">
+			<h4>Conservation of Energy</h4>
+			<p>Each of Power and Reactive Power follow the laws of conservation of energy. Since Complex Power is made up of 
+				Power and Reactive Power, it also follows these laws. Apparent Power, as the magnitude of a complex variable, 
+				can not simply be summed to give power balance in a circuit.
+			</p>
+			<div class="equation">
+				\[
+				\begin{aligned}
+				\sum P_{supplied} &amp; =  \sum P_{consumed} \\
+				\sum Q_{supplied} &amp; =  \sum Q_{consumed} \\
+				\sum \vec{S}_{supplied} &amp; =  \sum \vec{S}_{consumed} \\
+				\sum S_{supplied} &amp;  \neq \sum \vec{S}_{consumed} 
+				\end{aligned}
+				\].
+			</div>
+
+    </div>
+    </article>
+	<summary>
+		<div class="container-lg bg-white">
+		<h3>Summary</h3>
+		<p>This page very briefly defines AC quanties for voltage, current and power. This includes power factor, complex power,
+			power triangles and complex impedance. Note that for many cases in analysis of electrical machines, we will define the 
+			terminal voltage of a machine to be our reference angle and set $\theta_v$ to zero.
+		</p>
+		</div>
+	</summary>	
+
+
+</main>
+
+<footer>
+	<div class="container-lg text-center bg-white small p-3">
+		<div class="row">
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
+			<div class="col-sm-1">
+				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
+						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+					  </svg>
+				</a>
+			</div>
+			<div class="col-sm-1">
+					<script type="text/JavaScript">
+						<!-- Begin
+							user="andy.knight";
+							site="ucalgary.ca";
+							full='<a class="link-secondary text-decoration-none" href="mailto:'+user+'@'+site+'">Email</a>'
+							document.write(full);      
+							// End -->
+						</script>
+			</div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none" href="http://schulich.ucalgary.ca/">Schulich School of Engineering </a></div>
+			<div class="col-sm"><a class="link-secondary text-decoration-none"href="http://www.ucalgary.ca/">University of Calgary</a></div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
