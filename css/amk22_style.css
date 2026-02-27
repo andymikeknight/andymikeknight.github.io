@@ -13,7 +13,7 @@ a{text-decoration:none}
 .equation{margin:.2em 0em}
 .emph{font-style:italic}
 .answer{font-style:italic;font-family:Times,"Times New Roman","serif";color:red}
-.boxed{margin:5px 20px;padding:5px;border:medium solid #b00}
+.boxed{background-color:white;margin:5px 20px;padding:5px;border:medium solid #b00}
 .comment{margin:.1em,.3em;padding:.1em;font-style:oblique}
 .bold{font-weight:bold}
 .highlight{color:red}
@@ -22,8 +22,7 @@ a{text-decoration:none}
 button.start{background-color:#1e8423;border:none;color:#fff;padding:10px;text-align:center;text-decoration:none;margin:2px;display:inline-block}
 button.stop{background-color:#b70205;border:none;color:#fff;padding:10px;text-align:center;text-decoration:none;margin:2px;display:inline-block}
 button.step{background-color:#02329e;border:none;color:#fff;padding:10px;text-align:center;text-decoration:none;margin:2px;display:inline-block}
-button.option{background-color:#884000;border:none;color:#fff;padding:10px;text-align:center;text-decoration:none;margin:2px;display:inline-block}
-
+button.option{background-color:#6c6e91;border:none;color:#fff;padding:10px;text-align:center;text-decoration:none;margin:2px;display:inline-block}
 table{align-content:center}table.data{width:80%;text-align:center;border:1px solid #000;border-collapse:collapse;margin-left:auto;margin-right:auto}
 table.data tr{margin:0;padding:0}
 table.data td{text-align:center;border:1px solid gray;width:auto}

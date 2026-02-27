@@ -200,7 +200,7 @@ function two_rot() {
 			q0=ab.get([0]);
 			d0=ab.get([1]);
 			th0=0;
-			plotmmftwo(ctx_tar, boxsize, 0, boxsize, midxy, max_ampl, wet, q0,d0,th0,'f\u03b1','f\u03b2' );
+			plotmmftwo(ctx_tar, boxsize, 0, boxsize, midxy, max_ampl, wet, q0,d0,th0,'fx','-fy');
 			// plot (x,-y) as functions of time
 			plottwotime(ctx_tar, 2* boxsize, 0, midxy, margin, frameNo, max_ampl, dx, q0,d0);
 		}
@@ -273,7 +273,7 @@ function two_rot() {
 		wt=wt+Math.PI/36;
         });  
 	mtButton.addEventListener("click", function(){
-		wt=wt+Math.PI/36;
+		wt=wt-Math.PI/36;
         });         
  
 

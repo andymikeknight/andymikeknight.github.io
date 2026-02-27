@@ -192,7 +192,7 @@ The total phase voltage from the summation of individual coil voltages is also p
 		coilheight=Math.round(slotpitch/2);
 	// draw stator as solid circle.
 		ctx.lineWidth=Math.round(0.125*width);
-		ctx.strokeStyle="rgba(180,230,230,1.0)";
+		ctx.strokeStyle="#5e80a5";
 		ctx.beginPath(); 
 		ctx.arc(0,0,stat_midr, 0, 2*Math.PI,true); 
 		ctx.stroke();	
@@ -259,7 +259,7 @@ The total phase voltage from the summation of individual coil voltages is also p
 		ctx.save();
 		ctx.translate(x0,y0); 
 		ctx.translate(origin,origin); 
-		ctx.strokeStyle="#ffffff"; ctx.fillStyle="rgba(180,230,230,1.0)";	
+		ctx.strokeStyle="#ffffff"; ctx.fillStyle="#5e80a5";	
 		ctx.beginPath(); 
 		ctx.arc(0,0,rotr_od/2,0,2*Math.PI,true); 
 		ctx.stroke(); 
@@ -282,7 +282,7 @@ The total phase voltage from the summation of individual coil voltages is also p
 		ctx.save();
 		magn=Math.round(0.45*rotr_od);
 		ctx.rotate(-theta_e);
-		var col="#009900"
+		var col="#02cf02"
 		ctx.fillStyle=col;
 		ctx.strokeStyle=col;
 		drawarrow(ctx,magn);

@@ -69,6 +69,24 @@
 	  </nav>
 
 	
+<main>
+	<nav class="navbar navbar-expand-lg ">
+		<div class="container-lg machines">
+			<span class="navbar-brand h3">2-axis</span> 
+		  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		  	</button>
+		  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			  		<li class="nav-item"><a class="nav-link " href="./two_ax_main.html">Principles</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./two_ax_components.html">Circuit Components</a></li>
+					<li class="nav-item"><a class="nav-link" href="./two_ax_ref_frame.html">Reference Frames</a></li>
+			  		<li class="nav-item"><a class="nav-link" href="./two_ax_im.html">Induction Motor in qd0</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+	</nav>
 	
 
 <article>
@@ -90,7 +108,8 @@
 					<button class="stop" id="stopAnim">Stop</button>
 					<button class="step" id="stepAnim">Step Forward</button>
 				</div>
-				<figcaption>Fig. 1. Production of a rotating mmf from three mmf vectors, each with magnitude set by one of three-phase sinusoidal currents</figcaption>
+				<figcaption>Fig. 1. Production of a rotating mmf from three mmf vectors, each with magnitude set by one of 
+					three-phase sinusoidal currents</figcaption>
 			</figure>
 			<h3>Rotating MMF in terms of two perpendicular space variables.</h3>
 			<p>Now, if we consider the instantaneous mmf produced by any three currents, the total mmf vector will be at a position 
@@ -113,7 +132,7 @@
 				plotting the vector in a 2-D plane so we only need two variables to describe the rotating vector)
 			</p>
 			<p>In the animation in Fig. 2. the mmf is plotted in terms of abc vectors, and in terms of two perpendicular vectors. You can choose to 
-				plot the vectors as (x,y) quantities, (x,-y), which are known as ($\alpha$,$\beta$) axes, or arbitray $q,d$ axes where $q$ and $d$ 
+				plot the vectors as (x,y) quantities (Clarke Transform), (x,-y), or arbitray $q,d$ axes where $q$ and $d$ 
 				can rotate at an arbitrary speed, and be at an arbitrary angle at $t=0$.</p>
 			<p>The time -plot on the right of the animation shows the instantaneous value of the mmf components on the two axes in the central plot.
 				Note that the central space vector plot and the time plot have the magnitude of the mmf scaled by 2/3, so that the magnitude of the 
@@ -134,7 +153,7 @@
 					
 				</div>
 					<div class="button_group">
-					<button class="option" id="qd2A">Rotating</button>
+					<button class="option" id="qd2A">Rotating q-d</button>
 					<button class="option" id="plusw">+speed</button>
 					<button class="option" id="minusw">-speed</button>
 					<button class="option" id="plusth">+angle</button>
@@ -144,24 +163,28 @@
 		</div>
 		<div class="row">
 			<h3>Converting three-phase ($abc$) voltages, currents and fluxes to two-axis systems ($qd0$)</h3>
-			<p>We have seen above that a balanced 3-phase phasors (phasors sum to zero) can be written in terms of two variables, which we will call the $qd$. 
-				When considering the contribution of three voltages, currents, or fluxes, we must also consider the possibility that all abc 3 phasors have a "common mode" 
-				component. Common mode signals include 3rd harmonics, which are in-phase in each of the three phases, DC bias, or high frequency switching harmonics from PWM. 
-				Common mode signals have no influence on the total q or d values. This component, if present, is called a <span class="emph">zero sequence</span>  component. 
-				If we transform instantaneous abc variables to a $qd-$ axis system, we have to inlude a $0$ component. If the abc variables are balanced, the 0 component will 
-				not be present.</p>
+			<p>We have seen above that a balanced 3-phase phasors (phasors sum to zero) can be written in terms of two variables, 
+				which we will call $qd$. When considering the contribution of three voltages, currents, or fluxes, we must also 
+				consider the possibility that all abc 3 phasors have a "common mode" component. Common mode signals include 3rd 
+				harmonics, which are in-phase in each of the three phases, DC bias, or high frequency switching harmonics from PWM. 
+				Common mode signals have no influence on the total q or d values. This component, if present, is called a 
+				<span class="emph">zero sequence</span>  component. If we transform instantaneous abc variables to a $qd-$ axis 
+				system, we have to inlude a $0$ component. If the abc variables are balanced, the 0 component will not be present.</p>
 			<p>We use matrix algebra to define variables in $abc$ and $qd0$ and to convert between them. We can define</p>
 			<div class="equation">\[
 				\begin{equation}
-					i_{qd0} = \begin{bmatrix} i_q \\ i_d \\ i_0 \end{bmatrix} \qquad i_{abc} = \begin{bmatrix} i_a \\ i_b \\ i_c \end{bmatrix} \qquad i_{qd0}=\left[K\right] i_{abc}
+					i_{qd0} = \begin{bmatrix} i_q \\ i_d \\ i_0 \end{bmatrix} 
+					          \qquad i_{abc} = \begin{bmatrix} i_a \\ i_b \\ i_c \end{bmatrix} 
+							  \qquad i_{qd0}=\left[K\right] i_{abc}
 				\end{equation}
 			\] </div>
-			<p>In these equations, $i_{qd0}$ is a vector of instantaneous time varying currents , $i_q(t)$, $i_d(t)$ $i_0(t)$ and $i_{abc}$ is a vector of the instantaneous $abc$ currents
-				$i_a(t)$, $i_b(t)$ $i_c(t)$. Usually, we drop the $(t)$ terms in the equations and note that a lower case letter ($v$, $i$. $\lambda$) is describing a time varying
-				quantity. In many cases we will consider, approprate choice of reference frame means that these variables may become steady DC quantities, but they can rapidly change 
+			<p>In these equations, $i_{qd0}$ is a vector of instantaneous time varying currents , $i_q(t)$, $i_d(t)$ $i_0(t)$ and 
+				$i_{abc}$ is a vector of the instantaneous $abc$ currents $i_a(t)$, $i_b(t)$ $i_c(t)$. Usually, we drop the $(t)$ 
+				terms in the equations and note that a lower case letter ($v$, $i$. $\lambda$) is describing a time varying
+				quantity. In many cases we will consider, approprate choice of reference frame means that these variables may 
+				become steady DC quantities, but they can rapidly change 
 				with changes in motor conditions.</p>
-			</p>
-			<p>with $K$ the transformation matrix given by</p>
+			<p>The transformation matrix $K$ is given by</p>
 			<div class="equation">\[
 				\begin{equation}
 					K=\frac{2}{3}\begin{bmatrix} \cos\left(\theta\right) & \cos\left(\theta-\frac{2\pi}{3}\right) & \cos\left(\theta+\frac{2\pi}{3}\right) \\
@@ -173,14 +196,48 @@
 			<p>We can also define an inverse transformation matrix $K^{-1}$:</p>
 			<div class="equation">\[
 				\begin{equation}
-					i_{abc}=\left[K\right]^-1 i_{qdo} \qquad 	K^{-1}=\begin{bmatrix} \cos\left(\theta\right) & \sin\left(\theta\right) & 1 \\
-																	\cos\left(\theta-\frac{2\pi}{3}\right) & \sin\left(\theta-\frac{2\pi}{3}\right) & 1 \\
-																	\cos\left(\theta+\frac{2\pi}{3}\right) & \sin\left(\theta+\frac{2\pi}{3}\right) & 1 \end{bmatrix}
+					i_{abc}=\left[K\right]^-1 i_{qdo} 
+									\qquad 	K^{-1}=\begin{bmatrix} \cos\left(\theta\right) & \sin\left(\theta\right) & 1 \\
+											\cos\left(\theta-\frac{2\pi}{3}\right) & \sin\left(\theta-\frac{2\pi}{3}\right) & 1 \\
+											\cos\left(\theta+\frac{2\pi}{3}\right) & \sin\left(\theta+\frac{2\pi}{3}\right) & 1 \end{bmatrix}
 				\end{equation}
 			\] </div>
 		</div>
 	</div>
-</article>	
+</article>
+<summary>
+	<div class="container-lg bg-white">
+	<h3>Summary</h3>
+	<p>Three-phase variables can be projected onto two variables, plus a zero sequence component. This approach can be applied 
+		to voltages, currents or fluxes in elecrical machines and other power sysem components.
+	</p>
+	<div class="equation">\[
+		\begin{align*}	
+			i_{qdo} = K i_{qdo} \ &amp; \ i_{abc}=K^{-1} i_{qd0} \\
+			v_{qdo} = K v_{qdo} \ &amp; \ v_{abc}=K^{-1} v_{qd0} \\
+			\lambda_{qdo} = K \lambda_{qdo} \ &amp; \ \lambda_{abc}=K^{-1} \lambda_{qd0}
+		\end{align*}
+	\]</div>
+	<div class="boxed">
+		<p>The $qdo$ variables are based on the instantaneous $abc$ variables. In steady state, the magnitude of the $qd0$ vector in 2-D space is 
+			equal to the peak magnitude of the $abc$ variable. The system is not necessarily in steady state, so we are using peak values, not RMS phasors.
+		</p>
+	</div>
+		
+	<p>In this course, when we consider variable speed drives, we will usually assume that the zero sequence component can be 
+		neglected, as zero sequence currents cannot flow at fundamental frquency from typical variable speed drive power 
+		electronic converters. (High frequency parasitic currents can flow, but they are significantly beyond the scope of this
+		course)
+	</p>
+	<p>In the above analysis, and theoughtout this set of course notes, the reference frames are chosen such that when $\theta=0$ 
+		the $q-$axis is aligned with the a-axis or x-axis and the $d-$axis is aligned with the negative y-axis. 
+		There are many different conventions for this, depending on choice of whether the q or d axis is aligned with the a-axis at 
+		time $\theta=0$. The alignment chosen in this course is such that a d-axis flux results in a q-axis voltage in a rotating
+	    reference frame, and that in a synchronously rotating reference frame the induced q-axis voltage is aligned with the a-phase voltage 
+		as a cosine-function. This follows the convention most commonly used in modern variable speed drives work, and can be found in 
+	    <a href="https://onlinelibrary.wiley.com/doi/book/10.1002/9781118524336">Analysis of Electric Machinery and Drive Systems</a> by Krause et al.</p>
+	</div>
+</summary>	
 	
 
 </main>
@@ -189,19 +246,12 @@
 <footer>
 	<div class="container-lg text-center bg-white small p-3">
 		<div class="row">
-			<div class="col-sm text-secondary" >&copy; Andy Knight 2022</div>
+			<div class="col-sm text-secondary" >&copy; Andy Knight 2026</div>
 			<div class="col-sm-1">
 				<a class="text-decoration-none" href="https://www.linkedin.com/in/andymikeknight/">
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin text-secondary" viewBox="0 0 20 20 ">
 						<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
 					  </svg>
-				</a>
-			</div>
-			<div class="col-sm-1 text-success">
-				<a class="text-decoration-none" href="https://twitter.com/amkyyc">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-twitter text-secondary" viewBox="0 0 20 20 ">
-						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-					</svg>	
 				</a>
 			</div>
 			<div class="col-sm-1">
