@@ -90,64 +90,123 @@
 
 <article>
 	<div class="container-lg bg-white">
-		<h2>Induction Motor qd0 Model</h2>
-		<p>A three phase induction machine can be represented by three windings on the stator plus three more windings on the rotor. 
-			This representation based on a three phase wound rotor machine is also valid for a cage machine and can be seen in Fig. 1. 
-		    Note that in the definition of the windings shown in the image, currents are defined as flowing into both windings from 
-			external voltage sources. In this analysis we assume that all variables are referred to the stator side via an effective 
-			turns ratio.</p>
-		<figure>
-			<img src="./img/im_windings.png" alt="Illustration of Induction Motor Winding Configuration" />
-				<figcaption>Fig. 1. Induction Motor Winding Configuration</figcaption>
-		</figure>
-		<p>Each winding has a set of $abc$ voltages, currents and fluxes that we can project on to a single $qd$ reference frame. However, 
-			because the two windings are at different physical locations, and the rotor widings can move with the rotor, we will need two 
-			seperate transformation matrices, one for each of the rotor and stator.</p>
-		<div class="equation">\[
-			\begin{equation}
-				K_s=\frac{2}{3}\begin{bmatrix} \cos\left(\theta\right) & \cos\left(\theta-\frac{2\pi}{3}\right) & \cos\left(\theta+\frac{2\pi}{3}\right) \\
-									\sin\left(\theta\right) & \sin\left(\theta-\frac{2\pi}{3}\right) & \sin\left(\theta+\frac{2\pi}{3}\right) \\
-									\frac{1}{2} &\frac{1}{2} &\frac{1}{2}\end{bmatrix}
-			\end{equation}
-		\] </div>	
-		<div class="equation">\[
-			\begin{equation}
-				K_r=\frac{2}{3}\begin{bmatrix} \cos\left(\theta-\theta_r \right) & \cos\left(\theta-\theta_r-\frac{2\pi}{3}\right) & \cos\left(\theta-\theta_r+\frac{2\pi}{3}\right) \\
-									\sin\left(\theta-\theta_r\right) & \sin\left(\theta-\theta_r-\frac{2\pi}{3}\right) & \sin\left(\theta-\theta_r+\frac{2\pi}{3}\right)\\
-									\frac{1}{2} &\frac{1}{2} &\frac{1}{2}\end{bmatrix}
-			\end{equation}
-		\] </div>
-		<p>The voltage equations for each of the stator and rotor as functions of flux linkage and current can be written as follows (negelecting zero sequence components in this course). 
-			In the analysis of induction motors in transient, we will use subscript "s" for stator variables and ubscript "r" for rotor variables.</p> 
-		<div class="equation">\[
-			\begin{align*}
-				v_{qds}&amp;=R_s i_{qds} + \omega \lambda_{dqs} +\frac{d\lambda_{qds}}{dt} \\
-				v_{qdr}&amp;=R_r i_{qdr} + \omega \lambda_{dqr} +\frac{d\lambda_{qdr}}{dt} 
-			\end{align*}
-		\] </div>
-		<p>where</p>
-		<div class="equation">\[
-			\begin{align*}
-				\lambda_{qds}=\begin{bmatrix}\lambda_{qs}\\ \lambda_{ds}\end{bmatrix} \qquad &amp;\lambda_{dqs}=\begin{bmatrix}\lambda_{ds}\\ -\lambda_{qs}\end{bmatrix} \\
-				\lambda_{qdr}=\begin{bmatrix}\lambda_{qr}\\ \lambda_{dr}\end{bmatrix} \qquad &amp;\lambda_{dqr}=\begin{bmatrix}\lambda_{dr}\\ -\lambda_{qr}\end{bmatrix}
-			\end{align*}
-		\] </div>
-		<p>The $abc$ flux linkage equations include mutual coupling within each of the stator and rotor windings, and position dependent cross coupling between the stator and rotor. 
-			The derivation of the transformation to $qd0$ is relatively complex, but the result is relatively simple and can be written as </p>
-		<div class="equation">\[
-			\begin{equation}
-				\begin{bmatrix}\lambda_{qs} \\ \lambda_{ds} \\ \lambda_{qr} \\ \lambda_{dr} \end{bmatrix} =
-				\begin{bmatrix} L_s & 0 &L_m & 0 \\ 0 & L_s &0 &L_m \\ L_m &0 &L_r &0 \\ 0 &L_m &0& L_r\end{bmatrix} 
-				\begin{bmatrix}i_{qs} \\ i_{ds} \\ i_{qr} \\ i_{dr} \end{bmatrix} 
-			\end{equation}
-		\] </div>
-		<p>where $L_s = L_m+L_{ls}$, is the stator leakage inductance plus the magnetizing inductance and $L_r = L_m+L_{lr}$ is the rotor leakage inductance plus the magnetizing inductance.</p>
+		<div class="row">
+			<h2>Induction Motor qd0 Model</h2>
+			<p>A three phase induction machine can be represented by three windings on the stator plus three more windings on the rotor. 
+				This representation based on a three phase wound rotor machine is also valid for a cage machine and can be seen in Fig. 1. 
+				Note that in the definition of the windings shown in the image, currents are defined as flowing into both windings from 
+				external voltage sources. In this analysis we assume that all variables are referred to the stator side via an effective 
+				turns ratio.</p>
+			<figure>
+				<img src="./img/im_windings.png"  alt="Illustration of Induction Motor Winding Configuration" />
+					<figcaption>Fig. 1. Induction Motor Winding Configuration</figcaption>
+			</figure>
+			<p>Each winding has a set of $abc$ voltages, currents and fluxes that we can project on to a single $qd$ reference frame. However, 
+				because the two windings are at different physical locations, and the rotor widings can move with the rotor, we will need two 
+				seperate transformation matrices, one for each of the rotor and stator.</p>
+			<div class="equation">\[
+				\begin{equation}
+					K_s=\frac{2}{3}\begin{bmatrix} \cos\left(\theta\right) & \cos\left(\theta-\frac{2\pi}{3}\right) & \cos\left(\theta+\frac{2\pi}{3}\right) \\
+										\sin\left(\theta\right) & \sin\left(\theta-\frac{2\pi}{3}\right) & \sin\left(\theta+\frac{2\pi}{3}\right) \\
+										\frac{1}{2} &\frac{1}{2} &\frac{1}{2}\end{bmatrix}
+				\end{equation}
+			\] </div>	
+			<div class="equation">\[
+				\begin{equation}
+					K_r=\frac{2}{3}\begin{bmatrix} \cos\left(\theta-\theta_r \right) & \cos\left(\theta-\theta_r-\frac{2\pi}{3}\right) & \cos\left(\theta-\theta_r+\frac{2\pi}{3}\right) \\
+										\sin\left(\theta-\theta_r\right) & \sin\left(\theta-\theta_r-\frac{2\pi}{3}\right) & \sin\left(\theta-\theta_r+\frac{2\pi}{3}\right)\\
+										\frac{1}{2} &\frac{1}{2} &\frac{1}{2}\end{bmatrix}
+				\end{equation}
+			\] </div>
+			<p>The voltage equations for each of the stator and rotor as functions of flux linkage and current can be written as follows (negelecting zero sequence components in this course). 
+				In the analysis of induction motors in transient, we will use subscript "s" for stator variables and ubscript "r" for rotor variables.</p> 
+			<div class="equation">\[
+				\begin{align*}
+					v_{qds}&amp;=r_s i_{qds} + \omega \lambda_{dqs} +\frac{d\lambda_{qds}}{dt} \\
+					v_{qdr}&amp;=r_r i_{qdr} + \omega \lambda_{dqr} +\frac{d\lambda_{qdr}}{dt} 
+				\end{align*}
+			\] </div>
+			<p>where</p>
+			<div class="equation">\[
+				\begin{align*}
+					\lambda_{qds}=\begin{bmatrix}\lambda_{qs}\\ \lambda_{ds}\end{bmatrix} \qquad &amp;\lambda_{dqs}=\begin{bmatrix}\lambda_{ds}\\ -\lambda_{qs}\end{bmatrix} \\
+					\lambda_{qdr}=\begin{bmatrix}\lambda_{qr}\\ \lambda_{dr}\end{bmatrix} \qquad &amp;\lambda_{dqr}=\begin{bmatrix}\lambda_{dr}\\ -\lambda_{qr}\end{bmatrix}
+				\end{align*}
+			\] </div>
+			<p>and $r_s$ and $r_r$ are matrices $r_s=R_s I$, $r_r=R_r I$ </p>
+
+			<p>The $abc$ flux linkage equations include mutual coupling within each of the stator and rotor windings, and position dependent cross coupling between the stator and rotor. 
+				The derivation of the transformation to $qd0$ is relatively complex, but the result is relatively simple and can be written as </p>
+			<div class="equation">\[
+				\begin{equation}
+					\begin{bmatrix}\lambda_{qs} \\ \lambda_{ds} \\ \lambda_{qr} \\ \lambda_{dr} \end{bmatrix} =
+					\begin{bmatrix} L_s & 0 &L_m & 0 \\ 0 & L_s &0 &L_m \\ L_m &0 &L_r &0 \\ 0 &L_m &0& L_r\end{bmatrix} 
+					\begin{bmatrix}i_{qs} \\ i_{ds} \\ i_{qr} \\ i_{dr} \end{bmatrix} 
+				\end{equation}
+			\] </div>
+			<p>where $L_s = L_m+L_{ls}$, is the stator leakage inductance plus the magnetizing inductance and $L_r = L_m+L_{lr}$ is the rotor leakage inductance plus the magnetizing inductance.</p>
+		</div>
+		<div class="row">
+			<p>The individual equations for each of the stator and rotor of the arbitrary $qd$ two-axis model of an induction machine atcan be written as</p>
+			<div class="col-sm">
+				<div class="equation">\[
+					\begin{align*}
+						v_{qs} &amp; = R_s i_{qs} + \omega \lambda_{ds} + \frac{d}{dt}\lambda_{qs} \qquad &amp;\lambda_{qs}  = L_s i_{qs} + L_m i_{qr} \\
+						v_{ds} &amp; = R_s i_{ds} - \omega \lambda_{qs} + \frac{d}{dt}\lambda_{ds} \qquad &amp;\lambda_{ds} = L_s i_{ds} + L_m i_{dr} \\
+						v_{qr} &amp; = R_r i_{qr} + (\omega-\omega_r) \lambda_{dr} + \frac{d}{dt}\lambda_{qr} \qquad &amp;\lambda_{qr}  = L_m i_{qs} + L_r i_{qr} \\
+						v_{dr} &amp; = R_r i_{dr} - (\omega-\omega_r) \lambda_{qr} + \frac{d}{dt}\lambda_{ds} \qquad &amp;\lambda_{dr}  = L_m i_{ds} + L_r i_{dr}
+					\end{align*}
+				\] </div>
+			</div>
+		</div>
+		<div class="row">
+			<h3>Torque</h3>
+			<p>The torque in an electrical machine can be written as the cross product of magnetizing flux linkage and current. This is true for all
+				rotating elecrical machines, and this idea is similar to 
+				$F=Bil$ from introdcutory physics; integrating force over the air gap involves integrating air gap flux density and integrating flux density
+				for the area of the coil is flux linkage. The detailed derivation of this is beyond the scope of an undergraduate course.</p>
+				<p>Torque can also be calcualted as the rated of change of energy in the machine with respect to rotor position, under constant flux & current conditions. </p>
+			<p>From the voltage equations</p>
+			<div class="equation">\[
+				\begin{equation}
+					p=\frac{3}{2}\left(v_{qs}i_{qs}+v_{ds}i_{ds}+v_{qr}i_{qr}+v_{dr}i_{dr}  \right)
+				\end{equation}
+			\]</div>
+			<p>Before mulitplying this out, we can see that if flux linkage and current are held while we take a derivive with respect to rotor position, 
+				the only terms in the voltage equation that are functions of rotor position are $-\omega_r\lambda_{dr}$ and $\omega_r \lambda_{qr}$</p>
+			<p>Taking the derivative of instantaneous power with respect to physical rotor position, and remebering $\omega_r=\frac{p}{2}\omega_m$, $\theta_r=\frac{p}{2}\theta_m$ results in </p>
+			<div class="equation">\[
+				\begin{equation}
+					\tau=\frac{3}{2}\frac{p}{2}\left( \lambda_{qr}i_{dr}-\lambda_{dr}i_{qr} \right)
+				\end{equation}
+			\]</div>
+			<p>Substituting the inductances into the torque equations and rearranging we can show this is equal to</p>
+			<div class="equation">\[
+				\begin{equation}
+					\tau=\frac{3}{2}\frac{p}{2}\left( \lambda_{ds} i_{qs} - \lambda_{qs} i_{ds} \right)
+				\end{equation}
+			\]</div>
+			<div class="equation">\[
+				\begin{equation}
+					\tau=\frac{3}{2}\frac{p}{2}L_m \left( i_{qs}i_{dr} - i_{ds}i_{qr} \right)
+				\end{equation}
+			\]</div>
+		</div>
+		<div class="row">
+			<h3>Transient Induction Motor Circuit Model</h3>
+			<p>The earlier equations for voltage and flux in an induction motor can be combined into transient circuit models, as shown in Fig. 1. There 
+				is a circuit for each of the q-axis and the d-axis with the stator and rotor equations coupled by the magnetizing inductance.</p>
+			<figure>
+					<img src="./img/im_2_axis_cct.png"  alt="Transient Induction Motor Circuit" />
+					<figcaption>Fig. 2. Transient Induction Motor Circuit Model</figcaption>
+			</figure>
+		</div>
 	</div>
 </article>	
 <summary>
 	<div class="container-lg bg-white">
 		<h3>Summary</h3>
-		<p></p>
+		<p>This page presents the equations necessary to model an induction motor in transient operation, and the transient circuit model. </p>
 	</div>
 </summary>
 	
